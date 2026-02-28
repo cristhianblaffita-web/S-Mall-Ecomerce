@@ -1,4 +1,15 @@
 /* ===============================
+   POSITIONS
+   =============================== */
+  .relative { position: relative; } 
+  .absolute { position: absolute; } 
+  .sticky { position: sticky; } 
+  .fixed { position: fixed; }
+  
+  .top-0 { top: 0; }
+  .left-0 { left: 0; }
+  
+/* ===============================
    LAYOUT: Flex y Grid
    =============================== */
 .flex { display: flex; }
@@ -19,6 +30,7 @@
 /* ===============================
    SPACING: Padding & Margin
    =============================== */
+.p-32 { padding: 32px; }
 .p-16 { padding: 16px; }
 .p-8 { padding: 8px; }
 .pt-16 { padding-top: 16px; }
@@ -33,6 +45,8 @@
 .ml-16 { margin-left: 16px; }
 .mr-16 { margin-right: 16px; }
 
+.bdr-0 { border: 0; }
+
 /* ===============================
    TYPOGRAPHY
    =============================== */
@@ -45,6 +59,13 @@
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+
+/* ===============================
+   SHADOWS
+   =============================== */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
 
 /* ===============================
    COLORS
@@ -70,7 +91,9 @@
    WIDTH / HEIGHT / RESPONSIVE
    =============================== */
 .w-full { width: 100%; }
-.w-50-mobile { width: 50%; } /* ProductCards en mobile */
+.w-50-mobile { width: 50%; } 
+.h-32px { height: 32px; }
+.h-24px { height: 24px; }
 .h-auto { height: auto; }
 
 /* ===============================

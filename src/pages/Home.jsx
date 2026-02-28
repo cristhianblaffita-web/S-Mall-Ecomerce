@@ -24,10 +24,10 @@ const Home = () => {
   }, [])
   
   return (
-    <main>
+    <>
       {products ? products.products.map((product, index) => (
       <div key={index}>{product.title}</div>)) : <p>Loading...</p>}
-    </main>
+    </>
   )
 }
 

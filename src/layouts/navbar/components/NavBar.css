@@ -1,0 +1,37 @@
+.navbar {
+  z-index: 100;
+  background: var(--color-surface);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "options-menu logo logo search cart";
+}
+
+.options-nav {
+  grid-area: options-menu;
+  
+}
+
+.logo-nav {
+  border: 1px solid;
+  grid-area: logo;
+  background: url("logo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.search-nav {
+  grid-area: search;
+  background: url("@/assets/icons/navigation/search.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cart-nav {
+  grid-area: cart;
+  background: url("@/assets/icons/ui/shopping-cart.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

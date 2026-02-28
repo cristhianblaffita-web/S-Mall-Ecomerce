@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom"
+import NavBar from "@/layouts/navbar/components/NavBar"
 
 const MainLayout = () => {
   
   return (
     <>
       <header>
-        <h1>S-Mall</h1>
+        <NavBar/>
       </header>
       
       <main>
