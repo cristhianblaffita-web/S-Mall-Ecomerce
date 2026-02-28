@@ -8,13 +8,16 @@
 
 .options-nav {
   grid-area: options-menu;
-  
+  background: url("@/assets/icons/navigation/menu.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .logo-nav {
   border: 1px solid;
   grid-area: logo;
-  background: url("logo.png");
+  background: url("@/assets/logos/brand-logo.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
