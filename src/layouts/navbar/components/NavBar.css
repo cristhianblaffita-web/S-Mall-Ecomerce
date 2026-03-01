@@ -2,8 +2,8 @@
   z-index: 100;
   background: var(--color-surface);
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
-  grid-template-areas: "options-menu logo logo search cart";
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  grid-template-areas: "options-menu logo search cart";
 }
 
 .options-nav {
@@ -27,4 +27,6 @@
   display: flex;
   place-items: center;
   place-content: center;
+  background: var(--color-surface);
+  cursor: pointer;
 }

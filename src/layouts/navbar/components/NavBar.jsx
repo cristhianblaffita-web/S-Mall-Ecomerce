@@ -10,11 +10,11 @@ const NavBar = () => {
   <nav
     className="navbar fixed w-full top-0 left-0 p-16 shadow-sm"
   >
-    <div
+    <button
       className="options-nav h-24px bdr-0"
     >
       <img className="h-24px" src={menuIcon} />
-    </div>
+    </button>
     
     <div
       className="logo-nav h-24px bdr-0 flex justify-start"
@@ -22,17 +22,17 @@ const NavBar = () => {
       <img className="h-24px" src={brandLogo} />
     </div>
     
-    <div
+    <button
       className="search-nav h-24px bdr-0"
     >
       <img className="h-24px" src={searchIcon} />
-    </div>
+    </button>
     
-    <div
+    <button
       className="cart-nav h-24px bdr-0"
     >
       <img className="h-24px" src={cartIcon} />
-    </div>
+    </button>
   </nav>
     
   )
