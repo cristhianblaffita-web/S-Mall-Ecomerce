@@ -8,7 +8,7 @@ const NavBar = () => {
   
   return (
   <nav
-    className="navbar fixed w-full top-0 left-0 p-16 shadow-sm"
+    className="navbar sticky w-full top-0 left-0 p-16 shadow-sm"
   >
     <button
       className="options-nav h-24px bdr-0"
