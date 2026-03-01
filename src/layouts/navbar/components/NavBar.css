@@ -2,13 +2,14 @@
   z-index: 100;
   background: var(--color-surface);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr 2fr 1fr 1fr;
   grid-template-areas: "options-menu logo logo search cart";
 }
 
 .options-nav {
   grid-area: options-menu;
 }
+
 .options-nav, .search-nav, .cart-nav {
   display: flex;
   place-items: center;
@@ -16,7 +17,6 @@
 }
 
 .logo-nav {
-  border: 1px solid;
   grid-area: logo;
   background: url("@/assets/logos/brand-logo.png");
   background-size: contain;
@@ -26,7 +26,6 @@
 
 .search-nav {
   grid-area: search;
-
 }
 
 .cart-nav {
