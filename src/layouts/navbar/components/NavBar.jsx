@@ -4,7 +4,7 @@ import menuIcon from "@/assets/icons/navigation/menu.png"
 import searchIcon from "@/assets/icons/navigation/search.png"
 import cartIcon from "@/assets/icons/ui/shopping-cart.png"
 
-const NavBar = () => {
+const NavBar = ({useMenu}) => {
   
   return (
   <nav
@@ -12,6 +12,7 @@ const NavBar = () => {
   >
     <button
       className="options-nav h-24px bdr-0"
+      onClick={useMenu}
     >
       <img className="h-24px" src={menuIcon} />
     </button>

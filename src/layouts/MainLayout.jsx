@@ -3,13 +3,21 @@ import NavBar from "@/layouts/navbar/components/NavBar"
 import "./MainLayout.css"
 import Menu from "@/layouts/menu/components/Menu"
 
+import useToggleMenu from "@/layouts/menu/hooks/useToggleMenu" 
+
 const MainLayout = () => {
+  const {isOpen, toggleMenu } = useToggleMenu()
   
   return (
     <>
       <header>
-        <NavBar/>
-        <Menu/>
+        <NavBar 
+          useMenu={toggleMenu}
+        />
+        <Menu
+          useMenu={toggleMenu}
+          isOpen={isOpen}
+        />
       </header>
       
       <main

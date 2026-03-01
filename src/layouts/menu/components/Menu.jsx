@@ -1,12 +1,14 @@
 import "./Menu.css"
 import closeIcon from "@/assets/icons/ui/close.png"
 
-const Menu = () => {
+const Menu = ({useMenu, isOpen}) => {
   
   return (
-    <aside className="menu-navbar p-16 flex-col font-base">
+    <aside className={"menu-navbar p-16 flex-col font-base " + (isOpen === true ?
+    "" : "menu-hidden")}>
       <button 
       className="close-btn absolute w-18px bdr-0"
+      onClick={useMenu}
       >
         <img className="w-18px" src={closeIcon} />
       </button>
