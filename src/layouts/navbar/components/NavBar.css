@@ -8,10 +8,11 @@
 
 .options-nav {
   grid-area: options-menu;
-  background: url("@/assets/icons/navigation/menu.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+.options-nav, .search-nav, .cart-nav {
+  display: flex;
+  place-items: center;
+  place-content: center;
 }
 
 .logo-nav {
@@ -25,16 +26,9 @@
 
 .search-nav {
   grid-area: search;
-  background: url("@/assets/icons/navigation/search.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+
 }
 
 .cart-nav {
   grid-area: cart;
-  background: url("@/assets/icons/ui/shopping-cart.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
