@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom"
 import NavBar from "@/layouts/navbar/components/NavBar"
+import "./MainLayout.css"
 
 const MainLayout = () => {
   
@@ -9,7 +10,9 @@ const MainLayout = () => {
         <NavBar/>
       </header>
       
-      <main>
+      <main
+        className="outlet"
+      >
         <Outlet/>
       </main>
       
