@@ -10,18 +10,9 @@
   grid-area: options-menu;
 }
 
-.options-nav, .search-nav, .cart-nav {
-  display: flex;
-  place-items: center;
-  place-content: center;
-}
 
 .logo-nav {
   grid-area: logo;
-  background: url("@/assets/logos/brand-logo.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .search-nav {
@@ -30,4 +21,10 @@
 
 .cart-nav {
   grid-area: cart;
+}
+
+.options-nav, .search-nav, .cart-nav {
+  display: flex;
+  place-items: center;
+  place-content: center;
 }

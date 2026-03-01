@@ -1,4 +1,5 @@
 import "./NavBar.css"
+import brandLogo from "@/assets/logos/brand-logo.png"
 import menuIcon from "@/assets/icons/navigation/menu.png"
 import searchIcon from "@/assets/icons/navigation/search.png"
 import cartIcon from "@/assets/icons/ui/shopping-cart.png"
@@ -16,8 +17,10 @@ const NavBar = () => {
     </div>
     
     <div
-      className="logo-nav h-24px bdr-0 flex flex-start"
-    ></div>
+      className="logo-nav h-24px bdr-0 flex justify-start"
+    >
+      <img className="h-24px" src={brandLogo} />
+    </div>
     
     <div
       className="search-nav h-24px bdr-0"
