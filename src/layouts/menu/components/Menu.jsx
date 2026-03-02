@@ -1,22 +1,23 @@
 import "./Menu.css"
 import closeIcon from "@/assets/icons/ui/close.png"
 
-const Menu = ({useMenu, isOpen}) => {
-  
+const Menu = ({ toggleMenu, isOpen }) => {
   return (
-    <aside className={"menu-navbar p-16 flex-col font-base " + (isOpen === true ?
-    "" : "menu-hidden")}>
-      <button 
-      className="close-btn absolute w-18px bdr-0"
-      onClick={useMenu}
-      >
-        <img className="w-18px" src={closeIcon} />
-      </button>
+    <aside className={`menu-navbar ${isOpen ? "open" : ""} flex-col p-16 font-base`}>
       
-      <div className="menu-categories-container w-full">
+      <div className="close-btn-container">
+        <button 
+          className="close-btn absolute w-18px bdr-0"
+          onClick={toggleMenu}
+        >
+          <img className="w-18px" src={closeIcon} alt="Close menu" />
+        </button>
+      </div>
+
+      <div className="menu-section">
         <h2>Categories</h2>
-        <hr/>
-        <ul className="menu-categories">
+        <hr />
+        <ul className="menu-list">
           <li className="menu-item">Most sales</li>
           <li className="menu-item">Clothes</li>
           <li className="menu-item">Electronics</li>
@@ -25,12 +26,16 @@ const Menu = ({useMenu, isOpen}) => {
           <li className="menu-item">Others</li>
         </ul>
       </div>
-      <hr/>
-      <ul className="menu-others">
-        <li className="menu-item">My orders</li>
-        <li className="menu-item">My Account</li>
-        <li className="menu-item">Login</li>
-      </ul>
+
+      <div className="menu-section">
+        <hr />
+        <ul className="menu-list">
+          <li className="menu-item">My orders</li>
+          <li className="menu-item">My Account</li>
+          <li className="menu-item">Login</li>
+        </ul>
+      </div>
+
     </aside>
   )
 }

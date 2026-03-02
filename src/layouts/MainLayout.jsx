@@ -12,10 +12,10 @@ const MainLayout = () => {
     <>
       <header>
         <NavBar 
-          useMenu={toggleMenu}
+          toggleMenu={toggleMenu}
         />
         <Menu
-          useMenu={toggleMenu}
+          toggleMenu={toggleMenu}
           isOpen={isOpen}
         />
       </header>
