@@ -104,3 +104,7 @@
 .hidden { display: none; }
 .block { display: block; }
 .inline-block { display: inline-block; }
+.no-scroll {
+  position: fixed;
+  width: 100%;
+}
