@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./NavBar.css"
 import brandLogo from "@/assets/logos/brand-logo.png"
 import menuIcon from "@/assets/icons/navigation/menu.png"
@@ -21,11 +22,12 @@ const NavBar = (
       <img className="h-24px" src={menuIcon} />
     </button>
     
-    <div
+    <Link
+      to="/"
       className="logo-nav h-24px bdr-0 flex justify-start"
     >
       <img className="h-24px" src={brandLogo} />
-    </div>
+    </Link>
     
     <button
       className="search-nav h-24px bdr-0"
@@ -34,11 +36,12 @@ const NavBar = (
       <img className="h-24px" src={searchIcon} />
     </button>
     
-    <button
-      className="cart-nav h-24px bdr-0"
-    >
-      <img className="h-24px" src={cartIcon} />
-    </button>
+    <Link
+  to="/cart"
+  className="cart-nav h-24px bdr-0"
+>
+  <img className="h-24px" src={cartIcon} alt="Cart" />
+</Link>
   </nav>
     
   )
