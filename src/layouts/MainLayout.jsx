@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom"
 import NavBar from "@/layouts/navbar/components/NavBar"
 import "./MainLayout.css"
 import Menu from "@/layouts/menu/components/Menu"
+import SearchSection from "@/layouts/search_section/components/SearchSection"
 
 import useToggleMenu from "@/layouts/menu/hooks/useToggleMenu" 
 
@@ -18,6 +19,7 @@ const MainLayout = () => {
           toggleMenu={toggleMenu}
           isOpen={isOpen}
         />
+        <SearchSection />
       </header>
       
       <main
