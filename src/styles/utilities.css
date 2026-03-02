@@ -59,6 +59,7 @@
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+.line-tr { text-decoration: line-through; }
 
 /* ===============================
    SHADOWS
@@ -70,6 +71,8 @@
 /* ===============================
    COLORS
    =============================== */
+
+.bg-surface { background-color: var(--color-surface); }
 .bg-primary { background-color: var(--color-primary); }
 .bg-accent { background-color: var(--color-accent); }
 .text-normal { color: var(--color-text); }

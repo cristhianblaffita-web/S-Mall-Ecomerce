@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { productService } from "@/services/productService"
+import ProductCard from "@/features/product/components/ProductCard"
 
 const Home = () => {
   const [products, setProducts] = useState(null)
@@ -24,10 +25,23 @@ const Home = () => {
   }, [])
   
   return (
-    <>
+    <main
+      className="flex flex-wrap font-base bg-surface"
+    >
+      <h1
+        className="w-full m-16"
+      >Best selling</h1>
+      
       {products ? products.products.map((product, index) => (
-      <div key={index}>{product.title}</div>)) : <p>Loading...</p>}
-    </>
+      <ProductCard
+        productId={product.id}
+        productImage={product.thumbnail}
+        discountPercentage={product.discountPercentage}
+        oldPrice={product.price}
+        productRating={product.rating}
+        productTitle={product.title}
+      />)) : <p>Loading...</p>}
+    </main>
   )
 }
 
