@@ -5,27 +5,25 @@ import previousIcon from "@/assets/icons/ui/arrow-back.png"
 import clearIcon from "@/assets/icons/ui/remove.png"
 import searchIcon from "@/assets/icons/navigation/search.png"
 
-const SearchSection = ({ onBack, onSearch }) => {
-  const [query, setQuery] = useState("")
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    onSearch?.(query)
-  }
-
-  const handleClear = () => {
-    setQuery("")
-  }
-
+const SearchSection = (
+  { 
+    isOpen,
+    handleBack,
+    query,
+    handleChange,
+    handleClear,
+    handleSubmit
+  }) => {
+  
   return (
-    <div className="search-section">
+    <div className={`search-section ${isOpen ? "open" : ""}`}>
       <form className="search-form" onSubmit={handleSubmit}>
         <div className="search-container">
 
           <button
             type="button"
             className="icon-button"
-            onClick={onBack}
+            onClick={handleBack}
             aria-label="Go back"
           >
             <img src={previousIcon} alt="" />
@@ -35,7 +33,7 @@ const SearchSection = ({ onBack, onSearch }) => {
             className="search-input"
             placeholder="Search in S-Mall"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => handleChange(e)}
           />
 
           {query && (
@@ -53,6 +51,7 @@ const SearchSection = ({ onBack, onSearch }) => {
             type="submit"
             className="icon-button"
             aria-label="Search"
+            onClick={handleSubmit}
           >
             <img src={searchIcon} alt="" />
           </button>

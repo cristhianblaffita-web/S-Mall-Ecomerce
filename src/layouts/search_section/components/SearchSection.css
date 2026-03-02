@@ -5,6 +5,14 @@
   width: 100vw;
   background: var(--color-surface);
   z-index: 120;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
 }
 
 .search-form {
@@ -21,7 +29,7 @@
   column-gap: .5rem;
   padding: 0 .5rem;
   align-items: center;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .icon-button {

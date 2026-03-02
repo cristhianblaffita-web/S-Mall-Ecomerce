@@ -4,7 +4,11 @@ import menuIcon from "@/assets/icons/navigation/menu.png"
 import searchIcon from "@/assets/icons/navigation/search.png"
 import cartIcon from "@/assets/icons/ui/shopping-cart.png"
 
-const NavBar = ({toggleMenu}) => {
+const NavBar = (
+  {
+    toggleMenu,
+    toggleSearchSection
+  }) => {
   
   return (
   <nav
@@ -25,6 +29,7 @@ const NavBar = ({toggleMenu}) => {
     
     <button
       className="search-nav h-24px bdr-0"
+      onClick={toggleSearchSection}
     >
       <img className="h-24px" src={searchIcon} />
     </button>
