@@ -1,0 +1,23 @@
+.default-skeleton::after {
+  content: "";
+  position: absolute;
+  left: -150%;
+  top: 0;
+  height: 100%;
+  width: 150%;
+  
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--shimmer-bg),
+    transparent
+  );
+  
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 150%;
+  }
+}

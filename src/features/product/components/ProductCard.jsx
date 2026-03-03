@@ -31,7 +31,9 @@ const ProductCard = ({
                 </span>
               </Link>
               
-              <img className="product-image" src={productImage} alt={imageDesc} />
+              <img className="product-image" src={productImage} alt={imageDesc} 
+                onLoad={(e) => e.currentTarget.classList.add("loaded")}
+              />
             </div>
             <div className="product-info">
                 <div className="price-container">
@@ -49,7 +51,7 @@ const ProductCard = ({
             </div>
             <h2 className="product-title">{productTitle}</h2>
             <button 
-                className="product-car-button flex justify-center items-center gap-8"
+                className="product-cart-button flex justify-center items-center gap-8"
             >
               <span>Add to cart</span>
               <img src={addToCartIcon} alt="Add to cart icon"/>

@@ -1,0 +1,16 @@
+.product-skeleton {
+  width: 212px;
+  background: var(--bg-surface);
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 16px;
+  gap: 12px;
+  width: 50%;
+}
+
+@media (min-width: 400px) {
+  .product-skeleton {
+    max-width: 33vw;
+    min-width: 33vw;
+  }
+}

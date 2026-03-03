@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react"
 import { productService } from "@/services/productService"
 import ProductCard from "@/features/product/components/ProductCard"
+import ProductSkeleton from "@/features/skeletons/product_skeleton/components/ProductSkeleton.jsx"
+import ProductSkeletonList from
+"@/features/skeletons/product_skeleton/components/ProductSkeletonList.jsx"
+
 
 const Home = () => {
   const [products, setProducts] = useState(null)
@@ -9,7 +13,9 @@ const Home = () => {
   
   const currentApi = "https://dummyjson.com/products"
   
+  
   useEffect(() => {
+    
     const loadData = async (api) => {
       try {
         const data = await productService(api)
@@ -23,6 +29,8 @@ const Home = () => {
     
     loadData(currentApi)
   }, [])
+  
+  
   
   return (
     <main
@@ -40,7 +48,7 @@ const Home = () => {
         oldPrice={product.price}
         productRating={product.rating}
         productTitle={product.title}
-      />)) : <p>Loading...</p>}
+      />)) : <ProductSkeletonList quantity={10}/>}
     </main>
   )
 }
