@@ -6,6 +6,8 @@
   grid-template-areas: "options-menu logo search cart";
 }
 
+
+
 .options-nav {
   grid-area: options-menu;
 }

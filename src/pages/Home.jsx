@@ -34,21 +34,28 @@ const Home = () => {
   
   return (
     <main
-      className="flex flex-wrap font-base bg-surface"
+      className="home-page w-full"
+
     >
-      <h1
-        className="w-full m-16"
-      >Best selling</h1>
-      
-      {products ? products.products.map((product, index) => (
-      <ProductCard
-        productId={product.id}
-        productImage={product.thumbnail}
-        discountPercentage={product.discountPercentage}
-        oldPrice={product.price}
-        productRating={product.rating}
-        productTitle={product.title}
-      />)) : <ProductSkeletonList quantity={10}/>}
+      <section>
+        <h1
+          className="m-4 p-32 bg-surface rounded-md"
+        >Best selling</h1>
+        
+        <div
+          className="col-count-2 col-gap-4 p-4"
+        >
+          {products ? products.products.map((product, index) => (
+          <ProductCard
+            productId={product.id}
+            productImage={product.thumbnail}
+            discountPercentage={product.discountPercentage}
+            oldPrice={product.price}
+            productRating={product.rating}
+            productTitle={product.title}
+          />)) : <ProductSkeletonList quantity={10}/>}
+        </div>
+      </section>
     </main>
   )
 }

@@ -26,6 +26,9 @@
 .justify-around { justify-content: space-around; }
 .gap-16 { gap: 16px; }
 .gap-8 { gap: 8px; }
+.col-gap-4 { column-gap: 4px; }
+
+.col-count-2 { column-count: 2}
 
 /* ===============================
    SPACING: Padding & Margin
@@ -33,6 +36,7 @@
 .p-32 { padding: 32px; }
 .p-16 { padding: 16px; }
 .p-8 { padding: 8px; }
+.p-4 { padding: 4px; }
 .pt-16 { padding-top: 16px; }
 .pb-16 { padding-bottom: 16px; }
 .pl-16 { padding-left: 16px; }
@@ -40,10 +44,12 @@
 
 .m-16 { margin: 16px; }
 .m-8 { margin: 8px; }
+.m-4 { margin: 4px; }
 .mt-16 { margin-top: 16px; }
 .mb-16 { margin-bottom: 16px; }
 .ml-16 { margin-left: 16px; }
 .mr-16 { margin-right: 16px; }
+
 
 .bdr-0 { border: 0; }
 
