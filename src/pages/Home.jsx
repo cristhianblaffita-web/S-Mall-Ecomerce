@@ -4,6 +4,7 @@ import ProductCard from "@/features/product/components/ProductCard"
 import ProductSkeleton from "@/features/skeletons/product_skeleton/components/ProductSkeleton.jsx"
 import ProductSkeletonList from
 "@/features/skeletons/product_skeleton/components/ProductSkeletonList.jsx"
+import bannerImage from "@/assets/images/home-banner.png"
 
 
 const Home = () => {
@@ -34,13 +35,31 @@ const Home = () => {
   
   return (
     <main
-      className="home-page w-full"
+      className="home-page w-full font-base"
 
     >
+      <div
+        style={{
+          width: "100%",
+          height: "480px",
+          background: "linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(home-banner.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          color: "var(--color-surface)",
+          fontSize: "24px",
+          
+        }}
+      >
+        <h1>S-MALL SHOP</h1>
+      </div>
       <section>
-        <h1
-          className="m-4 p-32 bg-surface rounded-md"
-        >Best selling</h1>
+        <h2
+          className="m-4 p-32 bg-surface rounded-md shadow-sm"
+        >Best selling</h2>
         
         <div
           className="col-count-2 col-gap-4 p-4"
