@@ -39,20 +39,7 @@ const Home = () => {
 
     >
       <div
-        style={{
-          width: "100%",
-          height: "480px",
-          background: "linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(home-banner.png)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          color: "var(--color-surface)",
-          fontSize: "24px",
-          
-        }}
+        className="hero-banner"
       >
         <h1>S-MALL SHOP</h1>
       </div>
@@ -62,7 +49,7 @@ const Home = () => {
         >Best selling</h2>
         
         <div
-          className="col-count-2 col-gap-4 p-4"
+          className="products-layout"
         >
           {products ? products.products.map((product, index) => (
           <ProductCard
