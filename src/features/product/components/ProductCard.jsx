@@ -51,7 +51,7 @@ const ProductCard = ({
             </div>
             <h2 className="product-title">{productTitle}</h2>
             <button 
-                className="product-cart-button flex justify-center items-center gap-8"
+                className="product-cart-button primary-button flex justify-center items-center gap-8"
             >
               <span>Add to cart</span>
               <img src={addToCartIcon} alt="Add to cart icon"/>

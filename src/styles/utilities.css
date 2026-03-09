@@ -9,6 +9,26 @@
   .top-0 { top: 0; }
   .left-0 { left: 0; }
   
+  .top-left {
+    top: 0;
+    left: 0;
+  }
+  
+  .top-right {
+    top: 0;
+    right: 0;
+  }
+
+  .bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+  
+  .bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+  
   .top-45 { top: 45%; }
 
   
@@ -48,8 +68,9 @@
 .m-16 { margin: 16px; }
 .m-8 { margin: 8px; }
 .m-4 { margin: 4px; }
-.mt-16 { margin-top: 16px; }
+.mb-120 { margin-bottom: 120px; }
 .mb-16 { margin-bottom: 16px; }
+.mt-8 { margin-top: 8px; }
 .ml-16 { margin-left: 16px; }
 .mr-16 { margin-right: 16px; }
 
@@ -90,6 +111,7 @@
 .text-accent { color: var(--color-accent); }
 .text-gray { color: var(--color-text-muted); }
 .text-light-gray { color: #999; }
+.text-light { color: var(--color-surface); }
 
 /* ===============================
    RADIUS

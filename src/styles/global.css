@@ -18,6 +18,19 @@
   font-size: 24px;
 }
 
+.primary-button {
+  background: var(--color-primary-light);
+  color: var(--color-surface);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  font-weight: 500;
+}
+
+.primary-button:active {
+  transform: scale(0.97);
+}
+
 @media (min-width: 480px) {
   .products-layout {
     column-count: 3;

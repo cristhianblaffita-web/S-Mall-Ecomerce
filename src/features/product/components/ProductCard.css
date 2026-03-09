@@ -120,20 +120,12 @@
 .product-cart-button {
   margin-top: 8px;
   height: 3em;
-  background: var(--color-primary-light);
-  color: white;
-  border: none;
   border-radius: 12px;
   padding: 10px 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .product-cart-button img {
   height: 100%;
 }
 
-.product-cart-button:active {
-  transform: scale(0.97);
-}
+
