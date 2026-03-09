@@ -10,7 +10,7 @@ const ProductSkeleton = ({
         <div className="product-skeleton">
           <Skeleton
             width="100%"
-            height="calc((var(--screen-w)/var(--product-relation)) - 32px)"
+            height="var(--product-img-height)"
             bg={skeletonBg}
             shimmer={skeletonShimmer}
           />

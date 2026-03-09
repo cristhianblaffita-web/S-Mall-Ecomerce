@@ -6,11 +6,6 @@
   padding: 16px;
   gap: 12px;
   width: 100%;
+  break-inside: avoid;
 }
 
-@media (min-width: 400px) {
-  .product-skeleton {
-    max-width: 33vw;
-    min-width: 33vw;
-  }
-}
