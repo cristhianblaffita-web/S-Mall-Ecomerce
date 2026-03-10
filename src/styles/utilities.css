@@ -30,7 +30,6 @@
   }
   
   .top-45 { top: 45%; }
-
   
 /* ===============================
    LAYOUT: Flex y Grid
@@ -129,10 +128,12 @@
 .w-50-mobile { width: 50%; } 
 .w-24px { width: 24px; }
 .w-18px { width: 18px; }
-.h-full { with: 100%; }
+.h-full { height: 100%; }
 .h-32px { height: 32px; }
 .h-24px { height: 24px; }
 .h-auto { height: auto; }
+
+.min-h-100 { min-height: 100%; }
 
 /* ===============================
    DISPLAY
