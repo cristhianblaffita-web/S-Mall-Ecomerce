@@ -5,21 +5,33 @@ export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
 
   const [cartItems, setCartItems] = useState([])
+  
+  const [isCartAnimating, setIsCartAnimating] = useState(false)
+
+  const triggerCartAnimation = () => {
+    setIsCartAnimating(true)
+
+    setTimeout(() => {
+      setIsCartAnimating(false)
+    }, 500)
+  }
+
 
   const addToCart = (product) => {
     
     setCartItems(prev => {
-      const productExists = cartItems.find(item => item.id === product.id)
+      const productExists = prev.find(item => item.id === product.id)
       
       if (productExists) {
         return prev.map(item => item.id === product.id ? {...item, qtty:
-        item.qtty + 1, subtotal: (item.qtty + 1) * item.price
+        item.qtty + 1, subtotal: ((item.qtty + 1) * item.price).toFixed(2)
         } : item) 
       }
       
       return [...prev, {...product, qtty: 1, subtotal: product.price}]
-      
     })
+    
+    triggerCartAnimation()
   }
 
   const removeFromCart = (id) => {
@@ -56,7 +68,8 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         calculateCartTotal,
         decreaseItemQtty,
-        increaseItemQtty
+        increaseItemQtty,
+        isCartAnimating
       }}
     >
       {children}

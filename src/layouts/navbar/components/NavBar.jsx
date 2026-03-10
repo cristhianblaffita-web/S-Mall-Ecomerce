@@ -9,10 +9,11 @@ import cartIcon from "@/assets/icons/ui/shopping-cart.png"
 const NavBar = (
   {
     toggleMenu,
-    toggleSearchSection
+    toggleSearchSection,
+  
   }) => {
   
-  const { cartItems } = useCart();
+  const { cartItems, isCartAnimating } = useCart()
   
   const cartItemsQtty = cartItems.length
   
@@ -45,7 +46,10 @@ const NavBar = (
   to="/cart"
   className="relative cart-nav h-24px bdr-0"
 >
-  <img className="h-24px" src={cartIcon} alt="Cart" />
+  <img 
+    className={`${isCartAnimating ? "cart-bump" : ""} h-24px`}
+    src={cartIcon} 
+    alt="Cart" />
   
   {cartItemsQtty > 0 ? <span
     className="cart-items-qtty absolute rounded-circle flex items-center justify-center bg-accent text-light text-sm"

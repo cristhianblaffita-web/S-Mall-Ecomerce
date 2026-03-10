@@ -6,6 +6,7 @@ import rateIcon from "@/assets/icons/ui/star.png"
 import addToCartIcon from "@/assets/icons/ui/add-to-cart.png"
 
 
+
 const ProductCard = ({
     productId = 0,
     productTitle = "Title",
@@ -28,8 +29,12 @@ const ProductCard = ({
     subtotal: 0
   }
   
-  const { cartItems, addToCart, removeFromCart } = useCart()
-    
+  const { 
+    cartItems, 
+    addToCart, 
+    removeFromCart
+  } = useCart()
+  
 
     return (
         <div className="product-card">
