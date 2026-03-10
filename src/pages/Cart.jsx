@@ -1,7 +1,7 @@
 import { useCart } from "@/contexts/cart/useCart"
 
 const Cart = () => {
-  const { items } = useCart()
+  const { cartItems } = useCart()
   
   return (
     <main
@@ -16,10 +16,10 @@ const Cart = () => {
       <section
         className="w-full h-full bg-surface shadow-sm mb-120 text-gray text-center"
       >
-        {items ? false : <p className="p-32">Your S-Mall cart is empty</p>}
+        {cartItems.length > 0 ? false : <p className="p-32">Your S-Mall cart is empty</p>}
       </section>
       
-      { items ? (<div
+      { cartItems.length > 0 ? (<div
         className="fixed bottom-left flex flex-col w-full bg-surface p-32 shadow-lg mt-8
         gap-8"
       >
