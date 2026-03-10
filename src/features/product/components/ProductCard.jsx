@@ -30,27 +30,7 @@ const ProductCard = ({
   
   const { cartItems, addToCart, removeFromCart } = useCart()
     
-  /*const handleAddToCart = (product) => {
-    let isInCart = false
-    
-    cartItems.map(item => {
-      if (item.id === product.id) {
-        isInCart = true
-      }
-    })
-    
-    if (isInCart) {
-      const newItem = {...product, qtty: product.qtty + 1}
-      
-      removeFromCart(newItem.id)
-      
-      addToCart(newItem)
-    } else {
-      addToCart(product)
-    }
-    
-  }*/
-  
+
     return (
         <div className="product-card">
 

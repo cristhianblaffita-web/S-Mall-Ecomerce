@@ -1,3 +1,4 @@
+import { useCart } from "@/contexts/cart/useCart"
 import "./CartItem.css"
 
 const CartItem = (
@@ -11,6 +12,8 @@ const CartItem = (
     handleRemove = null
   }
 ) => {
+  
+  const { decreaseItemQtty, increaseItemQtty } = useCart()
   
   return (
     <div
@@ -33,9 +36,21 @@ const CartItem = (
       <span
         className="item-price"
       >Price: ${price}</span>
-      <span
-        className="item-qtty"
-      >Qtty: {qtty}</span>
+      
+      <div
+          className="item-qtty w-full flex p-8"
+      >
+        <button
+          className="primary-button"
+          onClick={() => decreaseItemQtty(itemId)}
+        >-</button>
+        <span>{qtty}</span>
+        <button
+          className="primary-button"
+          onClick={() => increaseItemQtty(itemId)}
+        >+</button>
+      </div>
+      
     </div>
   )
 }

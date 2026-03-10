@@ -20,6 +20,19 @@
   grid-area: qtty;
 }
 
+.item-qtty span {
+  width: 60%;
+  background: var(--color-surface);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.item-qtty button {
+  width: 20%;
+}
+
 .item-price {
   grid-area: price;
 }
@@ -27,3 +40,4 @@
 .item-subtotal {
   grid-area: subtotal;
 }
+

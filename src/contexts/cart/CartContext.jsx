@@ -26,6 +26,22 @@ export const CartProvider = ({ children }) => {
     setCartItems(prev => prev.filter(item => item.id !== id))
   }
   
+  const decreaseItemQtty = (id) => {
+    setCartItems(prev => {
+     return prev.map(item => item.id === id ? {...item, qtty: item.qtty - 1,
+     subtotal: ((item.qtty - 1) * item.price).toFixed(2)} :
+     item).filter(item => item.qtty > 0)
+    })
+  }
+  
+  const increaseItemQtty = (id) => {
+    setCartItems(prev => {
+     return prev.map(item => item.id === id ? {...item, qtty: item.qtty + 1,
+     subtotal: ((item.qtty + 1) * item.price).toFixed(2)} :
+     item)
+    })
+  }
+  
   const calculateCartTotal = () => {
     return cartItems.reduce((total, item) => {
     return total + item.price * item.qtty
@@ -38,7 +54,9 @@ export const CartProvider = ({ children }) => {
         cartItems,
         addToCart,
         removeFromCart,
-        calculateCartTotal
+        calculateCartTotal,
+        decreaseItemQtty,
+        increaseItemQtty
       }}
     >
       {children}

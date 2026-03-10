@@ -38,7 +38,7 @@ const Cart = () => {
         <div
           className="w-full flex justify-end"
         >
-          <span><strong>Amount: </strong>${calculateCartTotal()}</span>
+          <span><strong>Amount: </strong>${calculateCartTotal().toFixed(2)}</span>
         </div>
         <button
           className="primary-button w-full p-16 rounded-md text-normal text-lg"
