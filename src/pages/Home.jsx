@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { productService } from "@/services/productService"
 import ProductCard from "@/features/product/components/ProductCard"
 import ProductSkeleton from "@/features/skeletons/product_skeleton/components/ProductSkeleton.jsx"
@@ -31,7 +31,20 @@ const Home = () => {
     loadData(currentApi)
   }, [])
   
-  
+  const productCards = useMemo(() => {
+    if (!products) return []
+    
+    return products.products.map((product) => (
+          <ProductCard
+            key={product.id}
+            productId={product.id}
+            productImage={product.thumbnail}
+            discountPercentage={product.discountPercentage}
+            oldPrice={product.price}
+            productRating={product.rating}
+            productTitle={product.title}
+          />))
+  }, [products])
   
   return (
     <main
@@ -51,15 +64,7 @@ const Home = () => {
         <div
           className="products-layout"
         >
-          {products ? products.products.map((product, index) => (
-          <ProductCard
-            productId={product.id}
-            productImage={product.thumbnail}
-            discountPercentage={product.discountPercentage}
-            oldPrice={product.price}
-            productRating={product.rating}
-            productTitle={product.title}
-          />)) : <ProductSkeletonList quantity={10}/>}
+          {products ? productCards: <ProductSkeletonList quantity={10}/>}
         </div>
       </section>
     </main>

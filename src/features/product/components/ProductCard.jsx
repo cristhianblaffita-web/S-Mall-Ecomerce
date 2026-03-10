@@ -1,3 +1,4 @@
+import React from "react"
 import { Link } from "react-router-dom"
 import { useCart } from "@/contexts/cart/useCart"
 import setDiscount from "@/features/product/services/setDiscount"
@@ -80,4 +81,4 @@ const ProductCard = ({
         </div>
     )
 }
-export default ProductCard
+export default React.memo(ProductCard)
