@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom"
+import { CartProvider } from "@/contexts/cart/CartContext"
 import NavBar from "@/layouts/navbar/components/NavBar"
 import "./MainLayout.css"
 import Menu from "@/layouts/menu/components/Menu"
@@ -22,34 +23,37 @@ const MainLayout = () => {
   
   return (
     <>
-      <header>
-        <NavBar 
-          toggleMenu={toggleMenu}
-          toggleSearchSection={toggleSearchSection}
-        />
-        <Menu
-          toggleMenu={toggleMenu}
-          isOpen={isOpen}
-        />
-        <SearchSection 
-          isOpen={searchOpen}
-          handleBack={toggleSearchSection}
-          query={query}
-          handleChange={handleChange}
-          handleClear={handleClear}
-          handleSubmit={handleSubmit}
-        />
-      </header>
-      
-      <main
-        className="outlet"
-      >
-        <Outlet/>
-      </main>
-      
-      <footer>
-         <p>© 2026 S-Mall</p>
-      </footer>
+      <CartProvider>
+        
+        <header>
+          <NavBar 
+            toggleMenu={toggleMenu}
+            toggleSearchSection={toggleSearchSection}
+          />
+          <Menu
+            toggleMenu={toggleMenu}
+            isOpen={isOpen}
+          />
+          <SearchSection 
+            isOpen={searchOpen}
+            handleBack={toggleSearchSection}
+            query={query}
+            handleChange={handleChange}
+            handleClear={handleClear}
+            handleSubmit={handleSubmit}
+          />
+        </header>
+        
+        <main
+          className="outlet"
+        >
+          <Outlet/>
+        </main>
+        
+        <footer>
+           <p>© 2026 S-Mall</p>
+        </footer>
+      </CartProvider>
     </>
   )
 }
