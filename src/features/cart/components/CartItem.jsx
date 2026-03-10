@@ -5,8 +5,9 @@ const CartItem = (
     itemId = null,
     itemImage= null,
     itemTitle = null,
-    price = null,
-    qtty = null,
+    price = 0,
+    qtty = 0,
+    subtotal= 0,
     handleRemove = null
   }
 ) => {
@@ -28,7 +29,7 @@ const CartItem = (
       
       <span
         className="item-subtotal"
-      >Subtotal: ${(price*qtty).toFixed(2)}</span>
+      >Subtotal: ${subtotal}</span>
       <span
         className="item-price"
       >Price: ${price}</span>

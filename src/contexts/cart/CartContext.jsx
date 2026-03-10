@@ -12,11 +12,12 @@ export const CartProvider = ({ children }) => {
       const productExists = cartItems.find(item => item.id === product.id)
       
       if (productExists) {
-        return prev.map(item => item.id === product.id ? {...item, qtty: item.qtty +
-        1} : item) 
+        return prev.map(item => item.id === product.id ? {...item, qtty:
+        item.qtty + 1, subtotal: (item.qtty + 1) * item.price
+        } : item) 
       }
       
-      return [...prev, {...product, qtty: 1}]
+      return [...prev, {...product, qtty: 1, subtotal: product.price}]
       
     })
   }
@@ -24,13 +25,20 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (id) => {
     setCartItems(prev => prev.filter(item => item.id !== id))
   }
+  
+  const calculateCartTotal = () => {
+    return cartItems.reduce((total, item) => {
+    return total + item.price * item.qtty
+  }, 0)
+}
 
   return (
     <CartContext.Provider
       value={{
         cartItems,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        calculateCartTotal
       }}
     >
       {children}

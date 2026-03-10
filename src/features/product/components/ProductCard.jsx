@@ -17,13 +17,15 @@ const ProductCard = ({
 }) => {
   
   const price = setDiscount(oldPrice, discountPercentage)
+
   
   const product = {
     id: productId,
     title: productTitle,
     image: productImage,
     price: price,
-    qtty: 1
+    qtty: 1,
+    subtotal: 0
   }
   
   const { cartItems, addToCart, removeFromCart } = useCart()
@@ -70,7 +72,7 @@ const ProductCard = ({
             </div>
             <div className="product-info">
                 <div className="price-container">
-                  <p className="product-price">${price.toFixed(2)}</p>
+                  <p className="product-price">${price}</p>
                   <p className="product-old-price">${oldPrice.toFixed(2)}</p>
                 </div>
                 <div className="product-rating">

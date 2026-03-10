@@ -1,3 +1,5 @@
 export default function setDiscount(price, discountPercentage) {
-  return (price * discountPercentage) / 100
+  const finalPrice =  ((price * discountPercentage) / 100).toFixed(2)
+  
+  return finalPrice
 }

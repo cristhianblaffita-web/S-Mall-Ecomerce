@@ -2,7 +2,7 @@ import { useCart } from "@/contexts/cart/useCart"
 import CartItem from "@/features/cart/components/CartItem.jsx"
 
 const Cart = () => {
-  const { cartItems } = useCart()
+  const { cartItems, calculateCartTotal } = useCart()
   
   return (
     <main
@@ -24,8 +24,9 @@ const Cart = () => {
             itemId={item.id}
             itemImage={item.image}
             itemTitle={item.title}
-            price={item.price.toFixed(2)}
+            price={item.price}
             qtty={item.qtty}
+            subtotal={item.subtotal}
           />
         )) : <p className="p-32">Your S-Mall cart is empty</p>}
       </section>
@@ -37,7 +38,7 @@ const Cart = () => {
         <div
           className="w-full flex justify-end"
         >
-          <span><strong>Amount: </strong>${null}</span>
+          <span><strong>Amount: </strong>${calculateCartTotal()}</span>
         </div>
         <button
           className="primary-button w-full p-16 rounded-md text-normal text-lg"
