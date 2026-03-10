@@ -32,3 +32,10 @@
   background: var(--color-surface);
   cursor: pointer;
 }
+
+.cart-items-qtty {
+  top: -5px;
+  left: calc((100vw/6) / 2);
+  width: 18px;
+  height: 18px;
+}

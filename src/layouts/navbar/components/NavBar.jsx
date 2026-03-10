@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import "./NavBar.css"
+import { useCart } from "@/contexts/cart/useCart"
 import brandLogo from "@/assets/logos/brand-logo.png"
 import menuIcon from "@/assets/icons/navigation/menu.png"
 import searchIcon from "@/assets/icons/navigation/search.png"
@@ -10,6 +11,10 @@ const NavBar = (
     toggleMenu,
     toggleSearchSection
   }) => {
+  
+  const { cartItems } = useCart();
+  
+  const cartItemsQtty = cartItems.length
   
   return (
   <nav
@@ -38,9 +43,13 @@ const NavBar = (
     
     <Link
   to="/cart"
-  className="cart-nav h-24px bdr-0"
+  className="relative cart-nav h-24px bdr-0"
 >
   <img className="h-24px" src={cartIcon} alt="Cart" />
+  
+  {cartItemsQtty > 0 ? <span
+    className="cart-items-qtty absolute rounded-circle flex items-center justify-center bg-accent text-light text-sm"
+  >{cartItemsQtty}</span> : false}
 </Link>
   </nav>
     
