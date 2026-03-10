@@ -13,7 +13,11 @@ const CartItem = (
   }
 ) => {
   
-  const { decreaseItemQtty, increaseItemQtty } = useCart()
+  const { 
+    decreaseItemQtty, 
+    increaseItemQtty,
+    removeFromCart
+  } = useCart()
   
   return (
     <div
@@ -33,6 +37,7 @@ const CartItem = (
       <span
         className="item-subtotal"
       >Subtotal: ${subtotal}</span>
+      
       <span
         className="item-price"
       >Price: ${price}</span>
@@ -50,6 +55,11 @@ const CartItem = (
           onClick={() => increaseItemQtty(itemId)}
         >+</button>
       </div>
+      
+      <button
+        className="item-remove"
+        onClick={() => removeFromCart(itemId)}
+      >Remove</button>
       
     </div>
   )

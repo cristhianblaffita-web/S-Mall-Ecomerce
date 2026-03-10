@@ -10,5 +10,6 @@ body {
   position: relative;
   background: var(--color-background);
   z-index: 0;
+  font-family: var(--font-base);
 }
 

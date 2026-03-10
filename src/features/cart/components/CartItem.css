@@ -1,23 +1,39 @@
 .cart-item {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 3fr 1fr;
-  grid-template-areas: "img title title"
-                        "qtty price subtotal"
-  ;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: auto auto auto;
+
+  grid-template-areas:
+    "img title"
+    "img price"
+    "img subtotal"
+    "qtty remove";
+
+  gap: 8px;
+  align-items: center;
 }
 
 .item-img {
   grid-area: img;
-  min-width: 100%;
+  min-width: 100px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
 
 .item-title {
   grid-area: title;
+  display: flex;
+  justify-content: start;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .item-qtty {
   grid-area: qtty;
+  width: 100%;
+  max-width: 150px;
 }
 
 .item-qtty span {
@@ -35,9 +51,32 @@
 
 .item-price {
   grid-area: price;
+  font-size: .9rem;
+  opacity: .8;
+  display: flex;
+  justify-content: start;
 }
 
 .item-subtotal {
   grid-area: subtotal;
+  font-weight: 600;
+  display: flex;
+  justify-content: start;
+}
+
+.item-remove {
+  grid-area: remove;
+  border: 1.5px solid var(--color-accent);
+  border-radius: 16px;
+  margin: 8px;
+  height: 28px;
+  width: 50%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: start;
+  cursor: pointer;
+  font-size: .85rem;
 }
 
