@@ -7,7 +7,18 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([])
 
   const addToCart = (product) => {
-    setCartItems(prev => [...prev, product])
+    
+    setCartItems(prev => {
+      const productExists = cartItems.find(item => item.id === product.id)
+      
+      if (productExists) {
+        return prev.map(item => item.id === product.id ? {...item, qtty: item.qtty +
+        1} : item) 
+      }
+      
+      return [...prev, {...product, qtty: 1}]
+      
+    })
   }
 
   const removeFromCart = (id) => {

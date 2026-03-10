@@ -63,6 +63,7 @@
 .pb-16 { padding-bottom: 16px; }
 .pl-16 { padding-left: 16px; }
 .pr-16 { padding-right: 16px; }
+.padding-tb-16 { padding: 16px 0; }
 
 .m-16 { margin: 16px; }
 .m-8 { margin: 8px; }
@@ -72,6 +73,7 @@
 .mt-8 { margin-top: 8px; }
 .ml-16 { margin-left: 16px; }
 .mr-16 { margin-right: 16px; }
+
 
 
 .bdr-0 { border: 0; }
@@ -103,6 +105,7 @@
    =============================== */
 
 .bg-surface { background-color: var(--color-surface); }
+.bg-background { background-color: var(--color-background); }
 .bg-primary { background-color: var(--color-primary); }
 .bg-accent { background-color: var(--color-accent); }
 .text-normal { color: var(--color-text); }
@@ -127,6 +130,7 @@
    =============================== */
 .w-full { width: 100%; }
 .w-50-mobile { width: 50%; } 
+.w-32px { width: 32px; }
 .w-24px { width: 24px; }
 .w-18px { width: 18px; }
 .h-full { height: 100%; }

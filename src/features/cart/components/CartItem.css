@@ -1,0 +1,29 @@
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas: "img title title"
+                        "qtty price subtotal"
+  ;
+}
+
+.item-img {
+  grid-area: img;
+  min-width: 100%;
+}
+
+.item-title {
+  grid-area: title;
+}
+
+.item-qtty {
+  grid-area: qtty;
+}
+
+.item-price {
+  grid-area: price;
+}
+
+.item-subtotal {
+  grid-area: subtotal;
+}

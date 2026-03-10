@@ -1,4 +1,5 @@
 import { useCart } from "@/contexts/cart/useCart"
+import CartItem from "@/features/cart/components/CartItem.jsx"
 
 const Cart = () => {
   const { cartItems } = useCart()
@@ -14,9 +15,19 @@ const Cart = () => {
       </div>
       
       <section
-        className="w-full h-full bg-surface shadow-sm mb-120 text-gray text-center"
+        className="w-full h-full flex flex-col gap-16 padding-tb-16 bg-surface shadow-sm mb-120 text-gray
+        text-center"
       >
-        {cartItems.length > 0 ? false : <p className="p-32">Your S-Mall cart is empty</p>}
+        {cartItems.length > 0 ? cartItems.map((item, index) => (
+          <CartItem 
+            key={index}
+            itemId={item.id}
+            itemImage={item.image}
+            itemTitle={item.title}
+            price={item.price.toFixed(2)}
+            qtty={item.qtty}
+          />
+        )) : <p className="p-32">Your S-Mall cart is empty</p>}
       </section>
       
       { cartItems.length > 0 ? (<div
@@ -26,7 +37,7 @@ const Cart = () => {
         <div
           className="w-full flex justify-end"
         >
-          <span><strong>Amount: </strong>$0</span>
+          <span><strong>Amount: </strong>${null}</span>
         </div>
         <button
           className="primary-button w-full p-16 rounded-md text-normal text-lg"
