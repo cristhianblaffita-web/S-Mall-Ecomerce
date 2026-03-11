@@ -12,7 +12,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   
-  const currentApi = "https://dummyjson.com/products"
+  const dummyJson = "https://dummyjson.com/products?limit=149"
   
   
   useEffect(() => {
@@ -28,7 +28,7 @@ const Home = () => {
       }
     }
     
-    loadData(currentApi)
+    loadData(dummyJson)
   }, [])
   
   const productCards = useMemo(() => {
