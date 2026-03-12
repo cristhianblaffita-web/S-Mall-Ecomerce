@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
 import { useCart } from "@/contexts/cart/useCart"
@@ -13,10 +14,25 @@ const NavBar = (
   
   }) => {
   
-  const { cartItems, isCartAnimating } = useCart()
+  const { cartItems, cartAnimation } = useCart()
   
   const cartItemsQtty = cartItems.length
   
+  /*const [cartAnimation, setCartAnimation] = useState("")
+
+  useEffect(() => {
+    if (cartItemsQtty > 0 && cartAnimation !== "cart-bump") {
+      setCartAnimation("cart-shake")
+    } else if (cartItemsQtty === 0) {
+      setCartAnimation("")
+    }
+  }, [cartItemsQtty])
+  
+  const handleAnimationEnd = () => {
+    setCartAnimation("cart-bump")
+    
+  }*/
+
   return (
   <nav
     className="navbar fixed w-full top-0 left-0 p-16 shadow-sm"
@@ -47,12 +63,15 @@ const NavBar = (
   className="relative cart-nav h-24px bdr-0"
 >
   <img 
-    className={`${isCartAnimating ? "cart-bump" : ""} h-24px`}
+    className={`${cartAnimation} h-24px`}
     src={cartIcon} 
-    alt="Cart" />
+    alt="Cart" 
+    /*onAnimationEnd={handleAnimationEnd}*/
+    />
   
   {cartItemsQtty > 0 ? <span
-    className="cart-items-qtty absolute rounded-circle flex items-center justify-center bg-accent text-light text-sm"
+    className={`${cartAnimation} cart-items-qtty absolute rounded-circle flex items-center
+    justify-center bg-accent text-light text-sm`}
   >{cartItemsQtty}</span> : false}
 </Link>
   </nav>

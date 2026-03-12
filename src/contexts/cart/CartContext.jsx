@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 
 export const CartContext = createContext()
 
@@ -6,15 +6,29 @@ export const CartProvider = ({ children }) => {
 
   const [cartItems, setCartItems] = useState([])
   
-  const [isCartAnimating, setIsCartAnimating] = useState(false)
+  const [cartAnimation, setCartAnimation] = useState("")
+  
+   const cartItemsQtty = cartItems.reduce((total, item) => {
+    return total + item.qtty
+  }, 0)
 
   const triggerCartAnimation = () => {
-    setIsCartAnimating(true)
-
+    setCartAnimation("cart-bump")
+    
     setTimeout(() => {
-      setIsCartAnimating(false)
-    }, 500)
+      if (cartItemsQtty > 0) {
+        setCartAnimation("cart-shake")
+      }
+    }, 300)
   }
+  
+  useEffect(() => {
+    if (cartItemsQtty > 0){
+      setCartAnimation("cart-shake")
+    } else {
+      setCartAnimation("")
+    }
+  }, [cartItemsQtty])
 
 
   const addToCart = (product) => {
@@ -69,7 +83,7 @@ export const CartProvider = ({ children }) => {
         calculateCartTotal,
         decreaseItemQtty,
         increaseItemQtty,
-        isCartAnimating
+        cartAnimation
       }}
     >
       {children}
