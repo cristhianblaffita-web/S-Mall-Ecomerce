@@ -47,15 +47,20 @@
 .justify-between { justify-content: space-between; }
 .justify-around { justify-content: space-around; }
 .gap-16 { gap: 16px; }
+.gap-12 { gap: 12px; }
 .gap-8 { gap: 8px; }
 .col-gap-4 { column-gap: 4px; }
 
 .col-count-2 { column-count: 2}
 
+.overflow-x-auto { overflow-x: auto; }
+.overflow-x-scroll { overflow-x: scroll; }
+
 /* ===============================
    SPACING: Padding & Margin
    =============================== */
 .p-32 { padding: 32px; }
+.p-24 { padding: 24px; }
 .p-16 { padding: 16px; }
 .p-8 { padding: 8px; }
 .p-4 { padding: 4px; }
@@ -89,6 +94,7 @@
 .text-lg { font-size: 18px; }
 .text-xl { font-size: 64px; }
 .text-center { text-align: center; }
+.text-justify { text-align: justify; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 .line-tr { text-decoration: line-through; }
@@ -133,6 +139,7 @@
 .w-32px { width: 32px; }
 .w-24px { width: 24px; }
 .w-18px { width: 18px; }
+.w-16px { width: 16px; }
 .h-full { height: 100%; }
 .h-32px { height: 32px; }
 .h-24px { height: 24px; }
