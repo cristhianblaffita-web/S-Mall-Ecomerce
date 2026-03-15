@@ -1,4 +1,13 @@
 .basic-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  
+}
+
+.details-icon {
+  transition: transform 0.25s ease;
+}
+
+details[open] .details-icon {
+  transform: rotate(180deg);
 }

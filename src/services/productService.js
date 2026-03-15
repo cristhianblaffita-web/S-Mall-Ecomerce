@@ -12,6 +12,6 @@ export const productService = async (api) => {
   
   const data = response.json()
   
-  /*productsCache = data*/
+  productsCache = data
   return data
 }

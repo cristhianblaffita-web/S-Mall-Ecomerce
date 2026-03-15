@@ -7,7 +7,7 @@ const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   
-  const [productDetails, setProductDetails] = useState(null)
+  const [productDetails, setProductDetails] = useState([])
   
   const { id } = useParams()
   
@@ -28,17 +28,38 @@ const ProductDetail = () => {
     
     loadData(dummyJson)
   }, [id])
+  
+  const connectionError = (
+    <div
+      className="fixed w-full h-full flex justify-center items-center"
+      style={{
+        background: "rgba(0,0,0,.3)",
+        backdropFilter: "blur(3px)"
+      }}
+    >
+          <p
+      className="bg-surface m-16 p-24 shadow-sm rounded-md"
+    >
+      Please check your internet connection
+    </p>
+    </div>
+    )
 
   return (
     <main>
-      {isLoading ? <p>Loading...</p> : <ProductDetails
+      {isLoading ? <p>Loading...</p> : /*(productDetails.length != 0 ?*/ <ProductDetails
           productImages={productDetails.images}
           productTitle={productDetails.title}
           productPrice={productDetails.price}
           productRating={productDetails.rating}
           productStock={productDetails.stock}
           productDescription={productDetails.description}
-        />
+          productBrand={productDetails.brand}
+          productWeight={productDetails.weight}
+          productDimensions={productDetails.dimensions}
+          productWarranty={productDetails.warrantyInformation}
+          /> /*:
+          connectionError)*/
       }
       
     </main>

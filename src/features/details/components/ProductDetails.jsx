@@ -1,5 +1,7 @@
 import "./ProductDetails.css"
 import ratingIcon from "@/assets/icons/ui/star.png"
+import arrowDown  from "@/assets/icons/ui/arrow-down.png"
+import addToCartIcon from "@/assets/icons/ui/add-to-cart.png"
 
 const ProductDetails = (
   {
@@ -11,11 +13,15 @@ const ProductDetails = (
   productRating = 0,
   productDescription = null,
   productStock = 0,
+  productBrand = null,
+  productWeight = 0,
+  productDimensions = [],
+  productWarranty = "No warranty"
 }) => {
   
   return (
     <section
-  className="w-full flex flex-col gap-16"
+  className="w-full flex flex-col bg-surface"
 >
 
   <ul
@@ -32,7 +38,7 @@ const ProductDetails = (
         }}
       >
         <img
-          className="w-full bg-surface rounded-md shadow-md"
+          className="w-full bg-surface rounded-md shadow-md p-8"
           src={img}
         />
       </li>
@@ -40,7 +46,7 @@ const ProductDetails = (
   </ul>
 
   <div
-    className="bg-surface flex flex-col gap-16 p-24 rounded-md shadow-sm"
+    className="bg-surface flex flex-col gap-16 p-24"
   >
     
     <h1 className="text-left">
@@ -74,7 +80,7 @@ const ProductDetails = (
 
 
   <div
-    className="bg-surface flex flex-col gap-12 p-24 rounded-md shadow-sm"
+    className="bg-background flex flex-col m-16 gap-12 p-24 rounded-md"
   >
     <h3>Description</h3>
 
@@ -84,6 +90,65 @@ const ProductDetails = (
       {productDescription}
     </p>
   </div>
+  
+  <details
+  className="bg-background flex flex-col p-24 m-16 rounded-md"
+>
+  <summary
+    className="flex justify-between items-center cursor-pointer"
+  >
+    <span className="font-bold">
+      More Details
+    </span>
+
+    <span>
+      <img 
+        className="details-icon w-16px"
+        src={arrowDown}
+        alt="toggle-icon"
+      />
+    </span>
+  </summary>
+
+  <ul
+    className="flex flex-col gap-8 mt-8 text-gray"
+  >
+    <li className="flex justify-between">
+      <span>Brand</span>
+      <span>{productBrand}</span>
+    </li>
+
+    <li className="flex justify-between">
+      <span>Weight</span>
+      <span>{productWeight}</span>
+    </li>
+
+    <li className="flex justify-between">
+      <span>Dimensions</span>
+      <span>
+        {productDimensions.width} × {productDimensions.height} ×
+        {productDimensions.depth}
+      </span>
+    </li>
+
+    <li className="flex justify-between">
+      <span>Warranty</span>
+      <span>{productWarranty}</span>
+    </li>
+  </ul>
+
+</details>
+
+<button
+  className="primary-button flex justify-center items-center gap-8 m-16 p-16 rounded-sm"
+>
+  <span>Add to cart</span>
+  <img
+    className="w-24px"
+    src={addToCartIcon}
+    alt="cart-icon"
+  />
+</button>
 
 </section>
   )
