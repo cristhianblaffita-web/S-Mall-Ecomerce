@@ -1,5 +1,4 @@
 import "./ProductDetails.css"
-
 import { useCart } from "@/contexts/cart/useCart"
 import ratingIcon from "@/assets/icons/ui/star.png"
 import arrowDown  from "@/assets/icons/ui/arrow-down.png"
@@ -45,11 +44,12 @@ const ProductDetails = (
     {productImages.map((img, index) => (
       <li
         key={index}
-        className="details-image"
+        
       >
         <img
-          className="bg-background w-full rounded-md p-8"
+          className="details-image bg-background w-full rounded-md p-8"
           src={img}
+          onLoad={(e) => e.currentTarget.classList.add("loaded")}
         />
       </li>
     ))}

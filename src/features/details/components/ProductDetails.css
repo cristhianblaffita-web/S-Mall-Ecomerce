@@ -7,9 +7,12 @@
 .details-image {
   min-width: 280px;
   min-height: 280px;
+  filter: blur(10px);
+  transform: scale(1.05);
+  transition: filter .6s ease, transform 0.4s ease;
 }
 .details-icon {
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease-in;
 }
 
 details[open] .details-icon {

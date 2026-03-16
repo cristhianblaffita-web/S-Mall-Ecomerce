@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { productService } from "@/services/productService" 
 import ProductDetails from "@/features/details/components/ProductDetails"
+import DetailsSkeleton from
+"@/features/skeletons/details_skeleton/components/DetailsSkeleton"
 import { setDiscount } from "@/utils/setDiscount"
 
 const ProductDetail = () => {
@@ -48,7 +50,7 @@ const ProductDetail = () => {
 
   return (
     <main>
-      {isLoading ? <p>Loading...</p> : /*(productDetails.length != 0 ?*/ <ProductDetails
+      {isLoading ? <DetailsSkeleton/> : /*(productDetails.length != 0 ?*/ <ProductDetails
           productId={productDetails.id}
           productThumbnail={productDetails.thumbnail}
           productImages={productDetails.images}
