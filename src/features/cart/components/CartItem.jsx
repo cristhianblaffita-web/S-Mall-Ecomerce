@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useCart } from "@/contexts/cart/useCart"
 import "./CartItem.css"
 
@@ -19,20 +20,29 @@ const CartItem = (
     removeFromCart
   } = useCart()
   
+  
+  
   return (
     <div
       className="cart-item w-full p-16 bg-background"
     >
-      <img 
-        className="item-img w-full h-auto"
-        style={{
-          width: "40%"
-        }}
-        src={itemImage} 
-      />
-      <p
+      <Link
+        to={`/products/${itemId}`}
+      >
+        <img 
+          className="item-img w-full h-auto"
+          style={{
+            width: "40%"
+          }}
+          src={itemImage} 
+        />
+      </Link>
+      <Link
+        to={`/products/${itemId}`}
         className="item-title"
-      >{itemTitle}</p>
+      >
+        <p>{itemTitle}</p>
+      </Link>
       
       <span
         className="item-subtotal"
