@@ -18,7 +18,7 @@ const Cart = () => {
         className="w-full h-full flex flex-col gap-16 padding-tb-16 bg-surface shadow-sm mb-120 text-gray
         text-center"
       >
-        {cartItems.length > 0 ? cartItems.map((item, index) => (
+        {cartItems.length > 0 ? cartItems.map((item) => (
           <CartItem 
             key={item.id}
             itemId={item.id}

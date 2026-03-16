@@ -4,6 +4,10 @@
   
 }
 
+.details-image {
+  min-width: 280px;
+  min-height: 280px;
+}
 .details-icon {
   transition: transform 0.25s ease;
 }

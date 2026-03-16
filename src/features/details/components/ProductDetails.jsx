@@ -1,4 +1,6 @@
 import "./ProductDetails.css"
+
+import { useCart } from "@/contexts/cart/useCart"
 import ratingIcon from "@/assets/icons/ui/star.png"
 import arrowDown  from "@/assets/icons/ui/arrow-down.png"
 import addToCartIcon from "@/assets/icons/ui/add-to-cart.png"
@@ -6,6 +8,7 @@ import addToCartIcon from "@/assets/icons/ui/add-to-cart.png"
 const ProductDetails = (
   {
   productId = null,
+  productThumbnail = null,
   productImages = [],
   productTitle = null,
   productPrice = 0,
@@ -13,11 +16,20 @@ const ProductDetails = (
   productRating = 0,
   productDescription = null,
   productStock = 0,
-  productBrand = null,
+  productBrand = "---",
   productWeight = 0,
   productDimensions = [],
   productWarranty = "No warranty"
 }) => {
+  
+  const { addToCart } = useCart()
+  
+  const product = {
+    id: productId,
+    title: productTitle,
+    image: productThumbnail,
+    price: productPrice
+  }
   
   return (
     <section
@@ -33,12 +45,10 @@ const ProductDetails = (
     {productImages.map((img, index) => (
       <li
         key={index}
-        style={{
-          minWidth: "80%",
-        }}
+        className="details-image"
       >
         <img
-          className="w-full bg-surface rounded-md shadow-md p-8"
+          className="bg-background w-full rounded-md p-8"
           src={img}
         />
       </li>
@@ -141,6 +151,7 @@ const ProductDetails = (
 
 <button
   className="primary-button flex justify-center items-center gap-8 m-16 p-16 rounded-sm"
+  onClick={() => addToCart(product)}
 >
   <span>Add to cart</span>
   <img

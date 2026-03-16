@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react"
+import { createCartItem } from "@/models/cartItem"
 
 export const CartContext = createContext()
 
@@ -12,40 +13,32 @@ export const CartProvider = ({ children }) => {
     return total + item.qtty
   }, 0)
 
-  const triggerCartAnimation = () => {
+  useEffect(() => {
+  if (cartItemsQtty > 0) {
     setCartAnimation("cart-bump")
-    
+
     setTimeout(() => {
-      if (cartItemsQtty > 0) {
-        setCartAnimation("cart-shake")
-      }
+      setCartAnimation("cart-shake")
     }, 300)
   }
-  
-  useEffect(() => {
-    if (cartItemsQtty > 0){
-      setCartAnimation("cart-shake")
-    } else {
-      setCartAnimation("")
-    }
-  }, [cartItemsQtty])
+}, [cartItemsQtty])
 
 
   const addToCart = (product) => {
+    const cartItem = createCartItem(product)
     
     setCartItems(prev => {
-      const productExists = prev.find(item => item.id === product.id)
+      const productExists = prev.find(item => item.id === cartItem.id)
       
       if (productExists) {
-        return prev.map(item => item.id === product.id ? {...item, qtty:
-        item.qtty + 1, subtotal: ((item.qtty + 1) * item.price).toFixed(2)
+        return prev.map(item => item.id === cartItem.id ? {...item, qtty:
+        item.qtty + 1, subtotal: (item.qtty + 1) * item.price
         } : item) 
       }
       
-      return [...prev, {...product, qtty: 1, subtotal: product.price}]
+      return [...prev, cartItem]
     })
-    
-    triggerCartAnimation()
+
   }
 
   const removeFromCart = (id) => {
@@ -55,7 +48,7 @@ export const CartProvider = ({ children }) => {
   const decreaseItemQtty = (id) => {
     setCartItems(prev => {
      return prev.map(item => item.id === id ? {...item, qtty: item.qtty - 1,
-     subtotal: ((item.qtty - 1) * item.price).toFixed(2)} :
+     subtotal: (item.qtty - 1) * item.price} :
      item).filter(item => item.qtty > 0)
     })
   }
@@ -63,7 +56,8 @@ export const CartProvider = ({ children }) => {
   const increaseItemQtty = (id) => {
     setCartItems(prev => {
      return prev.map(item => item.id === id ? {...item, qtty: item.qtty + 1,
-     subtotal: ((item.qtty + 1) * item.price).toFixed(2)} :
+     subtotal: (item.qtty + 1) * item.price
+     } :
      item)
     })
   }

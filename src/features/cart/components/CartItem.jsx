@@ -36,11 +36,11 @@ const CartItem = (
       
       <span
         className="item-subtotal"
-      >Subtotal: ${subtotal}</span>
+      >Subtotal: ${subtotal.toFixed(2)}</span>
       
       <span
         className="item-price"
-      >Price: ${price}</span>
+      >Price: ${price.toFixed(2)}</span>
       
       <div
           className="item-qtty w-full flex p-8"

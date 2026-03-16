@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { productService } from "@/services/productService" 
 import ProductDetails from "@/features/details/components/ProductDetails"
+import { setDiscount } from "@/utils/setDiscount"
 
 const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -48,9 +49,12 @@ const ProductDetail = () => {
   return (
     <main>
       {isLoading ? <p>Loading...</p> : /*(productDetails.length != 0 ?*/ <ProductDetails
+          productId={productDetails.id}
+          productThumbnail={productDetails.thumbnail}
           productImages={productDetails.images}
           productTitle={productDetails.title}
-          productPrice={productDetails.price}
+          productPrice={setDiscount(productDetails.price,
+          productDetails.discountPercentage)}
           productRating={productDetails.rating}
           productStock={productDetails.stock}
           productDescription={productDetails.description}
