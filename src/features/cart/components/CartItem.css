@@ -13,7 +13,9 @@
   align-items: center;
 }
 
-.item-img {
+
+
+.item-img-link {
   grid-area: img;
   min-width: 100px;
   width: 100%;
@@ -21,6 +23,10 @@
   display: flex;
   justify-content: center;
   justify-items: center;
+}
+
+.item-img {
+  min-width: 100%;
 }
 
 
@@ -50,6 +56,7 @@
   grid-area: qtty;
   width: 100%;
   max-width: 150px;
+  justify-self: center;
 }
 
 .item-qtty span {
@@ -82,11 +89,14 @@
 
 .item-remove {
   grid-area: remove;
+  background: var(--bg-surface);
+  color: var(--color-text);
   border: 1.5px solid var(--color-accent);
   border-radius: 16px;
   margin: 8px;
   height: 28px;
   width: 50%;
+  max-width: 180px;
   padding: 8px;
   display: flex;
   justify-content: center;
@@ -95,4 +105,3 @@
   cursor: pointer;
   font-size: .85rem;
 }
-
