@@ -9,20 +9,26 @@ export const CartProvider = ({ children }) => {
   
   const [cartAnimation, setCartAnimation] = useState("")
   
-   const cartItemsQtty = cartItems.reduce((total, item) => {
-    return total + item.qtty
-  }, 0)
+  const cartItemsQtty = cartItems.reduce((total, item) => {
+  return total + item.qtty
+}, 0)
 
+   
   useEffect(() => {
+
   if (cartItemsQtty > 0) {
     setCartAnimation("cart-bump")
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setCartAnimation("cart-shake")
-    }, 300)
-  }
-}, [cartItemsQtty])
+    }, 100)
 
+    return () => clearTimeout(timer)
+  }
+
+  setCartAnimation("")
+
+}, [cartItemsQtty])
 
   const addToCart = (product) => {
     const cartItem = createCartItem(product)
@@ -75,6 +81,7 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         calculateCartTotal,
+        cartItemsQtty,
         decreaseItemQtty,
         increaseItemQtty,
         cartAnimation

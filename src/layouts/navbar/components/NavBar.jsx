@@ -14,24 +14,8 @@ const NavBar = (
   
   }) => {
   
-  const { cartItems, cartAnimation } = useCart()
+  const { cartItems, cartAnimation, cartItemsQtty } = useCart()
   
-  const cartItemsQtty = cartItems.length
-  
-  /*const [cartAnimation, setCartAnimation] = useState("")
-
-  useEffect(() => {
-    if (cartItemsQtty > 0 && cartAnimation !== "cart-bump") {
-      setCartAnimation("cart-shake")
-    } else if (cartItemsQtty === 0) {
-      setCartAnimation("")
-    }
-  }, [cartItemsQtty])
-  
-  const handleAnimationEnd = () => {
-    setCartAnimation("cart-bump")
-    
-  }*/
 
   return (
   <nav
@@ -66,13 +50,12 @@ const NavBar = (
     className={`${cartAnimation} h-24px`}
     src={cartIcon} 
     alt="Cart" 
-    /*onAnimationEnd={handleAnimationEnd}*/
     />
   
   {cartItemsQtty > 0 ? <span
     className={`${cartAnimation} cart-items-qtty absolute rounded-circle flex items-center
     justify-center bg-accent text-light text-sm`}
-  >{cartItemsQtty}</span> : false}
+  >{cartItemsQtty > 99 ? "99+" : cartItemsQtty}</span> : false}
 </Link>
   </nav>
     
