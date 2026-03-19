@@ -1,6 +1,5 @@
 .menu-navbar {
   position: fixed;
-  /*inset: 0;*/
   top: 56px;
   left: 0;
   right: 0;
@@ -30,6 +29,10 @@
   top: 0;
   right: 0;
   background: var(--color-surface);
+}
+
+.close-btn:hover {
+  cursor: pointer;
 }
 
 .menu-section {
@@ -62,4 +65,5 @@
 .menu-item:hover {
   color: var(--color-text);
   background-color: #f5f7fb;
+  cursor: pointer;
 }
