@@ -85,13 +85,6 @@ const ProductDetails = (
         </p>
       </div>
 
-      <MoreDetails
-        brand={productBrand}
-        weight={productWeight}
-        dimensions={productDimensions}
-        warranty={productWarranty}
-      />
-
       <button
         className="primary-button flex justify-center items-center gap-8 m-16 p-16 rounded-sm"
         onClick={() => addToCart(product)}
@@ -103,6 +96,14 @@ const ProductDetails = (
           alt="cart-icon"
         />
       </button>
+
+      <MoreDetails
+        brand={productBrand}
+        weight={productWeight}
+        dimensions={productDimensions}
+        warranty={productWarranty}
+      />
+
 
       <Reviews
         reviews={productReviews}
