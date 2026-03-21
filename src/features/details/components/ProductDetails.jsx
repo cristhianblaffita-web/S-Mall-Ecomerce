@@ -1,5 +1,6 @@
 import "./ProductDetails.css"
 import { useCart } from "@/contexts/cart/useCart"
+import ProductCarousel from "@/features/details/components/product_carousel/ProductCarousel"
 import MoreDetails from "@/features/details/components/more_details/MoreDetails"
 import Reviews from "@/features/details/components/reviews/Reviews"
 import ratingIcon from "@/assets/icons/ui/star.png"
@@ -12,7 +13,6 @@ const ProductDetails = (
     productImages = [],
     productTitle = null,
     productPrice = 0,
-    //productDiscount = 0,
     productRating = 0,
     productDescription = null,
     productStock = 0,
@@ -20,7 +20,7 @@ const ProductDetails = (
     productWeight = 0,
     productDimensions = [],
     productWarranty = null,
-    productReviews = []
+    productReviews = {}
   }) => {
 
   const { addToCart } = useCart()
@@ -37,25 +37,7 @@ const ProductDetails = (
       className="w-full flex flex-col bg-surface"
     >
 
-      <ul
-        className="w-full flex overflow-x-auto gap-16 p-16"
-        style={{
-          listStyle: "none"
-        }}
-      >
-        {productImages.map((img, index) => (
-          <li
-            key={index}
-
-          >
-            <img
-              className="details-image bg-background w-full rounded-md p-8"
-              src={img}
-              onLoad={(e) => e.currentTarget.classList.add("loaded")}
-            />
-          </li>
-        ))}
-      </ul>
+      <ProductCarousel images={productImages} />
 
       <div
         className="bg-surface flex flex-col gap-16 p-24"

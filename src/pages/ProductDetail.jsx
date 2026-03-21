@@ -32,25 +32,9 @@ const ProductDetail = () => {
     loadData(dummyJson)
   }, [id])
 
-  const connectionError = (
-    <div
-      className="fixed w-full h-full flex justify-center items-center"
-      style={{
-        background: "rgba(0,0,0,.3)",
-        backdropFilter: "blur(3px)"
-      }}
-    >
-      <p
-        className="bg-surface m-16 p-24 shadow-sm rounded-md"
-      >
-        Please check your internet connection
-      </p>
-    </div>
-  )
-
   return (
     <main>
-      {isLoading ? <DetailsSkeleton /> : /*(productDetails.length != 0 ?*/ <ProductDetails
+      {isLoading ? <DetailsSkeleton /> : <ProductDetails
         productId={productDetails.id}
         productThumbnail={productDetails.thumbnail}
         productImages={productDetails.images}
@@ -65,8 +49,7 @@ const ProductDetail = () => {
         productDimensions={productDetails.dimensions}
         productWarranty={productDetails.warrantyInformation}
         productReviews={productDetails.reviews}
-      /> /*:
-          connectionError)*/
+      />
       }
 
     </main>
