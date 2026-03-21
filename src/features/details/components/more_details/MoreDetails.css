@@ -1,0 +1,11 @@
+.details-icon {
+    transition: transform 0.25s ease-in;
+}
+
+.details-icon:hover {
+    cursor: pointer;
+}
+
+details[open] .details-icon {
+    transform: rotate(180deg);
+}

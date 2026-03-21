@@ -12,15 +12,3 @@
   transform: scale(1.05);
   transition: filter .6s ease, transform 0.4s ease;
 }
-
-.details-icon {
-  transition: transform 0.25s ease-in;
-}
-
-.details-icon:hover {
-  cursor: pointer;
-}
-
-details[open] .details-icon {
-  transform: rotate(180deg);
-}

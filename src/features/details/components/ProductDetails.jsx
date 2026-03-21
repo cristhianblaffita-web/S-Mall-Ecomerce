@@ -1,7 +1,7 @@
 import "./ProductDetails.css"
 import { useCart } from "@/contexts/cart/useCart"
+import MoreDetails from "@/features/details/components/more_details/MoreDetails"
 import ratingIcon from "@/assets/icons/ui/star.png"
-import arrowDown from "@/assets/icons/ui/arrow-down.png"
 import addToCartIcon from "@/assets/icons/ui/add-to-cart.png"
 
 const ProductDetails = (
@@ -15,10 +15,10 @@ const ProductDetails = (
     productRating = 0,
     productDescription = null,
     productStock = 0,
-    productBrand = "---",
+    productBrand = null,
     productWeight = 0,
     productDimensions = [],
-    productWarranty = "No warranty",
+    productWarranty = null,
     productReviews = []
   }) => {
 
@@ -102,53 +102,12 @@ const ProductDetails = (
         </p>
       </div>
 
-      <details
-        className="bg-background flex flex-col p-24 m-16 rounded-md"
-      >
-        <summary
-          className="flex justify-between items-center cursor-pointer"
-        >
-          <span className="font-bold">
-            More Details
-          </span>
-
-          <span>
-            <img
-              className="details-icon w-16px"
-              src={arrowDown}
-              alt="toggle-icon"
-            />
-          </span>
-        </summary>
-
-        <ul
-          className="flex flex-col gap-8 mt-8 text-gray"
-        >
-          <li className="flex justify-between">
-            <span>Brand</span>
-            <span>{productBrand}</span>
-          </li>
-
-          <li className="flex justify-between">
-            <span>Weight</span>
-            <span>{productWeight}</span>
-          </li>
-
-          <li className="flex justify-between">
-            <span>Dimensions</span>
-            <span>
-              {productDimensions.width} × {productDimensions.height} ×
-              {productDimensions.depth}
-            </span>
-          </li>
-
-          <li className="flex justify-between">
-            <span>Warranty</span>
-            <span>{productWarranty}</span>
-          </li>
-        </ul>
-
-      </details>
+      <MoreDetails
+        brand={productBrand}
+        weight={productWeight}
+        dimensions={productDimensions}
+        warranty={productWarranty}
+      />
 
       <button
         className="primary-button flex justify-center items-center gap-8 m-16 p-16 rounded-sm"
