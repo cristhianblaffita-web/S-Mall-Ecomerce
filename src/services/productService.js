@@ -1,10 +1,6 @@
-let productsCache = null
 
 export const productService = async (api) => {
 
-  if (productsCache) {
-    return productsCache
-  }
 
   const response = await fetch(api)
 
@@ -12,6 +8,6 @@ export const productService = async (api) => {
 
   const data = response.json()
 
-  productsCache = data
+
   return data
 }

@@ -1,6 +1,6 @@
 import ratingIcon from "@/assets/icons/ui/star.png"
 
-const Reviews = ({ reviews }) => {
+const Reviews = ({ reviews = [] }) => {
     return (
         <div className="bg-background flex flex-col m-16 gap-16 p-24 rounded-md">
 

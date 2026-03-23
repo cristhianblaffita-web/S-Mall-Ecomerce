@@ -11,7 +11,7 @@ const Home = () => {
   const productCards = useMemo(() => {
     if (!products) return []
 
-    return products.products.map((product) => (
+    return products.map((product) => (
       <ProductCard
         key={product.id}
         productId={product.id}

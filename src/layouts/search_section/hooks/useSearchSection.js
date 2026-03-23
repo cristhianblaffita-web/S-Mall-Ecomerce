@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react"
+import { useProducts } from "@/hooks/useProducts"
+import { searchItem } from "@/services/searchService"
 
 const useSearchSection = () => {
   const [isOpen, setIsOpen] = useState(false)
-  
+
   const [query, setQuery] = useState("")
-  
+
+  const [searchResults, setSearchResults] = useState([])
+
+  const { products } = useProducts("https://dummyjson.com/products")
+
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("no-scroll")
@@ -16,7 +22,17 @@ const useSearchSection = () => {
       document.body.classList.remove("no-scroll")
     }
   }, [isOpen])
-  
+
+  useEffect(() => {
+    if (!query || !products) {
+      setSearchResults([])
+      return
+    }
+
+    const results = searchItem(query, products)
+    setSearchResults(results)
+  }, [query, products])
+
   const toggleSearchSection = () => {
     setIsOpen(prev => !prev)
   }
@@ -40,7 +56,8 @@ const useSearchSection = () => {
     query,
     handleChange,
     handleClear,
-    handleSubmit
+    handleSubmit,
+    searchResults
   }
 }
 

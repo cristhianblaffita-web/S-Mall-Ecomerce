@@ -10,7 +10,7 @@ export const useProducts = (api) => {
         const loadData = async () => {
             try {
                 const data = await productService(api)
-                setProducts(data)
+                setProducts(data.products || data)
             } catch (err) {
                 setError(err)
             } finally {

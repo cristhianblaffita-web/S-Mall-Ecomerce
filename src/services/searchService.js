@@ -18,10 +18,10 @@ export function searchItem(query, products) {
 
     return metadata
         .map((item, index) => {
-            const hayCoincidencia = item.meta.some(field =>
+            const anyCoincidence = item.meta.some(field =>
                 field.toLowerCase().includes(normalizedQuery)
             );
-            return hayCoincidencia ? products[index] : null;
+            return anyCoincidence ? products[index] : null;
         })
         .filter(Boolean);
 }
