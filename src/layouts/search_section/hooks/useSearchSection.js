@@ -9,7 +9,7 @@ const useSearchSection = () => {
 
   const [searchResults, setSearchResults] = useState([])
 
-  const { products } = useProducts("https://dummyjson.com/products")
+  const { products } = useProducts("https://dummyjson.com/products?limit=149")
 
   useEffect(() => {
     if (isOpen) {

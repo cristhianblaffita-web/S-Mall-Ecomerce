@@ -6,7 +6,7 @@ import ProductSkeletonList from
 
 
 const Home = () => {
-  const { products, isLoading } = useProducts("https://dummyjson.com/products")
+  const { products, isLoading } = useProducts("https://dummyjson.com/products?limit=149")
 
   const productCards = useMemo(() => {
     if (!products) return []

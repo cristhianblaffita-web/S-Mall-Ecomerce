@@ -4,8 +4,8 @@ export function productsMetadata(products) {
         meta: [
             p.title,
             p.category,
-            p.brand
-
+            p.brand,
+            ...(p.tags || [])
         ].filter(Boolean)
     }));
 }
