@@ -1,23 +1,22 @@
 import { useState } from "react"
 import "./SearchSection.css"
-
 import previousIcon from "@/assets/icons/ui/arrow-back.png"
 import clearIcon from "@/assets/icons/ui/remove.png"
 import searchIcon from "@/assets/icons/navigation/search.png"
 
 const SearchSection = (
-  { 
+  {
     isOpen,
     handleBack,
     query,
     handleChange,
     handleClear,
-    handleSubmit
+    searchResults
   }) => {
-  
+
   return (
     <div className={`search-section ${isOpen ? "open" : ""}`}>
-      <form className="search-form" onSubmit={handleSubmit}>
+      <form className="search-form">
         <div className="search-container">
 
           <button
@@ -51,12 +50,22 @@ const SearchSection = (
             type="submit"
             className="icon-button"
             aria-label="Search"
-            onClick={handleSubmit}
+
           >
             <img src={searchIcon} alt="" />
           </button>
 
         </div>
+        <section>
+          <ul>
+            {searchResults.length === 0 ? false : searchResults.map((res, index) => (
+              <li>
+                <h3>{res.title}</h3>
+                <p>{res.description}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
       </form>
     </div>
   )

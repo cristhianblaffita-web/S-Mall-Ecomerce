@@ -45,10 +45,10 @@ const useSearchSection = () => {
     setQuery("")
   }
 
-  const handleSubmit = (e) => {
+  /*const handleSubmit = (e) => {
     e.preventDefault()
     onSearch?.(query)
-  }
+  }*/
 
   return {
     isOpen,
@@ -56,7 +56,6 @@ const useSearchSection = () => {
     query,
     handleChange,
     handleClear,
-    handleSubmit,
     searchResults
   }
 }

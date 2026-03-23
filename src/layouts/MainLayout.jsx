@@ -8,24 +8,25 @@ import SearchSection from "@/layouts/search_section/components/SearchSection"
 import useToggleMenu from "@/layouts/menu/hooks/useToggleMenu"
 import useSearchSection from "@/layouts/search_section/hooks/useSearchSection"
 
+
 const MainLayout = () => {
-  const {isOpen, toggleMenu } = useToggleMenu()
-  
+  const { isOpen, toggleMenu } = useToggleMenu()
+
   const {
     isOpen: searchOpen,
     toggleSearchSection,
     query,
     handleChange,
     handleClear,
-    handleSubmit
+    searchResults
   } = useSearchSection()
-  
+
   return (
     <>
       <CartProvider>
-        
+
         <header>
-          <NavBar 
+          <NavBar
             toggleMenu={toggleMenu}
             toggleSearchSection={toggleSearchSection}
           />
@@ -33,24 +34,24 @@ const MainLayout = () => {
             toggleMenu={toggleMenu}
             isOpen={isOpen}
           />
-          <SearchSection 
+          <SearchSection
             isOpen={searchOpen}
             handleBack={toggleSearchSection}
             query={query}
             handleChange={handleChange}
             handleClear={handleClear}
-            handleSubmit={handleSubmit}
+            searchResults={searchResults}
           />
         </header>
-        
+
         <main
           className="outlet"
         >
-          <Outlet/>
+          <Outlet />
         </main>
-        
+
         <footer>
-           <p>© 2026 S-Mall</p>
+          <p>© 2026 S-Mall</p>
         </footer>
       </CartProvider>
     </>
