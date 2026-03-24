@@ -1,4 +1,3 @@
-import { useState } from "react"
 import "./SearchSection.css"
 import previousIcon from "@/assets/icons/ui/arrow-back.png"
 import clearIcon from "@/assets/icons/ui/remove.png"
@@ -59,7 +58,9 @@ const SearchSection = (
         <section>
           <ul>
             {searchResults.length === 0 ? false : searchResults.map((res, index) => (
-              <li>
+              <li
+                key={index}
+              >
                 <h3>{res.title}</h3>
                 <p>{res.description}</p>
               </li>
