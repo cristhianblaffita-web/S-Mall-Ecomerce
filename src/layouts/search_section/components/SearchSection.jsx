@@ -1,4 +1,5 @@
 import "./SearchSection.css"
+import { useNavigate } from "react-router-dom"
 import previousIcon from "@/assets/icons/ui/arrow-back.png"
 import clearIcon from "@/assets/icons/ui/remove.png"
 import searchIcon from "@/assets/icons/navigation/search.png"
@@ -12,6 +13,13 @@ const SearchSection = (
     handleClear,
     searchResults
   }) => {
+
+  const navigate = useNavigate()
+
+  const goToItemDetails = (id) => {
+    handleBack()
+    navigate(`/products/${id}`)
+  }
 
   return (
     <div className={`search-section ${isOpen ? "open" : ""}`}>
@@ -60,6 +68,7 @@ const SearchSection = (
             {searchResults.length === 0 ? false : searchResults.map((res, index) => (
               <li
                 key={index}
+                onClick={() => goToItemDetails(res.id)}
               >
                 <h3>{res.title}</h3>
                 <p>{res.description}</p>
