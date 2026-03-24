@@ -17,6 +17,7 @@ const SearchSection = (
   const navigate = useNavigate()
 
   const goToItemDetails = (id) => {
+    handleClear()
     handleBack()
     navigate(`/products/${id}`)
   }
@@ -63,20 +64,30 @@ const SearchSection = (
           </button>
 
         </div>
-        <section>
-          <ul>
-            {searchResults.length === 0 ? false : searchResults.map((res, index) => (
-              <li
-                key={index}
-                onClick={() => goToItemDetails(res.id)}
-              >
-                <h3>{res.title}</h3>
-                <p>{res.description}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
       </form>
+      <section
+        className="mt-16"
+        style={{ height: "90%" }}
+      >
+        <ul
+          className="h-full flex flex-col gap-16 overflow-y-scroll"
+
+        >
+          {searchResults.length === 0 ? false : searchResults.map((res, index) => (
+            <li
+              key={index}
+              onClick={() => goToItemDetails(res.id)}
+              className="flex gap-16 decoration-none cursor-pointer p-16 rounded-md bg-background"
+            >
+              <img
+                src={res.thumbnail}
+                className="w-32px bg-surface rounded-sm"
+              />
+              <h3>{res.title}</h3>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   )
 }
