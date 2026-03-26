@@ -73,17 +73,29 @@ const SearchSection = (
           className="h-full flex flex-col gap-16 overflow-y-scroll"
 
         >
-          {searchResults.length === 0 ? false : searchResults.map((res, index) => (
+          {searchResults.length === 0 ? (
+            <p className="text-sm text-muted p-12">
+              No results found
+            </p>
+          ) : searchResults.map((res, index) => (
             <li
-              key={index}
+              key={res.id}
               onClick={() => goToItemDetails(res.id)}
-              className="flex gap-16 decoration-none cursor-pointer p-16 rounded-md bg-background"
+              className="result-item flex gap-12 p-12 decoration-none cursor-pointer rounded-md bg-background"
             >
               <img
                 src={res.thumbnail}
                 className="w-32px bg-surface rounded-sm"
+                alt={res.title}
               />
-              <h3>{res.title}</h3>
+              <div className="flex flex-col">
+              <h3 className="text-sm font-medium">{res.title}</h3>
+              {res.category && (
+                <span className="text-xs text-gray">
+                  {res.category}
+                </span>
+              )}
+            </div>
             </li>
           ))}
         </ul>

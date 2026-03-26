@@ -147,6 +147,10 @@
    padding: 16px;
 }
 
+.p-12 {
+   padding: 12px;
+}
+
 .p-8 {
    padding: 8px;
 }
@@ -234,6 +238,10 @@
 
 .text-sm {
    font-size: 14px;
+}
+
+.text-xs {
+   font-size: 12px;
 }
 
 .text-base {

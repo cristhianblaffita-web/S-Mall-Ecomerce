@@ -63,3 +63,11 @@
 .search-input:focus {
   outline: none;
 }
+
+.result-item {
+  transition: transform .3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
