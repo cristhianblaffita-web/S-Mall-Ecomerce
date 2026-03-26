@@ -5,6 +5,7 @@
   width: 100vw;
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
   background: var(--color-surface);
   z-index: 120;
   opacity: 0;
@@ -64,8 +65,15 @@
   outline: none;
 }
 
+.results-container {
+  width: 100%;
+  max-width: 680px;
+
+}
+
 .result-item {
   transition: transform .3s ease;
+  min-width: 100%;
 
   &:hover {
     transform: scale(1.01);

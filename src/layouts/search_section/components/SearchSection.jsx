@@ -66,11 +66,11 @@ const SearchSection = (
         </div>
       </form>
       <section
-        className="mt-16"
+        className="results-container mt-16"
         style={{ height: "90%" }}
       >
         <ul
-          className="h-full flex flex-col gap-16 overflow-y-scroll"
+          className="h-full flex flex-col gap-16 overflow-y-auto"
 
         >
           {searchResults.length === 0 ? (
