@@ -74,9 +74,9 @@ const SearchSection = (
 
         >
           {searchResults.length === 0 ? (
-            <p className="text-sm text-muted p-12">
+            <li className="text-sm text-gray p-12">
               No results found
-            </p>
+            </li>
           ) : searchResults.map((res, index) => (
             <li
               key={res.id}
