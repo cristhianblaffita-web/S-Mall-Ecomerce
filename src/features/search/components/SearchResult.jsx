@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { setDiscount } from "@/utils/setDiscount"
 import "./SearchResult.css"
 
@@ -5,8 +6,9 @@ const SearchResult = ({ product }) => {
   const productDiscount = setDiscount(product.price, product.discountPercentage)
 
   return (
-    <div 
-        className="search-result bg-surface p-12 rounded-md"
+    <Link
+        className="search-result bg-surface p-12 rounded-md decoration-none"
+        to={`/products/${product.id}`}
     >
       <img
         src={product.thumbnail}
@@ -14,7 +16,7 @@ const SearchResult = ({ product }) => {
         className="w-full object-cover rounded-md mb-8"
       />
 
-      <h3 className="text-sm font-medium">
+      <h3 className="text-sm font-medium text-normal">
         {product.title}
       </h3>
 
@@ -23,14 +25,14 @@ const SearchResult = ({ product }) => {
       </p>
 
       <div className="flex gap-8">
-        <p className="text-sm font-medium mt-4">
+        <p className="text-sm font-medium mt-4 text-normal">
             ${productDiscount.toFixed(2)}
         </p>
         <p className="text-xs text-gray line-tr">
             ${product.price}
         </p>
       </div>
-    </div>
+    </Link>
   )
 }
 
