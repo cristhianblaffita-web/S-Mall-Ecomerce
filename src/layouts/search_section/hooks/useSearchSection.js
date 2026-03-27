@@ -5,9 +5,9 @@ import { searchItem } from "@/services/searchService"
 const useSearchSection = () => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const [query, setQuery] = useState("")
-
   const [searchResults, setSearchResults] = useState([])
+
+  const [query, setQuery] = useState("")
 
   const { products } = useProducts("https://dummyjson.com/products?limit=149")
 

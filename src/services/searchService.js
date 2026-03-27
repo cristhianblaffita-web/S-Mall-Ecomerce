@@ -1,4 +1,4 @@
-export function productsMetadata(products) {
+ export function productsMetadata(products) {
     return products.map(p => ({
         id: p.id,
         meta: [

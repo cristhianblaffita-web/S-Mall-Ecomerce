@@ -24,7 +24,14 @@ const SearchSection = (
 
   return (
     <div className={`search-section ${isOpen ? "open" : ""}`}>
-      <form className="search-form">
+      <form 
+        className="search-form"
+        onSubmit={(e) => {
+          e.preventDefault()
+          navigate(`/search?q=${query}`)
+          handleBack()
+        }}
+      >
         <div className="search-container">
 
           <button
