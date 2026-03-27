@@ -1,4 +1,3 @@
-import "./SearchSkeleton.css"
 import LoadSkeleton from "@/features/skeletons/load_skeleton/LoadSkeleton"
 
 const SearchSkeleton = () => {

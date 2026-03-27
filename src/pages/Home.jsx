@@ -1,9 +1,8 @@
 import { useMemo } from "react"
 import { useProducts } from "@/hooks/useProducts"
 import ProductCard from "@/features/product/components/ProductCard"
-import ProductSkeletonList from
-  "@/features/skeletons/product_skeleton/components/ProductSkeletonList.jsx"
-
+import SkeletonsList from "@/features/skeletons/load_skeleton/SkeletonsList"
+import ProductSkeleton from "@/features/skeletons/product_skeleton/ProductSkeleton"
 
 const Home = () => {
   const { products, isLoading } = useProducts("https://dummyjson.com/products?limit=149")
@@ -41,7 +40,11 @@ const Home = () => {
         <div
           className="products-layout"
         >
-          {!isLoading ? productCards : <ProductSkeletonList quantity={10} />}
+          {!isLoading ? productCards : (
+            <SkeletonsList>
+              <ProductSkeleton/>
+            </SkeletonsList>
+          )}
         </div>
       </section>
     </main>
