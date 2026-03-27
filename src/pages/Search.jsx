@@ -10,7 +10,7 @@ const Search = () => {
 
   const query = params.get('q')
 
-  const { products } = useProducts()
+  const { products } = useProducts("https://dummyjson.com/products?limit=149")
 
   const { results, loading, search } = useSearch()
 
