@@ -14,6 +14,7 @@ const SearchResult = ({ product }) => {
         src={product.thumbnail}
         alt={product.title}
         className="w-full object-cover rounded-md mb-8"
+        onLoad={(e) => e.currentTarget.classList.add("loaded")}
       />
 
       <h3 className="text-sm font-medium text-normal">
