@@ -1,0 +1,8 @@
+.search-result {
+    transition: transform .3s ease;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(.95);
+    }
+}

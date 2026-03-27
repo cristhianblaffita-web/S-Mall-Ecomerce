@@ -39,7 +39,7 @@ const Home = () => {
         >Best selling</h2>
 
         <div
-          className="products-layout"
+          className="search-layout"
         >
           {!isLoading ? productCards : <ProductSkeletonList quantity={10} />}
         </div>

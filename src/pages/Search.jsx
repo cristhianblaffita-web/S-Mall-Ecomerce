@@ -1,8 +1,8 @@
 import { useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import useSearch from "@/hooks/useSearch"
-import ProductCard from "@/features/product/components/ProductCard"
-import { useProducts } from "@/hooks/useProducts"
+import SearchResult from "@/features/search/components/SearchResult"
+//import { useProducts } from "@/hooks/useProducts"
 
 const Search = () => {
   
@@ -34,22 +34,10 @@ const Search = () => {
       )}
 
       <div 
-        className="grid gap-16"
-        style={{
-          gridColumn: "2",
-
-        }}
+        className="search-layout gap-8"
       >
         {results.map((product) => (
-          <ProductCard 
-            key={product.id} 
-            productId = {product.id}
-            productTitle = {product.title}
-            productImage = {product.thumbnail}
-            discountPercentage = {product.discountPercentage}
-            oldPrice = {product.price}
-            productRating ={product.rating}
-          />
+          <SearchResult key={product.key} product={product} />
         ))}
       </div>
     </div>
