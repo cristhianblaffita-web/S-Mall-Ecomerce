@@ -30,6 +30,7 @@ const SearchSection = (
           e.preventDefault()
           navigate(`/search?q=${query}`)
           handleBack()
+          handleClear()
         }}
       >
         <div className="search-container">
