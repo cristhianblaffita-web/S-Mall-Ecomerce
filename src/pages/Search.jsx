@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import useSearch from "@/hooks/useSearch"
 import SearchResult from "@/features/search/components/SearchResult"
-//import { useProducts } from "@/hooks/useProducts"
+import { useProducts } from "@/hooks/useProducts"
 
 const Search = () => {
   
@@ -10,13 +10,15 @@ const Search = () => {
 
   const query = params.get('q')
 
+  const { products } = useProducts()
+
   const { results, loading, search } = useSearch()
 
   useEffect(() => {
     if (query) {
       search(query)
     }
-  }, [query])
+  }, [query, products])
 
 
   return (

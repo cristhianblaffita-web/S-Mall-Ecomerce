@@ -10,16 +10,7 @@ const useSearch = () => {
 
   const search = async (query) => {
     setLoading(true)
-/*
-    useEffect(() => {
-    if (!query || !products) {
-      setResults([])
-      return
-    }
 
-    setResults(searchItem(query, products))
-
-  }, [query, products])*/
 
     try{
         const data = await searchItem(query, products)
