@@ -14,13 +14,13 @@ const useSearch = () => {
 
     try{
         const data = await searchItem(query, products)
+        
         setResults(data)
+        setLoading(false)
     } catch (err) {
         console.log(err)
-    } finally {
         setLoading(false)
     }
-
   }
 
   return { results, loading, search }
