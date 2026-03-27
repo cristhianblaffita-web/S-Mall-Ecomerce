@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <main
-      className="home-page w-full font-base"
+      className="w-full font-base"
 
     >
       <div
@@ -39,7 +39,7 @@ const Home = () => {
         >Best selling</h2>
 
         <div
-          className="search-layout"
+          className="products-layout"
         >
           {!isLoading ? productCards : <ProductSkeletonList quantity={10} />}
         </div>

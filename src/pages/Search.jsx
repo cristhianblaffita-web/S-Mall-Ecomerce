@@ -34,7 +34,7 @@ const Search = () => {
       )}
 
       <div 
-        className="search-layout gap-8"
+        className="products-layout gap-8"
       >
         {results.map((product) => (
           <SearchResult key={product.id} product={product} />

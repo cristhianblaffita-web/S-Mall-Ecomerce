@@ -1,7 +1,7 @@
 .products-layout {
-  column-count: 2;
-  column-gap: 4px;
-  padding: 4px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 4px;
 }
 
 .hero-banner {
@@ -36,17 +36,15 @@
   transform: scale(1);
 }
 
-.search-layout {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
 
 @media (min-width: 480px) {
   .products-layout {
-    column-count: 3;
-  }
-
-  .search-layout {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .products-layout {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

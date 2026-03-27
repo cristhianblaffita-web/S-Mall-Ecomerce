@@ -3,14 +3,11 @@
   background: var(--color-surface);
   padding: 16px;
   border-radius: 8px;
-  margin-bottom: 4px;
   min-width: 100%;
   max-width: 100%;
-  
   height: auto;
   display: flex;
   flex-direction: column;
-  break-inside: avoid;
   gap: 12px;
   z-index: 0;
   box-shadow: var(--shadow-sm);
@@ -58,7 +55,7 @@
   transition: opacity .3s ease, visibility .3s ease;
 }
 
-.product-image-container:hover .product-details-link{
+.product-image-container:hover .product-details-link {
   opacity: 1;
 }
 
@@ -124,5 +121,3 @@
 .product-cart-button img {
   height: 100%;
 }
-
-
