@@ -1,8 +1,6 @@
 import { useSearchParams } from "react-router-dom"
-import { useEffect, useState } from "react"
 import useSearch from "@/hooks/useSearch"
 import SearchResult from "@/features/search/components/SearchResult"
-import { useProducts } from "@/hooks/useProducts"
 import SearchSkeleton from "@/features/skeletons/search_skeleton/SearchSkeleton"
 import SkeletonsList from "@/features/skeletons/load_skeleton/SkeletonsList"
 
@@ -12,16 +10,7 @@ const Search = () => {
 
   const query = params.get('q')
 
-  const { products } = useProducts("https://dummyjson.com/products?limit=149")
-
-  const { results, loading, search } = useSearch()
-
-  useEffect(() => {
-    if (query) {
-      search(query)
-    }
-  }, [query, products])
-
+  const { results, loading } = useSearch(query)
 
   return (
     <div className="p-16">

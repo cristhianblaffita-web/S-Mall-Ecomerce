@@ -2,28 +2,34 @@ import { useState, useEffect } from "react"
 import { searchItem } from "@/services/searchService"
 import { useProducts } from "@/hooks/useProducts"
 
-const useSearch = () => {
+const useSearch = (query, products) => {
   const [results, setResults] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
-  const { products } = useProducts("https://dummyjson.com/products?limit=149")
+  useEffect(() => {
+    const loadResults = () => {
+      if (!query || !products) {
+        setResults([])
+        setLoading(false)
+        return 
+      }
 
-  const search = async (query) => {
-    setLoading(true)
-
-
-    try{
-        const data = await searchItem(query, products)
-        
+      try {
+        const data = searchItem(query, products)
+  
         setResults(data)
+      } catch (err) {
+        alert(err)
+      } finally {
         setLoading(false)
-    } catch (err) {
-        console.log(err)
-        setLoading(false)
+      }
     }
-  }
 
-  return { results, loading, search }
+    loadResults()
+  }, [query, products])
+
+
+  return { results, loading }
 }
 
 export default useSearch
