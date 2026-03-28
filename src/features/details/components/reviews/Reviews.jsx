@@ -33,7 +33,10 @@ const Reviews = ({ reviews = [] }) => {
                                 className="flex flex-col gap-8 p-16 bg-surface rounded-md"
                             >
 
-                                <div className="flex justify-between items-center">
+                                <div 
+                                    className="flex-rw justify-between gap-8 items-center"
+                                  
+                                >
 
                                     <div className="flex flex-col">
                                         <span className="font-bold">
@@ -60,7 +63,6 @@ const Reviews = ({ reviews = [] }) => {
                                             />
                                         ))}
                                     </div>
-
                                 </div>
 
                                 <p className="text-gray text-left">

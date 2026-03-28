@@ -56,6 +56,11 @@
    display: flex;
 }
 
+.flex-rw {
+   display: flex;
+   flex-flow: row wrap;
+}
+
 .flex-col {
    flex-direction: column;
 }
