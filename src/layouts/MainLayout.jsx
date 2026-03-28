@@ -1,26 +1,29 @@
+import "./MainLayout.css"
 import { Outlet } from "react-router-dom"
 import { CartProvider } from "@/contexts/cart/CartContext"
-import NavBar from "@/layouts/navbar/components/NavBar"
-import "./MainLayout.css"
-import Menu from "@/layouts/menu/components/Menu"
-import SearchSection from "@/layouts/search_section/components/SearchSection"
 
 import useToggleMenu from "@/layouts/menu/hooks/useToggleMenu"
 import useSearchSection from "@/layouts/search_section/hooks/useSearchSection"
+import { useProducts } from "@/hooks/useProducts"
+
+import NavBar from "@/layouts/navbar/components/NavBar"
+import Menu from "@/layouts/menu/components/Menu"
+import SearchSection from "@/layouts/search_section/components/SearchSection"
 
 
 const MainLayout = () => {
-  const { isOpen, toggleMenu } = useToggleMenu()
+  const { products, isLoading: productsLoading  } = useProducts("https://dummyjson.com/products?limit=149")
 
+  const { isOpen, toggleMenu } = useToggleMenu()
+  
   const {
     isOpen: searchOpen,
     toggleSearchSection,
     query,
     handleChange,
-    handleClear,
-    searchResults
+    handleClear
   } = useSearchSection()
-
+  
   return (
     <>
       <CartProvider>
@@ -39,15 +42,15 @@ const MainLayout = () => {
             handleBack={toggleSearchSection}
             query={query}
             handleChange={handleChange}
-            handleClear={handleClear}
-            searchResults={searchResults}
+            handleClear={handleClear} 
+            products={products}
           />
         </header>
 
         <main
           className="outlet"
         >
-          <Outlet />
+          <Outlet context={{ query, products, productsLoading }}/>
         </main>
 
         <footer>

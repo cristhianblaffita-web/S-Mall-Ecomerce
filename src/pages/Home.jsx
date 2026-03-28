@@ -1,11 +1,11 @@
 import { useMemo } from "react"
-import { useProducts } from "@/hooks/useProducts"
+import { useOutletContext } from "react-router-dom"
 import ProductCard from "@/features/product/components/ProductCard"
 import SkeletonsList from "@/features/skeletons/load_skeleton/SkeletonsList"
 import ProductSkeleton from "@/features/skeletons/product_skeleton/ProductSkeleton"
 
 const Home = () => {
-  const { products, isLoading } = useProducts("https://dummyjson.com/products?limit=149")
+  const { products, productsLoading } = useOutletContext() 
 
   const productCards = useMemo(() => {
     if (!products) return []
@@ -40,8 +40,8 @@ const Home = () => {
         <div
           className="products-layout"
         >
-          {!isLoading ? productCards : (
-            <SkeletonsList>
+          {!productsLoading ? productCards : (
+            <SkeletonsList quantity={50}>
               <ProductSkeleton/>
             </SkeletonsList>
           )}

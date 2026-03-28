@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { searchItem } from "@/services/searchService"
-import { useProducts } from "@/hooks/useProducts"
 
 const useSearch = (query, products) => {
   const [results, setResults] = useState([])

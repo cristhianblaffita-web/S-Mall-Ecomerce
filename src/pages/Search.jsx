@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom"
+import { useOutletContext, useSearchParams } from "react-router-dom"
 import useSearch from "@/hooks/useSearch"
 import SearchResult from "@/features/search/components/SearchResult"
 import SearchSkeleton from "@/features/skeletons/search_skeleton/SearchSkeleton"
@@ -10,7 +10,9 @@ const Search = () => {
 
   const query = params.get('q')
 
-  const { results, loading } = useSearch(query)
+  const { products } = useOutletContext()
+
+  const { results, loading } = useSearch(query, products)
 
   return (
     <div className="p-16">
@@ -29,7 +31,7 @@ const Search = () => {
         className="products-layout gap-8"
       >
         {loading ? (
-          <SkeletonsList>
+          <SkeletonsList quantity={50}>
             <SearchSkeleton/>
           </SkeletonsList>
         ) : results.map((product) => (

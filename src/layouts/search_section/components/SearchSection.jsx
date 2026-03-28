@@ -3,16 +3,19 @@ import { useNavigate } from "react-router-dom"
 import previousIcon from "@/assets/icons/ui/arrow-back.png"
 import clearIcon from "@/assets/icons/ui/remove.png"
 import searchIcon from "@/assets/icons/navigation/search.png"
+import useSearch from "@/hooks/useSearch"
 
 const SearchSection = (
   {
+    products,
     isOpen,
     handleBack,
     query,
     handleChange,
-    handleClear,
-    searchResults
+    handleClear
   }) => {
+
+  const { results: searchResults } = useSearch(query, products)
 
   const navigate = useNavigate()
 
