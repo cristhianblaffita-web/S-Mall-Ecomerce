@@ -36,6 +36,7 @@ const MainLayout = () => {
           <Menu
             toggleMenu={toggleMenu}
             isOpen={isOpen}
+            products={products}
           />
           <SearchSection
             isOpen={searchOpen}

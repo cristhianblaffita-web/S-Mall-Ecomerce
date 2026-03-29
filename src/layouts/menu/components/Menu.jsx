@@ -1,7 +1,12 @@
+import { useCategories } from "@/hooks/useCategories"
 import "./Menu.css"
 import closeIcon from "@/assets/icons/ui/close.png"
+import { capitalize } from "@/utils/format"
 
-const Menu = ({ toggleMenu, isOpen }) => {
+const Menu = ({ toggleMenu, isOpen, products }) => {
+ 
+  const categories = useCategories(products)
+
   return (
     <aside className={`menu-navbar ${isOpen ? "open" : ""} flex-col p-16 font-base`}>
       
@@ -18,12 +23,9 @@ const Menu = ({ toggleMenu, isOpen }) => {
         <h2>Categories</h2>
         <hr />
         <ul className="menu-list">
-          <li className="menu-item">Most sales</li>
-          <li className="menu-item">Clothes</li>
-          <li className="menu-item">Electronics</li>
-          <li className="menu-item">Food</li>
-          <li className="menu-item">Miscellaneous</li>
-          <li className="menu-item">Others</li>
+          {categories && categories.map((category, index) => (
+            <li className="menu-item" key={category}>{capitalize(category)}</li>
+          ))}
         </ul>
       </div>
 
