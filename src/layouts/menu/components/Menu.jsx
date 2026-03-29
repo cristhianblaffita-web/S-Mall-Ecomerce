@@ -25,13 +25,12 @@ const Menu = ({ toggleMenu, isOpen, products }) => {
         <hr />
         <ul className="menu-list">
           {categories && categories.map((category, index) => (
-            <li className="menu-item" key={category}>
-              <Link 
-                className="decoration-none text-gray"
+            <Link 
+                key={category}
+                className="menu-item decoration-none text-gray"
                 to={`/products?category=${category}`}
                 onClick={toggleMenu}
               >{capitalize(category)}</Link>
-            </li>
           ))}
         </ul>
       </div>
