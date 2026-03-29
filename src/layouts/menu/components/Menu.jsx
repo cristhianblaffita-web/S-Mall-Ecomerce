@@ -1,6 +1,6 @@
-import { useCategories } from "@/hooks/useCategories"
 import "./Menu.css"
 import closeIcon from "@/assets/icons/ui/close.png"
+import { useCategories } from "@/hooks/useCategories"
 import { capitalize } from "@/utils/format"
 
 const Menu = ({ toggleMenu, isOpen, products }) => {

@@ -4,7 +4,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100vh;
   background: var(--color-surface);
   z-index: 120;
   overflow-y: auto;
