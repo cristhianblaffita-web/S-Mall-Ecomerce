@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter, Navigate } from "react-router-dom"
 import MainLayout from "@/layouts/MainLayout"
 
 import Products from "@/pages/Products"
@@ -10,29 +10,37 @@ import Cart from "@/pages/Cart"
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
     children: [
       {
         index: true,
-        path: "products",
-        element: <Products/>
+        element: <Navigate to="/products" replace/>
       },
       {
-        path: "products/:id",
-        element: <ProductDetail/>
+        path: "products",
+        children: [
+          {
+            index: true,
+            element: <Products />
+          },
+          {
+            path: ":id",
+            element: <ProductDetail />
+          }
+        ]
       },
       {
         path: "search",
-        element: <Search/>
+        element: <Search />
       },
       {
         path: "login",
-        element: <Login/>
+        element: <Login />
       },
       {
         path: "cart",
-        element: <Cart/>
-      },
-    ],
-  },
-  ])
+        element: <Cart />
+      }
+    ]
+  }
+])
