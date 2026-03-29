@@ -30,7 +30,8 @@ const Menu = ({ toggleMenu, isOpen, products }) => {
       </div>
 
       <div className="menu-section">
-        <hr />
+        <h2>Options</h2>
+        <hr/>
         <ul className="menu-list">
           <li className="menu-item">My orders</li>
           <li className="menu-item">My Account</li>

@@ -43,7 +43,9 @@
   flex-direction: column;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-bottom: 32px;
+  background: var(--color-background);
+  border-radius: var(--radius-md);
 }
 
 .menu-navbar hr {
@@ -58,11 +60,14 @@
   color: var(--color-text-muted);
   font-size: 1rem;
   font-weight: 500;
-  transition: background-color .3s ease, color .3s ease;
+  transition: background-color .3s ease, color .3s ease, transform .3s ease;
 }
 
 .menu-item:hover {
   color: var(--color-text);
-  background-color: #f5f7fb;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  transform: scale(1.03);
   cursor: pointer;
 }
