@@ -1,16 +1,25 @@
 import { useMemo } from "react"
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext, useSearchParams } from "react-router-dom"
+import { capitalize } from "@/utils/format"
 import ProductCard from "@/features/product/components/ProductCard"
 import SkeletonsList from "@/features/skeletons/load_skeleton/SkeletonsList"
 import ProductSkeleton from "@/features/skeletons/product_skeleton/ProductSkeleton"
 
 const Home = () => {
+  const [params] = useSearchParams()
+
   const { products, productsLoading } = useOutletContext() 
 
-  const productCards = useMemo(() => {
-    if (!products) return []
+  const category = params.get('category')
 
-    return products.map((product) => (
+  const filtered = products && products.filter(p => p.category === category)
+
+  const data = !category ? products : filtered
+
+  const productCards = useMemo(() => {
+    if (!data) return []
+
+    return data.map((product) => (
       <ProductCard
         key={product.id}
         productId={product.id}
@@ -20,7 +29,7 @@ const Home = () => {
         productRating={product.rating}
         productTitle={product.title}
       />))
-  }, [products])
+  }, [data])
 
   return (
     <main
@@ -35,7 +44,7 @@ const Home = () => {
       <section>
         <h2
           className="m-4 p-32 bg-surface rounded-md shadow-sm"
-        >Best selling</h2>
+        >{!category ? "Best selling" : `${capitalize(category)} (${filtered?.length || 0 })` }</h2>
 
         <div
           className="products-layout"

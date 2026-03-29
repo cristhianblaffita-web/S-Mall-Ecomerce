@@ -2,11 +2,12 @@ import "./Menu.css"
 import closeIcon from "@/assets/icons/ui/close.png"
 import { useCategories } from "@/hooks/useCategories"
 import { capitalize } from "@/utils/format"
+import { Link } from "react-router-dom"
 
 const Menu = ({ toggleMenu, isOpen, products }) => {
- 
-  const categories = useCategories(products)
 
+  const categories = useCategories(products)
+  
   return (
     <aside className={`menu-navbar ${isOpen ? "open" : ""} flex-col p-16 font-base`}>
       
@@ -24,7 +25,13 @@ const Menu = ({ toggleMenu, isOpen, products }) => {
         <hr />
         <ul className="menu-list">
           {categories && categories.map((category, index) => (
-            <li className="menu-item" key={category}>{capitalize(category)}</li>
+            <li className="menu-item" key={category}>
+              <Link 
+                className="decoration-none text-gray"
+                to={`/?category=${category}`}
+                onClick={toggleMenu}
+              >{capitalize(category)}</Link>
+            </li>
           ))}
         </ul>
       </div>
