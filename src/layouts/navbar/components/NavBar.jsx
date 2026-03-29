@@ -29,7 +29,7 @@ const NavBar = (
     </button>
     
     <Link
-      to="/"
+      to="/products"
       className="logo-nav h-24px bdr-0 flex justify-start"
     >
       <img className="h-24px" src={brandLogo} />

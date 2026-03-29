@@ -5,7 +5,7 @@ import ProductCard from "@/features/product/components/ProductCard"
 import SkeletonsList from "@/features/skeletons/load_skeleton/SkeletonsList"
 import ProductSkeleton from "@/features/skeletons/product_skeleton/ProductSkeleton"
 
-const Home = () => {
+const Products = () => {
   const [params] = useSearchParams()
 
   const { products, productsLoading } = useOutletContext() 
@@ -60,4 +60,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Products

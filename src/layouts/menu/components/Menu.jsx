@@ -28,7 +28,7 @@ const Menu = ({ toggleMenu, isOpen, products }) => {
             <li className="menu-item" key={category}>
               <Link 
                 className="decoration-none text-gray"
-                to={`/?category=${category}`}
+                to={`/products?category=${category}`}
                 onClick={toggleMenu}
               >{capitalize(category)}</Link>
             </li>
