@@ -9,6 +9,7 @@ import { useProducts } from "@/hooks/useProducts";
 import NavBar from "@/layouts/navbar/components/NavBar";
 import Menu from "@/layouts/menu/components/Menu";
 import SearchSection from "@/layouts/search_section/components/SearchSection";
+import Footer from "@/components/footer/Footer";
 
 const MainLayout = () => {
   const { products, isLoading: productsLoading } = useProducts(
@@ -48,9 +49,7 @@ const MainLayout = () => {
           <Outlet context={{ query, products, productsLoading }} />
         </main>
 
-        <footer>
-          <p>© 2026 S-Mall</p>
-        </footer>
+        <Footer />
       </CartProvider>
     </>
   );
