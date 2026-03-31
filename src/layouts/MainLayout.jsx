@@ -9,7 +9,7 @@ import { useProducts } from "@/hooks/useProducts";
 import NavBar from "@/layouts/navbar/components/NavBar";
 import Menu from "@/layouts/menu/components/Menu";
 import SearchSection from "@/layouts/search_section/components/SearchSection";
-import Footer from "@/components/footer/Footer";
+import Footer from "@/layouts/footer/Footer";
 
 const MainLayout = () => {
   const { products, isLoading: productsLoading } = useProducts(
