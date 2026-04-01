@@ -6,15 +6,12 @@ const Cart = () => {
   const { cartItems, calculateCartTotal } = useCart();
 
   return (
-    <main className="cart w-full h-full relative flex flex-col gap-8">
-      <div className="cart-header w-full bg-surface p-32 shadow-sm mt-8">
+    <main className="cart">
+      <div className="cart-header bg-surface p-32 shadow-sm">
         <h1>Cart</h1>
       </div>
 
-      <section
-        className="cart-list w-full  h-full flex flex-col gap-16 padding-tb-16 bg-surface shadow-sm mb-120 text-gray
-        text-center"
-      >
+      <section className="cart-list bg-surface shadow-sm text-gray text-center padding-tb-16">
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <CartItem
@@ -33,11 +30,8 @@ const Cart = () => {
       </section>
 
       {cartItems.length > 0 ? (
-        <div
-          className="checkout-section fixed bottom-left flex flex-col w-full bg-surface p-32 shadow-lg mt-8
-        gap-8"
-        >
-          <div className="w-full flex justify-end">
+        <div className="checkout-section bg-surface p-32">
+          <div className="checkout-summary">
             <span>
               <strong>Amount: </strong>${calculateCartTotal().toFixed(2)}
             </span>
