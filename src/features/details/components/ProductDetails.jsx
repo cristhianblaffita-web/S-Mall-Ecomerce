@@ -1,8 +1,10 @@
 import "./ProductDetails.css";
 import { useCart } from "@/contexts/cart/useCart";
+import { useQuantity } from "@/hooks/useQuantity";
 import ProductCarousel from "@/features/details/components/product_carousel/ProductCarousel";
 import MoreDetails from "@/features/details/components/more_details/MoreDetails";
 import Reviews from "@/features/details/components/reviews/Reviews";
+import QuantitySelector from "@/features/quantity_selector/components/QuantitySelector";
 import ratingIcon from "@/assets/icons/ui/star.png";
 import addToCartIcon from "@/assets/icons/ui/add-to-cart.png";
 
@@ -21,6 +23,10 @@ const ProductDetails = ({
   productWarranty = null,
   productReviews = {},
 }) => {
+  const { quantity, subtotal, increment, decrement } = useQuantity(
+    1,
+    productPrice,
+  );
   const { addToCart } = useCart();
 
   const product = {
@@ -28,6 +34,7 @@ const ProductDetails = ({
     title: productTitle,
     image: productThumbnail,
     price: productPrice,
+    quantity: quantity,
   };
 
   return (
@@ -56,6 +63,20 @@ const ProductDetails = ({
       </div>
 
       <div className="checkout-section bg-surface">
+        <div className="checkout-controls">
+          <QuantitySelector
+            quantity={quantity}
+            onIncrement={increment}
+            onDecrement={decrement}
+            label="Quantity"
+          />
+
+          <div className="subtotal-section">
+            <span className="subtotal-label">Subtotal:</span>
+            <span className="subtotal-value">${subtotal.toFixed(2)}</span>
+          </div>
+        </div>
+
         <button
           className="add-to-cart-btn primary-button p-16 rounded-sm"
           onClick={() => addToCart(product)}

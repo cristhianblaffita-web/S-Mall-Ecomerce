@@ -4,7 +4,7 @@ export const createCartItem = (product) => {
     title: product.title,
     image: product.image,
     price: product.price,
-    qtty: 1,
-    subtotal: product.price
-  }
-}
+    qtty: product.quantity || 1,
+    subtotal: product.price * (product.quantity || 1),
+  };
+};

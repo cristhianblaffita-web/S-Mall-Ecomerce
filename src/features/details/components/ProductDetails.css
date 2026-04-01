@@ -33,10 +33,19 @@
 .checkout-section {
   width: 100%;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
   gap: 8px;
   padding: 16px;
+}
+
+.checkout-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  align-items: flex-start;
 }
 
 .add-to-cart-btn {
@@ -45,6 +54,25 @@
   align-items: center;
   gap: 8px;
   width: 100%;
+}
+
+.subtotal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 100px;
+}
+
+.subtotal-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.subtotal-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 
@@ -97,6 +125,16 @@
     align-self: start;
     margin: 0;
     padding: 0;
+    flex-direction: column;
+  }
+
+  .checkout-controls {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .subtotal-section {
+    align-items: center;
   }
 
   .add-to-cart-btn {
