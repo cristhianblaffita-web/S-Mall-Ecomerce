@@ -1,0 +1,42 @@
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.review-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.reviewer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-rating {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}

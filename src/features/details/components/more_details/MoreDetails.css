@@ -9,3 +9,41 @@
 details[open] .details-icon {
     transform: rotate(180deg);
 }
+
+.more-details {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+}
+
+
+
+.more-details summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.more-details ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.more-details li {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 1080px) {
+    .more-details {
+        height: 100px;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    details[open].more-details {
+        height: auto;
+    }
+}

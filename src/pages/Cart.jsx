@@ -30,7 +30,7 @@ const Cart = () => {
       </section>
 
       {cartItems.length > 0 ? (
-        <div className="checkout-section bg-surface p-32">
+        <div className="cart-checkout-section bg-surface p-32">
           <div className="checkout-summary">
             <span>
               <strong>Amount: </strong>${calculateCartTotal().toFixed(2)}

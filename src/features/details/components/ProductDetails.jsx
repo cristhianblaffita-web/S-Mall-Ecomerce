@@ -1,101 +1,69 @@
-import "./ProductDetails.css"
-import { useCart } from "@/contexts/cart/useCart"
-import ProductCarousel from "@/features/details/components/product_carousel/ProductCarousel"
-import MoreDetails from "@/features/details/components/more_details/MoreDetails"
-import Reviews from "@/features/details/components/reviews/Reviews"
-import ratingIcon from "@/assets/icons/ui/star.png"
-import addToCartIcon from "@/assets/icons/ui/add-to-cart.png"
+import "./ProductDetails.css";
+import { useCart } from "@/contexts/cart/useCart";
+import ProductCarousel from "@/features/details/components/product_carousel/ProductCarousel";
+import MoreDetails from "@/features/details/components/more_details/MoreDetails";
+import Reviews from "@/features/details/components/reviews/Reviews";
+import ratingIcon from "@/assets/icons/ui/star.png";
+import addToCartIcon from "@/assets/icons/ui/add-to-cart.png";
 
-const ProductDetails = (
-  {
-    productId = null,
-    productThumbnail = null,
-    productImages = [],
-    productTitle = null,
-    productPrice = 0,
-    productRating = 0,
-    productDescription = null,
-    productStock = 0,
-    productBrand = null,
-    productWeight = 0,
-    productDimensions = [],
-    productWarranty = null,
-    productReviews = {}
-  }) => {
-
-  const { addToCart } = useCart()
+const ProductDetails = ({
+  productId = null,
+  productThumbnail = null,
+  productImages = [],
+  productTitle = null,
+  productPrice = 0,
+  productRating = 0,
+  productDescription = null,
+  productStock = 0,
+  productBrand = null,
+  productWeight = 0,
+  productDimensions = [],
+  productWarranty = null,
+  productReviews = {},
+}) => {
+  const { addToCart } = useCart();
 
   const product = {
     id: productId,
     title: productTitle,
     image: productThumbnail,
-    price: productPrice
-  }
+    price: productPrice,
+  };
 
   return (
-    <section
-      className="w-full flex flex-col bg-surface"
-    >
-
+    <section className="product-details bg-surface">
       <ProductCarousel images={productImages} />
 
-      <div
-        className="bg-surface flex flex-col gap-16 p-24"
-      >
+      <div className="product-info bg-surface p-24">
+        <h1 className="text-left">{productTitle}</h1>
 
-        <h1 className="text-left">
-          {productTitle}
-        </h1>
+        <div className="price-rating">
+          <h2 className="product-price">${productPrice.toFixed(2)}</h2>
 
-        <div
-          className="flex justify-between items-center"
-        >
-          <h2 className="product-price">
-            ${productPrice.toFixed(2)}
-          </h2>
-
-          <span
-            className="flex items-center gap-8"
-          >
-            <img
-              className="w-16px"
-              src={ratingIcon}
-              alt="rating icon"
-            />
+          <span className="rating">
+            <img className="w-16px" src={ratingIcon} alt="rating icon" />
             {productRating}
           </span>
         </div>
 
-        <span className="text-gray">
-          Stock: {productStock}
-        </span>
-
+        <span className="text-gray">Stock: {productStock}</span>
       </div>
 
-
-      <div
-        className="bg-background flex flex-col m-16 gap-12 p-24 rounded-md"
-      >
+      <div className="product-description bg-background p-24 rounded-md">
         <h3>Description</h3>
 
-        <p
-          className="text-gray text-left"
-        >
-          {productDescription}
-        </p>
+        <p className="text-gray text-left">{productDescription}</p>
       </div>
 
-      <button
-        className="primary-button flex justify-center items-center gap-8 m-16 p-16 rounded-sm"
-        onClick={() => addToCart(product)}
-      >
-        <span>Add to cart</span>
-        <img
-          className="w-24px"
-          src={addToCartIcon}
-          alt="cart-icon"
-        />
-      </button>
+      <div className="checkout-section bg-surface">
+        <button
+          className="add-to-cart-btn primary-button p-16 rounded-sm"
+          onClick={() => addToCart(product)}
+        >
+          <span>Add to cart</span>
+          <img className="w-24px" src={addToCartIcon} alt="cart-icon" />
+        </button>
+      </div>
 
       <MoreDetails
         brand={productBrand}
@@ -104,13 +72,9 @@ const ProductDetails = (
         warranty={productWarranty}
       />
 
-
-      <Reviews
-        reviews={productReviews}
-      />
-
+      <Reviews reviews={productReviews} />
     </section>
-  )
-}
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;
