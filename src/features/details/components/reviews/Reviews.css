@@ -5,37 +5,38 @@
     margin: 16px;
 }
 
-.reviews-header {
+.reviews .reviews-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.reviews-list {
+.reviews .reviews-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.review-item {
+.reviews .review-item {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.review-header {
+.reviews .review-header {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
-    gap: 8px;
     align-items: flex-start;
+    gap: 8px;
 }
 
-.reviewer-info {
+.reviews .reviewer-info {
     display: flex;
     flex-direction: column;
 }
 
-.review-rating {
+.reviews .review-rating {
     display: flex;
     align-items: center;
     gap: 2px;

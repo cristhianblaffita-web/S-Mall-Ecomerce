@@ -41,25 +41,27 @@ const ProductDetails = ({
     <section className="product-details bg-surface">
       <ProductCarousel images={productImages} />
 
-      <div className="product-info bg-surface p-24">
-        <h1 className="text-left">{productTitle}</h1>
+      <div className="product-info-wrapper bg-surface">
+        <div className="product-info p-24">
+          <h1 className="text-left">{productTitle}</h1>
 
-        <div className="price-rating">
-          <h2 className="product-price">${productPrice.toFixed(2)}</h2>
+          <div className="price-rating">
+            <h2 className="product-price">${productPrice.toFixed(2)}</h2>
 
-          <span className="rating">
-            <img className="w-16px" src={ratingIcon} alt="rating icon" />
-            {productRating}
-          </span>
+            <span className="rating">
+              <img className="w-16px" src={ratingIcon} alt="rating icon" />
+              {productRating}
+            </span>
+          </div>
+
+          <span className="text-gray">Stock: {productStock}</span>
         </div>
 
-        <span className="text-gray">Stock: {productStock}</span>
-      </div>
+        <div className="product-description bg-background p-24 rounded-md">
+          <h3>Description</h3>
 
-      <div className="product-description bg-background p-24 rounded-md">
-        <h3>Description</h3>
-
-        <p className="text-gray text-left">{productDescription}</p>
+          <p className="text-gray text-left">{productDescription}</p>
+        </div>
       </div>
 
       <div className="checkout-section bg-surface">
