@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/cart/useCart";
 import "./CartItem.css";
+import QuantitySelector from "@/features/quantity_selector/components/QuantitySelector";
 
 const CartItem = ({
   itemId = null,
@@ -9,7 +10,6 @@ const CartItem = ({
   price = 0,
   qtty = 0,
   subtotal = 0,
-  handleRemove = null,
 }) => {
   const { decreaseItemQtty, increaseItemQtty, removeFromCart } = useCart();
 
@@ -27,19 +27,11 @@ const CartItem = ({
       <span className="item-price">Price: ${price.toFixed(2)}</span>
 
       <div className="item-qtty w-full flex p-8">
-        <button
-          className="primary-button"
-          onClick={() => decreaseItemQtty(itemId)}
-        >
-          -
-        </button>
-        <span>{qtty}</span>
-        <button
-          className="primary-button"
-          onClick={() => increaseItemQtty(itemId)}
-        >
-          +
-        </button>
+        <QuantitySelector
+          quantity={qtty}
+          onIncrement={() => increaseItemQtty(itemId)}
+          onDecrement={() => decreaseItemQtty(itemId)}
+        />
       </div>
 
       <button className="item-remove" onClick={() => removeFromCart(itemId)}>

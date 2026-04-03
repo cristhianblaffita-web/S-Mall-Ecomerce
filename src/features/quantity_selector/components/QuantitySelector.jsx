@@ -4,11 +4,11 @@ const QuantitySelector = ({
   quantity = 1,
   onIncrement = () => {},
   onDecrement = () => {},
-  label = "Quantity",
+  label,
 }) => {
   return (
     <div className="quantity-selector">
-      <label htmlFor="product-quantity">{label ? `${label}:` : ""}</label>
+      {label && <label htmlFor="product-quantity">{label}: </label>}
       <div className="quantity-controls">
         <button
           type="button"
@@ -19,7 +19,8 @@ const QuantitySelector = ({
           −
         </button>
         <input
-          type="number"
+          type="text"
+          inputMode="numeric"
           id="product-quantity"
           className="quantity-input"
           value={quantity}
