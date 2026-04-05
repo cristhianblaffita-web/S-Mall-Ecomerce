@@ -6,6 +6,7 @@ import SkeletonsList from "@/features/skeletons/load_skeleton/SkeletonsList";
 import ProductSkeleton from "@/features/skeletons/product_skeleton/ProductSkeleton";
 import EmptyState from "@/features/ui_states/empty_state/EmptyState";
 import ErrorState from "../features/ui_states/error_state/ErrorState";
+import DataStateHandler from "../features/ui_states/DataStateHandler";
 
 const Products = () => {
   const [params] = useSearchParams();
@@ -18,10 +19,6 @@ const Products = () => {
     if (!category) return products;
     return products?.filter((p) => p.category === category) || [];
   }, [products, category]);
-
-  if (productsError) {
-    return <ErrorState />;
-  }
 
   return (
     <main className="w-full font-base">
@@ -36,17 +33,22 @@ const Products = () => {
         </h2>
 
         <div className="products-layout">
-          {productsLoading ? (
-            <SkeletonsList quantity={50}>
-              <ProductSkeleton />
-            </SkeletonsList>
-          ) : data.length === 0 ? (
-            <EmptyState />
-          ) : (
-            data.map((product) => (
+          <DataStateHandler
+            error={productsError}
+            errorComponent={<ErrorState />}
+            isLoading={productsLoading}
+            loadingComponent={
+              <SkeletonsList quantity={50}>
+                <ProductSkeleton />
+              </SkeletonsList>
+            }
+            isEmpty={!data.length}
+            emptyComponent={<EmptyState />}
+          >
+            {data.map((product) => (
               <ProductCard key={product.id} product={product} />
-            ))
-          )}
+            ))}
+          </DataStateHandler>
         </div>
       </section>
     </main>
