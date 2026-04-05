@@ -5,6 +5,7 @@ import ProductCard from "@/features/product/components/ProductCard";
 import SkeletonsList from "@/features/skeletons/load_skeleton/SkeletonsList";
 import ProductSkeleton from "@/features/skeletons/product_skeleton/ProductSkeleton";
 import EmptyState from "@/features/ui_states/empty_state/EmptyState";
+import ErrorState from "../features/ui_states/error_state/ErrorState";
 
 const Products = () => {
   const [params] = useSearchParams();
@@ -19,7 +20,7 @@ const Products = () => {
   }, [products, category]);
 
   if (productsError) {
-    <p>Something went wrong: {productsError}</p>;
+    return <ErrorState />;
   }
 
   return (
