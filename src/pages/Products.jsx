@@ -42,15 +42,7 @@ const Products = () => {
             <p>No products were found</p>
           ) : (
             data.map((product) => (
-              <ProductCard
-                key={product.id}
-                productId={product.id}
-                productImage={product.thumbnail}
-                discountPercentage={product.discountPercentage}
-                oldPrice={product.price}
-                productRating={product.rating}
-                productTitle={product.title}
-              />
+              <ProductCard key={product.id} product={product} />
             ))
           )}
         </div>

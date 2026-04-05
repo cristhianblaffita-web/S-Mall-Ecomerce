@@ -1,82 +1,66 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useCart } from "@/contexts/cart/useCart"
-import { setDiscount } from "@/utils/setDiscount"
-import "./ProductCard.css"
-import rateIcon from "@/assets/icons/ui/star.png"
-import addToCartIcon from "@/assets/icons/ui/add-to-cart.png"
+import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/cart/useCart";
+import { setDiscount } from "@/utils/setDiscount";
+import "./ProductCard.css";
+import rateIcon from "@/assets/icons/ui/star.png";
+import addToCartIcon from "@/assets/icons/ui/add-to-cart.png";
 
+const ProductCard = ({ product }) => {
+  if (!product) return null;
 
+  const {
+    id,
+    title,
+    thumbnail,
+    price: basePrice,
+    discountPercentage,
+    rating,
+  } = product;
 
-const ProductCard = ({
-    productId = 0,
-    productTitle = "Title",
-    productImage = undefined,
-    imageDesc = "No image description available",
-    discountPercentage = 0,
-    oldPrice = 0,
-    productRating = 0
-}) => {
-  
-  const price = setDiscount(oldPrice, discountPercentage)
+  const finalPrice = setDiscount(basePrice, discountPercentage);
 
-  
-  const product = {
-    id: productId,
-    title: productTitle,
-    image: productImage,
-    price: price
-  }
-  
-  const { 
-    cartItems, 
-    addToCart, 
-    removeFromCart
-  } = useCart()
-  
+  const cartProduct = {
+    id: id,
+    title: title,
+    image: thumbnail,
+    price: finalPrice,
+  };
 
-    return (
-        <div className="product-card">
+  const { addToCart } = useCart();
 
-            <div
-              className="product-image-container"
-            >
-              <Link 
-                to={`/products/${productId}`}
-                className="product-details-link"
-              >
-                <span>
-                  See details
-                </span>
-              </Link>
-              
-              <img className="product-image" src={productImage} alt={imageDesc} 
-                onLoad={(e) => e.currentTarget.classList.add("loaded")}
-              />
-            </div>
-            <div className="product-info">
-                <div className="price-container">
-                  <p className="product-price">${price.toFixed(2)}</p>
-                  <p className="product-old-price">${oldPrice.toFixed(2)}</p>
-                </div>
-                <div className="product-rating">
-                  <img 
-                    className="rating-icon"
-                    src={rateIcon}
-                    alt="rating icon"
-                  />
-                  <span>{productRating}</span>
-                </div>
-            </div>
-            <h2 className="product-title">{productTitle}</h2>
-            <button 
-                className="product-cart-button primary-button flex justify-center items-center gap-8"
-                onClick={() => addToCart(product)}
-            >
-              <span>Add to cart</span>
-              <img src={addToCartIcon} alt="Add to cart icon"/>
-            </button>
+  return (
+    <div className="product-card">
+      <div className="product-image-container">
+        <Link to={`/products/${id}`} className="product-details-link">
+          <span>See details</span>
+        </Link>
+
+        <img
+          className="product-image"
+          src={thumbnail}
+          alt={title}
+          onLoad={(e) => e.currentTarget.classList.add("loaded")}
+        />
+      </div>
+      <div className="product-info">
+        <div className="price-container">
+          <p className="product-price">${finalPrice.toFixed(2)}</p>
+          <p className="product-old-price">${basePrice.toFixed(2)}</p>
         </div>
-    )
-}
-export default React.memo(ProductCard)
+        <div className="product-rating">
+          <img className="rating-icon" src={rateIcon} alt="rating icon" />
+          <span>{rating}</span>
+        </div>
+      </div>
+      <h2 className="product-title">{title}</h2>
+      <button
+        className="product-cart-button primary-button flex justify-center items-center gap-8"
+        onClick={() => addToCart(cartProduct)}
+      >
+        <span>Add to cart</span>
+        <img src={addToCartIcon} alt="Add to cart icon" />
+      </button>
+    </div>
+  );
+};
+export default ProductCard;
