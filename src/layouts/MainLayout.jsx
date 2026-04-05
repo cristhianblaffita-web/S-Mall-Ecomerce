@@ -12,9 +12,11 @@ import SearchSection from "@/layouts/search_section/components/SearchSection";
 import Footer from "@/layouts/footer/Footer";
 
 const MainLayout = () => {
-  const { products, isLoading: productsLoading } = useProducts(
-    "https://dummyjson.com/products?limit=0",
-  );
+  const {
+    products,
+    isLoading: productsLoading,
+    error: productsError,
+  } = useProducts("https://dummyjson.com/products?limit=0");
 
   const { isOpen, toggleMenu } = useToggleMenu();
 
@@ -46,7 +48,14 @@ const MainLayout = () => {
         </header>
 
         <main className="outlet">
-          <Outlet context={{ query, products, productsLoading }} />
+          <Outlet
+            context={{
+              query,
+              products,
+              productsLoading,
+              productsError,
+            }}
+          />
         </main>
 
         <Footer />
