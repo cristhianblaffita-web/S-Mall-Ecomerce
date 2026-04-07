@@ -7,60 +7,67 @@ import Reviews from "@/features/details/components/reviews/Reviews";
 import QuantitySelector from "@/features/quantity_selector/components/QuantitySelector";
 import ratingIcon from "@/assets/icons/ui/star.png";
 import addToCartIcon from "@/assets/icons/ui/add-to-cart.png";
+import { setDiscount } from "@/utils/setDiscount";
 
-const ProductDetails = ({
-  productId = null,
-  productThumbnail = null,
-  productImages = [],
-  productTitle = null,
-  productPrice = 0,
-  productRating = 0,
-  productDescription = null,
-  productStock = 0,
-  productBrand = null,
-  productWeight = 0,
-  productDimensions = [],
-  productWarranty = null,
-  productReviews = {},
-}) => {
+const ProductDetails = ({ product }) => {
+  const {
+    id,
+    title,
+    description,
+    thumbnail,
+    images,
+    price: basePrice,
+    discountPercentage,
+    rating,
+    stock,
+    brand,
+    weight,
+    dimensions,
+    warranty,
+    reviews,
+  } = product;
+
+  const finalPrice = setDiscount(basePrice, discountPercentage);
+
   const { quantity, subtotal, increment, decrement } = useQuantity(
     1,
-    productPrice,
+    finalPrice,
   );
+
   const { addToCart } = useCart();
 
-  const product = {
-    id: productId,
-    title: productTitle,
-    image: productThumbnail,
-    price: productPrice,
+  const cartItem = {
+    id: id,
+    title: title,
+    image: thumbnail,
+    price: finalPrice,
     quantity: quantity,
   };
 
   return (
     <section className="product-details bg-surface">
-      <ProductCarousel images={productImages} />
+      <ProductCarousel images={images} />
 
       <div className="product-info-wrapper bg-surface">
         <div className="product-info p-24">
-          <h1 className="text-left">{productTitle}</h1>
+          <h1 className="text-left">{title}</h1>
 
           <div className="price-rating">
-            <h2 className="product-price">${productPrice.toFixed(2)}</h2>
+            <h2 className="product-price">${finalPrice.toFixed(2)}</h2>
 
             <span className="rating">
               <img className="w-16px" src={ratingIcon} alt="rating icon" />
-              {productRating}
+              {rating}
             </span>
           </div>
 
-          <span className="text-gray">Stock: {productStock}</span>
+          <span className="text-gray">Stock: {stock}</span>
         </div>
 
         <div className="product-description bg-background p-24 rounded-md">
           <h3>Description</h3>
 
-          <p className="text-gray text-left">{productDescription}</p>
+          <p className="text-gray text-left">{description}</p>
         </div>
       </div>
 
@@ -81,7 +88,7 @@ const ProductDetails = ({
 
         <button
           className="add-to-cart-btn primary-button p-16 rounded-sm"
-          onClick={() => addToCart(product)}
+          onClick={() => addToCart(cartItem)}
         >
           <span>Add to cart</span>
           <img className="w-24px" src={addToCartIcon} alt="cart-icon" />
@@ -89,13 +96,13 @@ const ProductDetails = ({
       </div>
 
       <MoreDetails
-        brand={productBrand}
-        weight={productWeight}
-        dimensions={productDimensions}
-        warranty={productWarranty}
+        brand={brand}
+        weight={weight}
+        dimensions={dimensions}
+        warranty={warranty}
       />
 
-      <Reviews reviews={productReviews} />
+      <Reviews reviews={reviews} />
     </section>
   );
 };
