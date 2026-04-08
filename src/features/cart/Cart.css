@@ -72,6 +72,7 @@
         max-height: 250px;
         justify-content: center;
         box-shadow: var(--shadow-sm);
+        border-radius: 8px;
     }
 
     .cart-checkout-section .checkout-summary {
