@@ -19,7 +19,7 @@ const ProductDetail = () => {
         <DataStateHandler
           isLoading={isLoading}
           loadingComponent={<DetailsSkeleton />}
-          isEmpty={!products.length}
+          isEmpty={products?.length === 0}
           emptyComponent={<EmptyState />}
           error={error}
           errorComponent={<ErrorState />}
