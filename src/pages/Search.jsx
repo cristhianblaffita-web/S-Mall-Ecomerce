@@ -4,6 +4,7 @@ import SearchResult from "@/features/search/components/SearchResult"
 import DataStateHandler from "@/features/ui_states/DataStateHandler"
 import SearchSkeleton from "@/features/skeletons/search_skeleton/SearchSkeleton"
 import SkeletonsList from "@/features/skeletons/load_skeleton/SkeletonsList"
+import EmptyState from "@/features/ui_states/empty_state/EmptyState"
 import ErrorState from "@/features/ui_states/error_state/ErrorState"
 
 const Search = () => {
@@ -29,7 +30,7 @@ const Search = () => {
           isLoading={loading}
           loadingComponent={<SkeletonsList quantity={50}><SearchSkeleton/></SkeletonsList>}
           isEmpty={!results?.length}
-          emptyComponent={<p className="bg-surface p-32 text-sm text-gray">No coincidences were found</p>}
+          emptyComponent={<EmptyState/>}
           error={productsError}
           errorComponent={<ErrorState/>}
         >
