@@ -14,6 +14,10 @@
     margin: 2rem 1em;
 }
 
+.container:hover {
+    cursor: default;
+}
+
 .icon {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
@@ -22,4 +26,8 @@
 .message {
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+.error-hint {
+    font-size: 0.85rem;
 }
