@@ -1,4 +1,4 @@
-.container {
+.empty-state-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,16 +10,30 @@
     border-radius: 0.5rem;
     text-align: center;
     width: 90vw;
-    max-width: 90vw;
-    margin: 2rem 1em;
+    max-width: 95vw;
+    margin: 2em auto;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
-.icon {
-    font-size: 2.5rem;
+.empty-state-container:hover {
+    cursor: default;
+}
+
+.empty-state-container .icon {
+    width: 3.5em;
+    height: auto;
     margin-bottom: 0.5rem;
 }
 
-.message {
+.empty-state-container .message {
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+@media (min-width: 1080px) {
+    .empty-state-container {
+        grid-column-start: 2;
+        grid-column-end: 5;
+    }
 }

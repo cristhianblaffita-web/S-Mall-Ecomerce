@@ -1,4 +1,4 @@
-.container {
+.error-state-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,22 +10,22 @@
     border-radius: 0.5rem;
     text-align: center;
     width: 90vw;
-    max-width: 90vw;
+    max-width: 95vw;
     margin: auto;
     margin-top: 100px;
 }
 
-.container:hover {
+.error-state-container:hover {
     cursor: default;
 }
 
-.icon {
-    width: 2.5em;
+.error-state-container .icon {
+    width: 3.5em;
     height: auto;
     margin-bottom: 0.5rem;
 }
 
-.message {
+.error-state-container .message {
     font-size: 1.2rem;
     font-weight: 500;
 }

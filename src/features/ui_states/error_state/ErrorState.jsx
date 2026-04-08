@@ -18,8 +18,8 @@ const ErrorState = ({ error, message = "Something went wrong"}) => {
   }
   
   return (
-    <div className="container">
-      <div className="icon">{errorIcon}</div>
+    <div className="error-state-container">
+      <div>{errorIcon}</div>
       <p className="message">{message}</p>
       <small className="text-gray">
         {hint}
