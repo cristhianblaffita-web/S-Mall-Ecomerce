@@ -32,7 +32,7 @@ const Search = () => {
           isEmpty={!results?.length}
           emptyComponent={<EmptyState/>}
           error={productsError}
-          errorComponent={<ErrorState/>}
+          errorComponent={<ErrorState error={productsError}/>}
         >
           {results?.map((product) => (
             <SearchResult key={product.id} product={product} />

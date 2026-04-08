@@ -35,7 +35,7 @@ const Products = () => {
         <div className="products-layout">
           <DataStateHandler
             error={productsError}
-            errorComponent={<ErrorState />}
+            errorComponent={<ErrorState error={productsError}/>}
             isLoading={productsLoading}
             loadingComponent={
               <SkeletonsList quantity={50}>

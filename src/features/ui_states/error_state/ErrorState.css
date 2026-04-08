@@ -13,6 +13,8 @@
     max-width: 95vw;
     margin: auto;
     margin-top: 100px;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
 .error-state-container:hover {
@@ -28,4 +30,11 @@
 .error-state-container .message {
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+@media (min-width: 1080px) {
+    .error-state-container {
+        grid-column-start: 2;
+        grid-column-end: 5;
+    }
 }
