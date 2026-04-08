@@ -1,6 +1,6 @@
 .product-details {
   position: relative;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -97,9 +97,9 @@
     grid-template-areas:
       "carousel info checkout"
       "reviews more-details checkout";
-    max-width: 95vw;
     padding: 24px 16px;
     margin-top: 68px;
+    align-self: center;
   }
 
   .products-carousel {
