@@ -1,11 +1,29 @@
 import "./ErrorState.css";
+import { PiWarningCircle } from "react-icons/pi";
+import { RiWifiOffLine } from "react-icons/ri";
+import { LuServerCrash } from "react-icons/lu";
 
-const ErrorState = ({ message = "Something went wrong", hint = "Please check your internet connection" }) => {
+const ErrorState = ({ error, message = "Something went wrong"}) => {
+  let hint;
+  let errorIcon = <PiWarningCircle className="icon"/>;
+
+  if (error.includes("NetworkError")) {
+    hint = "It seems like you're offline. Check your internet connection and then try again.";
+    errorIcon = <RiWifiOffLine className="icon"/>;
+  } else if (error.includes("505")){
+    hint = "Server error. Try again later.";
+    errorIcon = <LuServerCrash className="icon" />;
+  } else {
+    hint = error;
+  }
+  
   return (
     <div className="container">
-      <div className="icon">⚠️</div>
+      <div className="icon">{errorIcon}</div>
       <p className="message">{message}</p>
-      <p className="error-hint text-gray">{hint}</p>
+      <small className="text-gray">
+        {hint}
+      </small>
     </div>
   );
 };
