@@ -84,7 +84,7 @@ const SearchSection = (
           className="h-full flex flex-col gap-16 overflow-y-auto"
 
         >
-          {searchResults.length === 0 ? (
+          {searchResults.length === 0 && query.length ? (
             <li className="text-sm text-gray p-12">
               No results found
             </li>
