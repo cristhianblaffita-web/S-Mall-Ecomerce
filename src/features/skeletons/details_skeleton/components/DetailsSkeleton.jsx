@@ -1,27 +1,25 @@
+import "./DetailsSkeleton.css"
 import LoadSkeleton from "@/features/skeletons/load_skeleton/LoadSkeleton"
 
-const DetailsSkeleton = () => {
+const DetailsSkeleton = ({ carouselSize=3 }) => {
   return (
-    <div>
+    <div className="details-skeleton-wrapper">
       <ul
-        className="flex p-16 gap-16 overflow-x-auto list-none"
+        className="carousel-skeleton flex p-16 gap-16 overflow-x-auto list-none"
       >
-        <li>      
+        
+        {Array.from({ length: carouselSize }, (_, i) => (
+        <li key={i}>      
           <LoadSkeleton
             width="280px"
             height="280px"
           />
         </li>
-        <li>      
-          <LoadSkeleton
-            width="280px"
-            height="280px"
-          />
-        </li>
+      ))}
       </ul>
       
       <div
-        className="flex flex-col m-16 gap-8"
+        className="info-skeleton flex flex-col m-16 gap-8"
       >
         <LoadSkeleton
           width="100%"
@@ -44,30 +42,39 @@ const DetailsSkeleton = () => {
           width="40%"
           height="32px"
         />
+        <div
+          className="description-skeleton"
+        >
+                <LoadSkeleton 
+                  width="100%"
+                  height="180px"
+                />
+        </div>
       </div>
       
       <div
-        className="m-16"
+        className="checkout-skeleton m-16"
       >
               <LoadSkeleton 
                 width="100%"
-                height="180px"
+                height="100%"
               />
       </div>
       <div
-        className="m-16"
+        className="more-details-skeleton m-16"
       >
               <LoadSkeleton 
                 width="100%"
-                height="80px"
+                height="100%"
               />
       </div>
+
       <div
-        className="m-16"
+        className="reviews-skeleton m-16"
       >
               <LoadSkeleton 
                 width="100%"
-                height="60px"
+                height="280px"
               />
       </div>
     </div>
