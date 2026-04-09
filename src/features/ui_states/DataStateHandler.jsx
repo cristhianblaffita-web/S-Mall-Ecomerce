@@ -7,11 +7,11 @@ const DataStateHandler = ({
   emptyComponent,
   children,
 }) =>
-  error
-    ? errorComponent
-    : isLoading
-      ? loadingComponent
-      : isEmpty
+  isLoading
+    ? loadingComponent
+    : error ?
+      errorComponent :
+      isEmpty
         ? emptyComponent
         : children;
 

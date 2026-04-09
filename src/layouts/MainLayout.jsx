@@ -36,7 +36,14 @@ const MainLayout = () => {
             toggleMenu={toggleMenu}
             toggleSearchSection={toggleSearchSection}
           />
-          <Menu toggleMenu={toggleMenu} isOpen={isOpen} products={products} />
+          <Menu 
+            toggleMenu={toggleMenu} 
+            isOpen={isOpen} 
+            products={products} 
+            productsLoading={productsLoading}
+            productsError={productsError}
+          />
+          
           <SearchSection
             isOpen={searchOpen}
             handleBack={toggleSearchSection}

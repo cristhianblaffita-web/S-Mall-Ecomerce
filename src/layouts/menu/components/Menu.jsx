@@ -3,8 +3,19 @@ import closeIcon from "@/assets/icons/ui/close.png";
 import { useCategories } from "@/hooks/useCategories";
 import { capitalize } from "@/utils/format";
 import { Link } from "react-router-dom";
+import DataStateHandler from "@/features/ui_states/DataStateHandler"
+import CategoriesLoading from "@/features/ui_states/categories_state/CategoriesLoading";
+import ErrorState from "@/features/ui_states/error_state/ErrorState";
 
-const Menu = ({ toggleMenu, isOpen, products }) => {
+const Menu = (
+  {
+    toggleMenu,
+    isOpen,
+    products,
+    productsLoading,
+    productsError
+  }
+) => {
   const categories = useCategories(products);
 
   return (
@@ -23,9 +34,14 @@ const Menu = ({ toggleMenu, isOpen, products }) => {
       <div className="menu-section">
         <h2>Categories</h2>
         <hr />
-        <ul className="menu-list">
-          {categories &&
-            categories.map((category, index) => (
+        <DataStateHandler
+          isLoading={productsLoading}
+          loadingComponent={<CategoriesLoading/>}
+          error={productsError}
+          errorComponent={<ErrorState error={productsError}/>}
+        >
+          <ul className="menu-list">
+            {categories.map((category) => (
               <Link
                 key={category}
                 className="menu-item decoration-none text-gray"
@@ -35,7 +51,8 @@ const Menu = ({ toggleMenu, isOpen, products }) => {
                 {capitalize(category)}
               </Link>
             ))}
-        </ul>
+          </ul>
+        </DataStateHandler>
       </div>
 
       <div className="menu-section">
