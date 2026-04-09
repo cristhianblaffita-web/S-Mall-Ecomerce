@@ -44,6 +44,12 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.cart-checkout-section .checkout-total {
+    color: var(--color-primary);;
 }
 
 @media (min-width: 1080px) {

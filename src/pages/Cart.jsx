@@ -33,7 +33,7 @@ const Cart = () => {
         <div className="cart-checkout-section bg-surface p-32">
           <div className="checkout-summary">
             <span>
-              <strong>Amount: </strong>${calculateCartTotal().toFixed(2)}
+              Amount: <span className="checkout-total">${calculateCartTotal().toFixed(2)}</span>
             </span>
           </div>
           <button className="primary-button w-full p-16 rounded-md text-normal text-lg">
