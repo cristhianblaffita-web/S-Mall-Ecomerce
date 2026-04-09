@@ -14,7 +14,7 @@ const ErrorState = ({ error, message = "Something went wrong"}) => {
     hint = "Server error. Try again later.";
     errorIcon = <LuServerCrash className="icon" />;
   } else {
-    hint = error;
+    hint = `${error}. Maybe the resources you're looking for don't exist.`;
   }
   
   return (
