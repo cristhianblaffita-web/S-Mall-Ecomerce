@@ -8,8 +8,8 @@ const ProductCarousel = ({ images }) => {
         listStyle: "none",
       }}
     >
-      {images.map((img, index) => (
-        <li key={index}>
+      {images.map((img) => (
+        <li key={img}>
           <img
             className="details-image bg-background w-full rounded-md p-8"
             src={img}
