@@ -22,7 +22,7 @@ const ProductDetail = () => {
           isEmpty={products?.length === 0}
           emptyComponent={<EmptyState />}
           error={error}
-          errorComponent={<ErrorState error={error}/>}
+          errorComponent={<div className="p-12"><ErrorState error={error}/></div>}
         >
           <ProductDetails product={products} />
         </DataStateHandler>
