@@ -4,7 +4,16 @@ import { createCartItem } from "@/models/cartItem";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  
+  const [cartItems, setCartItems] = useState(() => {
+    const stored =localStorage.getItem("cart");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems))
+  }, [cartItems]);
+  
 
   const [cartAnimation, setCartAnimation] = useState("");
 
