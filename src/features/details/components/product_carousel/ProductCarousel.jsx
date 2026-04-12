@@ -3,7 +3,7 @@ import "./ProductCarousel.css";
 const ProductCarousel = ({ images }) => {
   return (
     <ul
-      className="products-carousel w-full flex overflow-x-auto gap-16 p-16"
+      className="products-carousel w-full p-16"
       style={{
         listStyle: "none",
       }}
