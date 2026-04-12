@@ -1,18 +1,18 @@
 import "./DetailsSkeleton.css"
 import LoadSkeleton from "@/features/skeletons/load_skeleton/LoadSkeleton"
 
-const DetailsSkeleton = ({ carouselSize=3 }) => {
+const DetailsSkeleton = ({ carouselSize=6 }) => {
   return (
     <div className="details-skeleton-wrapper">
       <ul
-        className="carousel-skeleton flex p-16 gap-16 overflow-x-auto list-none"
+        className="carousel-skeleton p-16 list-none"
       >
         
         {Array.from({ length: carouselSize }, (_, i) => (
         <li key={i}>      
           <LoadSkeleton
-            width="280px"
-            height="280px"
+            width="100%"
+            height="100%"
           />
         </li>
       ))}
