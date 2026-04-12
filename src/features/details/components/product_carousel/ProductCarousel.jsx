@@ -25,7 +25,7 @@ const ProductCarousel = ({ images }) => {
   };
 
   return (
-    <ul className="products-carousel w-full p-16">
+    <ul className={`products-carousel w-full p-16 ${images.length > 1 ? "products-gallery" : ""}`}>
       {images.map((img) => (
         <li
           key={img}
