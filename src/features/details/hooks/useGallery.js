@@ -4,6 +4,7 @@ export const useGallery = ({images}) => {
   const [mainImage, setMainImage] = useState(images ? images[0] : null);
   const [isSwitching, setIsSwitching] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
+  const [isInitialized, setIsInitialized] = useState(false)
 
   function handleMouseEnter(img) {
         if (img === mainImage) return;
@@ -18,10 +19,12 @@ export const useGallery = ({images}) => {
 
         const id = setTimeout(() => {
             setIsSwitching(false);
-        }, 350);
+        }, 350)
 
         setTimeoutId(id);
+
+        setIsInitialized(true)
     }
 
-  return {mainImage, isSwitching, handleMouseEnter}
+  return {mainImage, isSwitching, isInitialized, handleMouseEnter}
 };

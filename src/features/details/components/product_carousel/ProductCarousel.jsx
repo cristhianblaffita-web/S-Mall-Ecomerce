@@ -1,16 +1,16 @@
 
 import "./ProductCarousel.css";
-import { useGallery } from "../../hooks/useGallery";
+import { useGallery } from "@/features/details/hooks/useGallery";
 
 const ProductCarousel = ({ images }) => {
-  const { mainImage, isSwitching, handleMouseEnter } = useGallery(images)
+  const { mainImage, isSwitching, isInitialized, handleMouseEnter } = useGallery(images)
 
   return (
     <ul className={`products-carousel w-full p-16 ${images.length > 1 ? "products-gallery" : ""}`}>
-      {images.map((img) => (
+      {images.map((img, index) => (
         <li
           key={img}
-          className={`${img === mainImage ? "carousel-main-image" : ""} ${isSwitching ? "switching" : ""} cursor-pointer`}
+          className={`${img === mainImage || (!isInitialized && index === 0)  ? "carousel-main-image" : "side-gallery-image"} ${isSwitching ? "switching" : ""} cursor-pointer`}
           onMouseEnter={() => handleMouseEnter(img)}
         >
           <img
