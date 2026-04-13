@@ -4,6 +4,7 @@
     img {
         min-width: 100%;
         min-height: calc(var(--product-img-height));
+        object-fit: contain;
     }
 
     &:hover {
