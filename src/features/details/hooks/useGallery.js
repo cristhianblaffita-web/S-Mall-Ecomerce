@@ -19,7 +19,7 @@ export const useGallery = ({images}) => {
 
         const id = setTimeout(() => {
             setIsSwitching(false);
-        }, 350)
+        }, 450)
 
         setTimeoutId(id);
 
