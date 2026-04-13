@@ -1,28 +1,9 @@
-import { useState } from "react";
+
 import "./ProductCarousel.css";
+import { useGallery } from "../../hooks/useGallery";
 
 const ProductCarousel = ({ images }) => {
-  const [mainImage, setMainImage] = useState(images[0]);
-  const [isSwitching, setIsSwitching] = useState(false);
-  const [timeoutId, setTimeoutId] = useState(null);
-
-  const handleMouseEnter = (img) => {
-    if (img === mainImage) return;
-    if (isSwitching) return;
-
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-
-    setIsSwitching(true);
-    setMainImage(img);
-
-    const id = setTimeout(() => {
-      setIsSwitching(false);
-    }, 350);
-
-    setTimeoutId(id);
-  };
+  const { mainImage, isSwitching, handleMouseEnter } = useGallery(images)
 
   return (
     <ul className={`products-carousel w-full p-16 ${images.length > 1 ? "products-gallery" : ""}`}>
