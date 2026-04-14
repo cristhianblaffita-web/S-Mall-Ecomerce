@@ -1,16 +1,17 @@
-
 import "./ProductCarousel.css";
 import { useGallery } from "@/features/details/hooks/useGallery";
 
 const ProductCarousel = ({ images }) => {
-  const { mainImage, isSwitching, isInitialized, handleMouseEnter } = useGallery(images)
+  const { mainImage, isSwitching, handleMouseEnter } = useGallery()
+
+  const currentMain = mainImage || images[0];
 
   return (
     <ul className={`products-carousel w-full p-16 ${images.length > 1 ? "products-gallery" : ""}`}>
-      {images.map((img, index) => (
+      {images.map((img) => (
         <li
           key={img}
-          className={`${img === mainImage || (!isInitialized && index === 0)  ? "carousel-main-image" : "side-gallery-image"} ${isSwitching ? "switching" : ""} cursor-pointer`}
+          className={`${img === currentMain ? "carousel-main-image" : "side-gallery-image"} ${isSwitching ? "switching" : ""} cursor-pointer`}
           onMouseEnter={() => handleMouseEnter(img)}
         >
           <img

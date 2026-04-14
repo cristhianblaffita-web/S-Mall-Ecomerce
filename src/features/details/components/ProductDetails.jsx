@@ -46,7 +46,7 @@ const ProductDetails = ({ product }) => {
 
   return (
     <section className="product-details bg-surface">
-      <ProductCarousel images={images} />
+      <ProductCarousel key={id} images={images} />
 
       <div className="product-info-wrapper bg-surface">
         <div className="product-info p-24">
