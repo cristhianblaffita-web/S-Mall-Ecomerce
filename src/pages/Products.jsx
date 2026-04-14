@@ -8,6 +8,8 @@ import EmptyState from "@/features/ui_states/empty_state/EmptyState";
 import ErrorState from "@/features/ui_states/error_state/ErrorState";
 import DataStateHandler from "@/features/ui_states/DataStateHandler";
 
+import bannerImage from "@/assets/images/home-banner.png"
+
 const Products = () => {
   const [params] = useSearchParams();
 
@@ -23,7 +25,9 @@ const Products = () => {
   return (
     <main className="w-full font-base">
       <div className="hero-banner">
-        <h1>S-MALL SHOP</h1>
+        <img src={bannerImage} className="banner-image" onLoad={(e) => e.currentTarget.classList.add("loaded")}/>
+        <div className="overlay"></div>
+        <h1 className="banner-title">S-MALL SHOP</h1>
       </div>
       <section>
         <h2 className="m-4 p-32 bg-surface rounded-md shadow-sm">
