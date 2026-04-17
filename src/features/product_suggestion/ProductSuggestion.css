@@ -1,0 +1,93 @@
+.suggestion-result {
+    transition: transform .3s ease;
+    min-width: 200px;
+    max-width: 200px;
+}
+        
+.suggestion-result {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.suggestion-result:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.image-container {
+  width: 100%;
+  height: 160px;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform .3s ease;
+}
+
+.suggestion-result:hover img {
+  transform: scale(1.05);
+}
+
+
+.content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.category {
+  font-size: 11px;
+  color: #888;
+  text-transform: capitalize;
+}
+
+
+.title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #222;
+  line-height: 1.3;
+  height: 32px;
+  overflow: hidden;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+
+.price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.rating img {
+  width: 14px;
+  height: 14px;
+}

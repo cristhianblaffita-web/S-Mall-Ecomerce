@@ -7,7 +7,7 @@ import ProductDetails from "@/features/details/components/ProductDetails";
 import DetailsSkeleton from "@/features/skeletons/details_skeleton/components/DetailsSkeleton";
 
 import useSearch from "@/hooks/useSearch";
-import SearchResult from "@/features/search/components/SearchResult";
+import ProductSuggestion from "@/features/product_suggestion/ProductSuggestion";
 
 const ProductDetail = () => {
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ const ProductDetail = () => {
                       onClick={() => navigate(`/products/${res.id}`)}
                       className="flex gap-12 decoration-none cursor-pointer rounded-md bg-background"
                     >
-                      <SearchResult product={res}/>
+                      <ProductSuggestion product={res}/>
                     </li>
                   ))}
               </ul>
