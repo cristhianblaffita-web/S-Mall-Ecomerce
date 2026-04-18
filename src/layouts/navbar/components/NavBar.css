@@ -17,6 +17,10 @@
   grid-area: logo;
 } 
 
+.logo-nav a {
+  display: inline-block;
+}
+
 .search-nav {
   grid-area: search;
 }
@@ -33,7 +37,6 @@
   place-items: center;
   place-content: center;
   background: var(--color-surface);
-  cursor: pointer;
 }
 
 .cart-items-qtty {
@@ -74,8 +77,6 @@
 .cart-shake {
   animation: cart-shake 8s ease-out infinite;
   animation-delay: 5s;
-  
-  
   transform-origin: center;
 }
 
