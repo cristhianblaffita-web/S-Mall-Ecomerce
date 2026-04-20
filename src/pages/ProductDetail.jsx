@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, useNavigate, useOutletContext } from "react-router-dom";
 import { useProducts } from "@/hooks/useProducts";
 import DataStateHandler from "@/features/ui_states/DataStateHandler";
@@ -23,6 +24,11 @@ const ProductDetail = () => {
 
   const { results: productSuggestion } = useSearch(product.category, products);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id]);
+
+  
   return (
     <main>
         <DataStateHandler
