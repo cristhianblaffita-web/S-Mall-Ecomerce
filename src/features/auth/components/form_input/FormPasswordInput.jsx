@@ -22,14 +22,9 @@ const FormPasswordInput = ({
         onChange={onChange}
       />
       <button
+        className="absolute right-20 top-33 w-24px cursor-pointer bdr-0 bg-inherit"
         aria-label="Toggle password visibility"
-        style={{
-          position: "absolute",
-          right: "20px",
-          top: "calc(100% / 3)",
-          width: "24px",
-          cursor: "pointer",
-        }}
+        type="button"
         onClick={togglePassword}
       >
         {hidePassword ? (

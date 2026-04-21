@@ -17,12 +17,28 @@
    position: fixed;
 }
 
+.inset-0 {
+   inset: 0;
+}
+
 .top-0 {
    top: 0;
 }
 
+.top-33 {
+   top: calc(100% / 3);
+}
+
 .left-0 {
    left: 0;
+}
+
+.right-0 {
+   left: 0;
+}
+
+.right-20 {
+   right: 20px;
 }
 
 .top-left {
@@ -315,6 +331,10 @@
 /* ===============================
    COLORS
    =============================== */
+
+.bg-inherit {
+   background: inherit;
+}
 
 .bg-surface {
    background-color: var(--color-surface);
