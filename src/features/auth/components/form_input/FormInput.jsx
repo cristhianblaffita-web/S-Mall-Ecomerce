@@ -1,9 +1,8 @@
 const FormInput = ({ 
     placeHolder = "", 
     type = "text",
-    value = "",
     name = "",
-    onChange = () => {}
+    ...props
 }) => {
     return (
         <input
@@ -11,9 +10,7 @@ const FormInput = ({
             name={name}
             placeholder={placeHolder}
             className="w-full p-16 rounded-sm bdr-0 bg-background text-normal"
-            value={value}
-            onChange={onChange}
-            required
+            {...props}
           />
     )
 }
