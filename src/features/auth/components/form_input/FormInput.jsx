@@ -1,16 +1,18 @@
 const FormInput = ({ 
     placeHolder = "", 
     type = "text",
-    value = null,
-    handleValue = () => {}
+    value = "",
+    name = "",
+    onChange = () => {}
 }) => {
     return (
         <input
             type={type}
+            name={name}
             placeholder={placeHolder}
             className="w-full p-16 rounded-sm bdr-0 bg-background text-normal"
             value={value}
-            onChange={handleValue}
+            onChange={onChange}
             required
           />
     )

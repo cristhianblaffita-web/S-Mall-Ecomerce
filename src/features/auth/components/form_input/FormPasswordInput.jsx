@@ -4,8 +4,9 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const FormPasswordInput = ({
   placeHolder = "Password",
-  value = null,
-  handleValue = () => {},
+  value = "",
+  name = "",
+  onChange = () => {},
 }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
@@ -15,11 +16,13 @@ const FormPasswordInput = ({
     <fieldset className="relative bdr-0">
       <FormInput
         value={value}
+        name={name}
         type={hidePassword ? "password" : "text"}
         placeHolder={placeHolder}
-        handleValue={handleValue}
+        onChange={onChange}
       />
-      <div
+      <button
+        aria-label="Toggle password visibility"
         style={{
           position: "absolute",
           right: "20px",
@@ -34,7 +37,7 @@ const FormPasswordInput = ({
         ) : (
           <FaEye className="w-full" />
         )}
-      </div>
+      </button>
     </fieldset>
   );
 };
