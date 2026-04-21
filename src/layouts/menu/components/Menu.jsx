@@ -66,7 +66,11 @@ const Menu = (
           >
             My orders
           </Link>
-          <li className="menu-item">My Account</li>
+          <Link 
+            className="menu-item decoration-none text-gray"
+            to={`/account`}
+            onClick={toggleMenu}
+          >My Account</Link>
           <Link
             className="menu-item decoration-none text-gray"
             to={`/login`}

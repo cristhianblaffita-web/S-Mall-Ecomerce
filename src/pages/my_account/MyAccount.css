@@ -1,0 +1,60 @@
+.account-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.account-layout button {
+  transition: transform 0.35s ease;
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.account-sidebar {
+  width: 100%;
+}
+
+.account-content {
+  width: 100%;
+  max-height: 250px;
+  min-height: 250px;
+}
+
+.account-content .content-list {
+  overflow: auto;
+  height: 100%;
+  max-height: 200px;
+}
+
+@media (min-width: 768px) {
+  .account-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .account-sidebar {
+    width: 35%;
+    max-width: 300px;
+  }
+
+  .account-content {
+    flex: 1;
+  }
+}
+@media (min-width: 1024px) {
+  .account-sidebar {
+    width: 30%;
+  }
+
+  .account-content {
+    max-height: 400px;
+    min-height: 400px;
+    height: 100%;
+  }
+
+  .account-content .content-list {
+    height: 100%;
+    max-height: 350px;
+  }
+}
