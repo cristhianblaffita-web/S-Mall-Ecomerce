@@ -50,3 +50,53 @@ src/
 ├── services/      # API interaction & business logic
 ├── styles/        # Global styles
 └── utils/         # Helper functions
+
+## ✨ Features
+
+- 🛍️ Product listing  
+- 🔎 Product search  
+- 🎯 Category filtering  
+- 📄 Product detail view  
+- 🛒 Shopping cart (Context API)  
+- 🔢 Quantity selector  
+- 💡 Product suggestions  
+
+### ⚡ UI States Handling
+
+- Skeleton loading  
+- Error states  
+- Empty states  
+
+- 📱 Responsive design  
+
+---
+
+## 🧠 State Management
+
+Global state (cart) is handled using **React Context API**, allowing shared access across the application without external libraries.
+
+---
+
+## 🔌 Services Layer
+
+Data access and business logic are abstracted into:
+
+- `productService.js`  
+- `filterService.js`  
+- `searchService.js`  
+
+This ensures UI components remain decoupled from data sources.
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/cristhianblaffita-web/s-mall-ecomerce.git
+cd s-mall-ecomerce
+npm install
+npm run dev
+
+## 📦 Build
+```bash
+npm run build
