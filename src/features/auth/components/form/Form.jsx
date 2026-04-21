@@ -1,6 +1,6 @@
 const Form = ({
   title = "Welcome back",
-  redirectLink = "signup",
+  redirectLink = "#",
   redirectLinkTitle = "Sign up",
   onSubmit = () => {},
   submitLabel = "Submit",
