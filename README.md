@@ -50,7 +50,9 @@ src/
 ├── services/      # API interaction & business logic
 ├── styles/        # Global styles
 └── utils/         # Helper functions
+```
 
+---
 ## ✨ Features
 
 - 🛍️ Product listing  
@@ -96,7 +98,9 @@ git clone https://github.com/cristhianblaffita-web/s-mall-ecomerce.git
 cd s-mall-ecomerce
 npm install
 npm run dev
+```
 
 ## 📦 Build
 ```bash
 npm run build
+```
