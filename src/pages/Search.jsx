@@ -19,21 +19,26 @@ const Search = () => {
 
   const { results, loading } = useSearch(query, products);
 
-  const { filterFromURL } = filterService();
+  const { filterFromURL, getMaxPrice, getMinPrice } = filterService();
 
   const filteredProducts = filterFromURL(results, params);
 
+  const maxPrice = getMaxPrice(results);
+
+  const minPrice = getMinPrice(results);
+
   return (
     <div className="p-16">
-      <h1 className="bg-surface p-24 rounded-md text-lg font-semibold mb-16">
+      <h1 className="bg-surface p-24 shadow-md rounded-md text-lg font-semibold mb-16">
         Results for "{query}"
       </h1>
 
       {!loading && results.length ? (
-        <FiltersBar/>
-      ) : (
-        false
-      )}
+        <FiltersBar 
+          productsMaxPrice={maxPrice} 
+          productsMinPrice={minPrice}
+        />
+      ) : null}
 
       <div className="products-layout gap-8">
         <DataStateHandler
