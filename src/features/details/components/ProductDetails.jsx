@@ -48,14 +48,16 @@ const ProductDetails = ({ product }) => {
     <section className="product-details bg-surface">
       <ProductCarousel key={id} images={images} />
 
-      <div className="product-info-wrapper bg-surface">
-        <div className="product-info p-24">
+      <div className="product-details-info-wrapper bg-surface">
+        <div className="product-details-info p-24">
           <h1 className="text-left">{title}</h1>
 
-          <div className="price-rating">
-            <h2 className="product-price">${finalPrice.toFixed(2)}</h2>
+          <div className="product-details-price-rating">
+            <h2 className="product-details-price">
+              ${finalPrice.toFixed(2)}
+            </h2>
 
-            <span className="rating">
+            <span className="product-details-rating">
               <img className="w-16px" src={ratingIcon} alt="rating icon" />
               {rating}
             </span>
@@ -64,15 +66,15 @@ const ProductDetails = ({ product }) => {
           <span className="text-gray">Stock: {stock}</span>
         </div>
 
-        <div className="product-description bg-background p-24 rounded-md">
+        <div className="product-details-description bg-background p-24 rounded-md">
           <h3>Description</h3>
 
           <p className="text-gray text-left">{description}</p>
         </div>
       </div>
 
-      <div className="checkout-section bg-surface">
-        <div className="checkout-controls">
+      <div className="product-details-checkout-section bg-surface rounded-md">
+        <div className="product-details-checkout-controls">
           <QuantitySelector
             quantity={quantity}
             onIncrement={increment}
@@ -80,18 +82,28 @@ const ProductDetails = ({ product }) => {
             label="Quantity"
           />
 
-          <div className="subtotal-section">
-            <span className="subtotal-label">Subtotal:</span>
-            <span className="subtotal-value">${subtotal.toFixed(2)}</span>
+          <div className="product-details-subtotal-section">
+            <span className="product-details-subtotal-label">
+              Subtotal:
+            </span>
+
+            <span className="product-details-subtotal-value">
+              ${subtotal.toFixed(2)}
+            </span>
           </div>
         </div>
 
         <button
-          className="add-to-cart-btn primary-button p-16 rounded-sm"
+          className="product-details-add-to-cart-btn primary-button p-16 rounded-sm"
           onClick={() => addToCart(cartItem)}
         >
           <span>Add to cart</span>
-          <img className="w-24px" src={addToCartIcon} alt="cart-icon" />
+
+          <img
+            className="w-24px"
+            src={addToCartIcon}
+            alt="cart-icon"
+          />
         </button>
       </div>
 

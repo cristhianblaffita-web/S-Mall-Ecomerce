@@ -7,7 +7,7 @@ const ProductCarousel = ({ images }) => {
   const currentMain = mainImage || images[0];
 
   return (
-    <ul className={`products-carousel w-full p-16 ${images.length > 1 ? "products-gallery" : ""}`}>
+    <ul className={`products-carousel w-full ${images.length > 1 ? "products-gallery" : ""}`}>
       {images.map((img) => (
         <li
           key={img}
