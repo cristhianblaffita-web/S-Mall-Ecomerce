@@ -6,7 +6,7 @@ const Cart = () => {
   const { cartItems, calculateCartTotal } = useCart();
 
   return (
-    <main className="cart">
+    <main className={`cart ${cartItems.length === 0 ? "cart--empty" : ""}`}>
       <div className="cart-header bg-surface p-32 shadow-sm">
         <h1>Cart</h1>
       </div>
@@ -33,16 +33,18 @@ const Cart = () => {
         <div className="cart-checkout-section bg-surface p-32">
           <div className="checkout-summary">
             <span>
-              Amount: <span className="checkout-total">${calculateCartTotal().toFixed(2)}</span>
+              Amount:{" "}
+              <span className="checkout-total">
+                ${calculateCartTotal().toFixed(2)}
+              </span>
             </span>
           </div>
+
           <button className="primary-button w-full p-16 rounded-md text-normal text-lg">
             Checkout
           </button>
         </div>
-      ) : (
-        false
-      )}
+      ) : null}
     </main>
   );
 };
