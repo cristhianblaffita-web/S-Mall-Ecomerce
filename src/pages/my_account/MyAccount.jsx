@@ -1,6 +1,9 @@
+import { useTheme } from "@/contexts/theme/useTheme";
+import { BiMoon, BiSun } from "react-icons/bi";
 import "./MyAccount.css";
 
 const MyAccount = () => {
+  const { theme, toggleTheme } = useTheme();
   const user = {
     name: "John Doe",
     email: "john@example.com",
@@ -18,7 +21,12 @@ const MyAccount = () => {
 
   return (
     <div className="p-16 bg-background min-h-100">
-      <h1 className="bg-surface p-32 rounded-md text-lg shadow-sm font-bold mb-16">My Account</h1>
+      <div className="flex flex-row items-center justify-between bg-surface p-32 rounded-md shadow-sm mb-16">
+        <h1 className="text-center text-lg font-bold">My Account</h1>
+        <button className="bg-background p-12 rounded-sm bdr-0 cursor-pointer" onClick={toggleTheme}>
+          {theme === "light" ? <BiMoon className="ui-icon"/> : <BiSun className="ui-icon"/>}
+        </button>
+      </div>
 
       <div className="account-layout">
 
@@ -30,11 +38,11 @@ const MyAccount = () => {
           </div>
 
           <div className="bg-surface p-16 rounded-md shadow-sm flex flex-col gap-12">
-            <button className="bg-primary text-light p-12 rounded-sm bdr-0 cursor-pointer">
+            <button className="bg-primary p-12 rounded-sm bdr-0 cursor-pointer">
               Edit Profile
             </button>
 
-            <button className="bg-accent text-light p-12 rounded-sm bdr-0 cursor-pointer">
+            <button className="bg-accent p-12 rounded-sm bdr-0 cursor-pointer">
               Logout
             </button>
           </div>
