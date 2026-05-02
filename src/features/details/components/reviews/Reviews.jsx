@@ -3,7 +3,7 @@ import "./Reviews.css";
 
 const Reviews = ({ reviews = [] }) => {
   return (
-    <div className="reviews bg-background p-24 rounded-md">
+    <div className="reviews bg-background bdr-layout p-24 rounded-md">
       <div className="reviews-header">
         <h3>Reviews ({reviews.length})</h3>
 

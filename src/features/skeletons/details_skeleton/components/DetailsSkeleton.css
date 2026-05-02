@@ -73,7 +73,9 @@
     grid-area: info-skeleton;
     margin: 0;
   }
-
+  .details-skeleton-wrapper .description-skeleton {
+    margin-top: 32px;
+  }
   .details-skeleton-wrapper .checkout-skeleton {
     grid-area: checkout-skeleton;
     height: 500px;
@@ -82,6 +84,8 @@
 
   .details-skeleton-wrapper .more-details-skeleton {
     grid-area: more-details-skeleton;
+    max-height: none;
+    height: 100%;
     margin: 0;
   }
 

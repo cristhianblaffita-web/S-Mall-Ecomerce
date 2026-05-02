@@ -49,7 +49,7 @@ const ProductDetails = ({ product }) => {
       <ProductCarousel key={id} images={images} />
 
       <div className="product-details-info-wrapper bg-surface">
-        <div className="product-details-info p-24">
+        <div className="product-details-info bg-background bdr-layout rounded-md p-24">
           <h1 className="text-left">{title}</h1>
 
           <div className="product-details-price-rating">
@@ -66,7 +66,7 @@ const ProductDetails = ({ product }) => {
           <span className="text-gray">Stock: {stock}</span>
         </div>
 
-        <div className="product-details-description bg-background p-24 rounded-md">
+        <div className="product-details-description bdr-layout bg-background p-24 rounded-md">
           <h3>Description</h3>
 
           <p className="text-gray text-left">{description}</p>
