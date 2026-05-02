@@ -14,7 +14,7 @@ const CartItem = ({
   const { decreaseItemQtty, increaseItemQtty, removeFromCart } = useCart();
 
   return (
-    <div className="cart-item w-full p-16 bg-background">
+    <div className="cart-item w-full p-16 bg-surface">
       <Link to={`/products/${itemId}`} className="item-img-link">
         <img className="item-img " src={itemImage} />
       </Link>

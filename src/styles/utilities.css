@@ -184,6 +184,11 @@
    padding: 4px;
 }
 
+.p-0 {
+   padding: 0;
+}
+
+
 .pt-16 {
    padding-top: 16px;
 }
@@ -239,6 +244,12 @@
 .mt-16 {
    margin-top: 16px;
 }
+
+.m-tb-16 {
+   margin-top: 16px;
+   margin-bottom: 16px;
+}
+
 
 .mt-32 {
    margin-top: 32px;

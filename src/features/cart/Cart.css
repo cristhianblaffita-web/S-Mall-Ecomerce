@@ -28,6 +28,7 @@
 }
 .cart-checkout-section {
   width: 100%;
+  background: var(--color-surface);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -75,6 +76,7 @@
   
   .cart-checkout-section {
     grid-area: checkout;
+    background: var(--color-surface);
     position: sticky;
     top: 10%;
     max-height: 250px;
@@ -90,3 +92,10 @@
         display: none;
     }
 }
+
+
+/* @media (min-width: 480px) {
+  .cart-checkout-section {
+    
+  }
+} */

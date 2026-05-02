@@ -11,7 +11,7 @@ const Cart = () => {
         <h1>Cart</h1>
       </div>
 
-      <section className="cart-list bg-surface shadow-sm text-gray text-center padding-tb-16">
+      <section className="cart-list bg-background shadow-sm text-gray text-center p-0">
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <CartItem
@@ -30,7 +30,7 @@ const Cart = () => {
       </section>
 
       {cartItems.length > 0 ? (
-        <div className="cart-checkout-section bg-surface p-32">
+        <div className="cart-checkout-section p-32">
           <div className="checkout-summary">
             <span>
               Amount:{" "}

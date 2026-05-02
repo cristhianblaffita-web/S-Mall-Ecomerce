@@ -30,7 +30,7 @@ const Products = () => {
         <h1 className="banner-title">S-MALL SHOP</h1>
       </div>
       <section>
-        <h2 className="m-4 p-32 bg-surface rounded-md shadow-sm">
+        <h2 className="p-32 bg-surface rounded-md shadow-sm m-4 m-tb-16">
           {!category
             ? "Best selling"
             : `${capitalize(category)} (${data?.length ?? 0})`}

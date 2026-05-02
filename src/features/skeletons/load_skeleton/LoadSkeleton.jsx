@@ -4,9 +4,9 @@ const LoadSkeleton = (
   {
     width = "150px", 
     height = "25px",
-    bg = "#e4d6db",
+    bg = "var(--color-border)",
     shimmer = "rgba(255, 255, 255, .6)",
-    accent = "#fff",
+    accent = "var(--color-surface)",
     radius = "16px"
   }) => {
   

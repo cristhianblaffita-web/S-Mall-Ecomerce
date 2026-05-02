@@ -148,7 +148,7 @@
     position: sticky;
     top: 10%;
     right: 0;
-    border: 2.5px solid var(--color-background);
+    border: 2.5px solid var(--color-border);
     align-self: start;
     margin: 0;
     padding: 8px;

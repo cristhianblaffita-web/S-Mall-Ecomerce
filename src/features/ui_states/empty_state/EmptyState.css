@@ -4,9 +4,9 @@
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    border: 1px dashed #b6c7d1;
-    background-color: #e9f2f7;
-    color: #2b3a4b;
+    border: 1px dashed var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
     border-radius: 0.5rem;
     text-align: center;
     width: 90vw;
