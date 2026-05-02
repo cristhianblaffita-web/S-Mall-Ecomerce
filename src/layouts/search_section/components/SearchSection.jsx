@@ -1,8 +1,8 @@
 import "./SearchSection.css"
 import { useNavigate } from "react-router-dom"
-import previousIcon from "@/assets/icons/ui/arrow-back.png"
-import clearIcon from "@/assets/icons/ui/remove.png"
-import searchIcon from "@/assets/icons/navigation/search.png"
+import { BiLeftArrowAlt } from "react-icons/bi"
+import { BiSearch } from "react-icons/bi"
+import { MdClear } from "react-icons/md"
 import useSearch from "@/hooks/useSearch"
 
 const SearchSection = (
@@ -44,7 +44,7 @@ const SearchSection = (
             onClick={handleBack}
             aria-label="Go back"
           >
-            <img src={previousIcon} alt="" />
+            <BiLeftArrowAlt className="ui-icon" />
           </button>
 
           <input
@@ -61,7 +61,7 @@ const SearchSection = (
               onClick={handleClear}
               aria-label="Clear search"
             >
-              <img src={clearIcon} alt="" />
+              <MdClear className="ui-icon"/> 
             </button>
           )}
 
@@ -71,7 +71,7 @@ const SearchSection = (
             aria-label="Search"
 
           >
-            <img src={searchIcon} alt="" />
+            <BiSearch className="ui-icon"/>
           </button>
 
         </div>
@@ -88,7 +88,7 @@ const SearchSection = (
             <li className="text-sm text-gray p-12">
               No results found
             </li>
-          ) : searchResults.map((res, index) => (
+          ) : searchResults.map((res) => (
             <li
               key={res.id}
               onClick={() => goToItemDetails(res.id)}

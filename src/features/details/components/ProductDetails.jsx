@@ -6,7 +6,7 @@ import MoreDetails from "@/features/details/components/more_details/MoreDetails"
 import Reviews from "@/features/details/components/reviews/Reviews";
 import QuantitySelector from "@/features/quantity_selector/components/QuantitySelector";
 import ratingIcon from "@/assets/icons/ui/star.png";
-import addToCartIcon from "@/assets/icons/ui/add-to-cart.png";
+import { BiCartAdd } from "react-icons/bi";
 import { setDiscount } from "@/utils/setDiscount";
 
 const ProductDetails = ({ product }) => {
@@ -99,11 +99,7 @@ const ProductDetails = ({ product }) => {
         >
           <span>Add to cart</span>
 
-          <img
-            className="w-24px"
-            src={addToCartIcon}
-            alt="cart-icon"
-          />
+          <BiCartAdd className="ui-icon"/>
         </button>
       </div>
 

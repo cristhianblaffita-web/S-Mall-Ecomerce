@@ -1,5 +1,5 @@
 import "./Menu.css";
-import closeIcon from "@/assets/icons/ui/close.png";
+import { CgClose } from "react-icons/cg";
 import { useCategories } from "@/hooks/useCategories";
 import { capitalize } from "@/utils/format";
 import { Link } from "react-router-dom";
@@ -27,7 +27,7 @@ const Menu = (
           className="close-btn absolute w-18px bdr-0"
           onClick={toggleMenu}
         >
-          <img className="w-18px" src={closeIcon} alt="Close menu" />
+         <CgClose className="ui-icon"/>
         </button>
       </div>
 

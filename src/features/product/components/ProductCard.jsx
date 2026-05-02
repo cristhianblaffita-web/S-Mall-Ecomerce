@@ -3,7 +3,7 @@ import { useCart } from "@/contexts/cart/useCart";
 import { setDiscount } from "@/utils/setDiscount";
 import "./ProductCard.css";
 import rateIcon from "@/assets/icons/ui/star.png";
-import addToCartIcon from "@/assets/icons/ui/add-to-cart.png";
+import { BiCartAdd } from "react-icons/bi";
 
 const ProductCard = ({ product }) => {
   if (!product) return null;
@@ -58,7 +58,7 @@ const ProductCard = ({ product }) => {
         onClick={() => addToCart(cartProduct)}
       >
         <span>Add to cart</span>
-        <img src={addToCartIcon} alt="Add to cart icon" />
+        <BiCartAdd className="ui-icon"/>
       </button>
     </div>
   );

@@ -1,5 +1,5 @@
 import "./MoreDetails.css";
-import arrowDown from "@/assets/icons/ui/arrow-down.png";
+import { BiChevronDown } from "react-icons/bi";
 
 const MoreDetails = ({
   brand = "---",
@@ -13,11 +13,7 @@ const MoreDetails = ({
         <span className="font-bold">More Details</span>
 
         <span>
-          <img
-            className="details-icon w-16px"
-            src={arrowDown}
-            alt="toggle-icon"
-          />
+          <BiChevronDown className="details-icon ui-icon"/>
         </span>
       </summary>
 
