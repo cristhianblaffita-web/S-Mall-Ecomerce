@@ -68,6 +68,7 @@
   background-color: var(--color-surface);
   box-shadow: var(--shadow-md);
   border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
   transform: scale(1.03);
   cursor: pointer;
 }

@@ -19,12 +19,17 @@
   width: 100%;
   max-height: 250px;
   min-height: 250px;
+  border: 1.5px solid var(--color-border);
 }
 
 .account-content .content-list {
   overflow: auto;
   height: 100%;
   max-height: 200px;
+}
+
+.account-content .content-list > :last-child {
+  margin-bottom: 16px;
 }
 
 @media (min-width: 768px) {
