@@ -8,7 +8,7 @@ const SearchResult = ({ product }) => {
 
   return (
     <Link
-      className="search-result bg-surface p-12 rounded-md decoration-none"
+      className="search-result bg-surface bdr-layout p-12 rounded-md decoration-none"
       to={`/products/${product.id}`}
     >
       <img

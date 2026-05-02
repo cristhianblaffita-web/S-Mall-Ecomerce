@@ -29,7 +29,7 @@ const Search = () => {
 
   return (
     <div className="p-16">
-      <h1 className="bg-surface p-24 shadow-md rounded-md text-lg font-semibold mb-16">
+      <h1 className="bg-surface bdr-layout p-24 shadow-md rounded-md text-lg font-semibold mb-16">
         Results for "{query}"
       </h1>
 

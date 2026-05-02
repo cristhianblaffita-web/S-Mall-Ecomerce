@@ -21,7 +21,7 @@ const MyAccount = () => {
 
   return (
     <div className="p-16 bg-background min-h-100">
-      <div className="flex flex-row items-center justify-between bg-surface p-32 rounded-md shadow-sm mb-16">
+      <div className="flex flex-row items-center justify-between bdr-layout bg-surface p-32 rounded-md shadow-sm mb-16">
         <h1 className="text-center text-lg font-bold">My Account</h1>
         <button className="bg-background p-12 rounded-sm bdr-0 cursor-pointer" onClick={toggleTheme}>
           {theme === "light" ? <BiMoon className="ui-icon"/> : <BiSun className="ui-icon"/>}
@@ -32,12 +32,12 @@ const MyAccount = () => {
 
         <div className="account-sidebar flex flex-col gap-16">
 
-          <div className="bg-surface p-16 rounded-md shadow-sm">
+          <div className="bg-surface p-16 bdr-layout rounded-md shadow-sm">
             <p className="text-base font-medium">{user.name}</p>
             <p className="text-sm text-gray">{user.email}</p>
           </div>
 
-          <div className="bg-surface p-16 rounded-md shadow-sm flex flex-col gap-12">
+          <div className="bg-surface p-16 bdr-layout rounded-md shadow-sm flex flex-col gap-12">
             <button className="bg-primary p-12 rounded-sm bdr-0 cursor-pointer">
               Edit Profile
             </button>
