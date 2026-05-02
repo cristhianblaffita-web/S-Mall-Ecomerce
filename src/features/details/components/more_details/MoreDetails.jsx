@@ -8,7 +8,7 @@ const MoreDetails = ({
   warranty = "No warranty",
 }) => {
   return (
-    <details className="more-details bg-background p-24 rounded-md">
+    <details className="more-details bg-background bdr-layout p-24 rounded-md" open>
       <summary className="cursor-pointer">
         <span className="font-bold">More Details</span>
 

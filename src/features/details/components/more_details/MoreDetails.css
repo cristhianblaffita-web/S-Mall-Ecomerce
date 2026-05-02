@@ -1,5 +1,7 @@
 .details-icon {
     transition: transform 0.25s ease-in;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .details-icon:hover {
@@ -45,5 +47,13 @@ details[open] .details-icon {
 
     details[open].more-details {
         height: auto;
+    }
+
+    details {
+        pointer-events: none;
+    }
+
+    .details-icon {
+        visibility: hidden;
     }
 }
