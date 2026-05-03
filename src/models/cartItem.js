@@ -6,5 +6,6 @@ export const createCartItem = (product) => {
     price: product.price,
     qtty: product.quantity || 1,
     subtotal: product.price * (product.quantity || 1),
+    stock: product.stock
   };
 };

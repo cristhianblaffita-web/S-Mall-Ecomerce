@@ -4,16 +4,14 @@ import { createCartItem } from "@/models/cartItem";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  
   const [cartItems, setCartItems] = useState(() => {
-    const stored =localStorage.getItem("cart");
+    const stored = localStorage.getItem("cart");
     return stored ? JSON.parse(stored) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems))
+    localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
-  
 
   const [cartAnimation, setCartAnimation] = useState("");
 
@@ -43,12 +41,18 @@ export const CartProvider = ({ children }) => {
 
       if (productExists) {
         return prev.map((item) =>
-          item.id === cartItem.id
-            ? {
-                ...item,
-                qtty: item.qtty + cartItem.qtty,
-                subtotal: (item.qtty + cartItem.qtty) * item.price,
-              }
+          item.id === cartItem.id && item.qtty < item.stock
+            ? item.qtty + cartItem.qtty < item.stock
+              ? {
+                  ...item,
+                  qtty: item.qtty + cartItem.qtty,
+                  subtotal: (item.qtty + cartItem.qtty) * item.price,
+                }
+              : {
+                  ...item,
+                  qtty: item.stock,
+                  subtotal: item.stock * item.price,
+                }
             : item,
         );
       }
@@ -80,7 +84,7 @@ export const CartProvider = ({ children }) => {
   const increaseItemQtty = (id) => {
     setCartItems((prev) => {
       return prev.map((item) =>
-        item.id === id
+        (item.id === id && item.qtty < item.stock)
           ? {
               ...item,
               qtty: item.qtty + 1,

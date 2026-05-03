@@ -32,6 +32,7 @@ const ProductDetails = ({ product }) => {
   const { quantity, subtotal, increment, decrement } = useQuantity(
     1,
     finalPrice,
+    stock
   );
 
   const { addToCart } = useCart();
@@ -41,7 +42,8 @@ const ProductDetails = ({ product }) => {
     title: title,
     image: thumbnail,
     price: finalPrice,
-    quantity: quantity,
+    quantity: quantity > stock ? stock : quantity,
+    stock: stock
   };
 
   return (
