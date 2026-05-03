@@ -1,54 +1,70 @@
+/* src/layouts/navbar/components/NavBar.css */
+
 .navbar {
   z-index: 100;
+
   background: var(--color-surface);
   border-bottom: 1.5px solid var(--color-border);
+
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr;
-  grid-template-areas: "options-menu logo search cart";
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
 }
-
-
 
 .options-nav {
-  grid-area: options-menu;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
-
 
 .logo-nav {
-  grid-area: logo;
-} 
-
-.logo-nav a {
-  display: inline-block;
-}
-
-.search-nav {
-  grid-area: search;
-}
-
-.cart-nav {
-  grid-area: cart;
-  transform: scale(1);
-  transition: transform .3s ease;
-}
-
-
-.options-nav, .search-nav, .cart-nav {
   display: flex;
-  place-items: center;
-  place-content: center;
+  align-items: center;
+  justify-content: center;
+   transform: translateX(12px);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.search-nav,
+.cart-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon-button {
+  border: 0;
+  cursor: pointer;
+
   background: var(--color-surface);
-  
+
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-items-qtty {
   top: -5px;
-  left: calc((100vw/6) / 2);
+  right: -12px;
+
   width: 22px;
   height: 22px;
+
   color: #ffffff;
 }
-
 
 .cart-bump {
   animation: bump 0.28s ease-out;
@@ -74,7 +90,6 @@
     transform: scale(1);
     filter: brightness(1);
   }
-  
 }
 
 .cart-shake {
@@ -83,16 +98,32 @@
   transform-origin: center;
 }
 
-
 @keyframes cart-shake {
-  0% { transform: scale(1) rotate(0deg); }
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
 
-  2% { transform: scale(1.1) rotate(-8deg); }
-  4% { transform: scale(1.1) rotate(6deg); }
-  6% { transform: scale(1.05) rotate(-4deg); }
-  8% { transform: scale(1.05) rotate(3deg); }
+  2% {
+    transform: scale(1.1) rotate(-8deg);
+  }
 
-  10% { transform: scale(1) rotate(0deg); }
+  4% {
+    transform: scale(1.1) rotate(6deg);
+  }
 
-  100% { transform: scale(1) rotate(0deg); }
+  6% {
+    transform: scale(1.05) rotate(-4deg);
+  }
+
+  8% {
+    transform: scale(1.05) rotate(3deg);
+  }
+
+  10% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
