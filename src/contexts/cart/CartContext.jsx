@@ -36,12 +36,14 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     const cartItem = createCartItem(product);
 
+    if (cartItem.stock <= 0) return;
+
     setCartItems((prev) => {
       const productExists = prev.find((item) => item.id === cartItem.id);
 
       if (productExists) {
         return prev.map((item) =>
-          item.id === cartItem.id && item.qtty < item.stock
+          (item.id === cartItem.id && item.qtty < item.stock)
             ? item.qtty + cartItem.qtty < item.stock
               ? {
                   ...item,
