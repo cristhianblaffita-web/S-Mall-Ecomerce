@@ -5,9 +5,10 @@ const QuantitySelector = ({
   onIncrement = () => {},
   onDecrement = () => {},
   label,
+  disabled = false,
 }) => {
   return (
-    <div className="quantity-selector">
+    <div className={`quantity-selector ${disabled ? "disabled" : ""}`}>
       {label && <label htmlFor="product-quantity">{label}: </label>}
       <div className="quantity-controls">
         <button
@@ -15,6 +16,7 @@ const QuantitySelector = ({
           className="quantity-btn"
           onClick={onDecrement}
           aria-label="Decrease quantity"
+          disabled={disabled}
         >
           −
         </button>
@@ -25,12 +27,14 @@ const QuantitySelector = ({
           className="quantity-input"
           value={quantity}
           readOnly
+          disabled={disabled}
         />
         <button
           type="button"
           className="quantity-btn"
           onClick={onIncrement}
           aria-label="Increase quantity"
+          disabled={disabled}
         >
           +
         </button>

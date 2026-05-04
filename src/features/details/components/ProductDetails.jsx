@@ -9,6 +9,8 @@ import QuantitySelector from "@/features/quantity_selector/components/QuantitySe
 import ratingIcon from "@/assets/icons/ui/star.png";
 import { BiCartAdd } from "react-icons/bi";
 import { setDiscount } from "@/utils/setDiscount";
+import { PiWarningFill } from "react-icons/pi";
+
 
 const ProductDetails = ({ product }) => {
   const {
@@ -33,7 +35,7 @@ const ProductDetails = ({ product }) => {
   const { quantity, subtotal, increment, decrement, setQuantity } = useQuantity(
     1,
     finalPrice,
-    stock
+    stock,
   );
 
   useEffect(() => {
@@ -48,8 +50,10 @@ const ProductDetails = ({ product }) => {
     image: thumbnail,
     price: finalPrice,
     quantity: quantity > stock ? stock : quantity,
-    stock: stock
+    stock: stock,
   };
+
+  const isOutOfStock = stock <= 0;
 
   return (
     <section className="product-details bg-surface">
@@ -60,9 +64,7 @@ const ProductDetails = ({ product }) => {
           <h1 className="text-left">{title}</h1>
 
           <div className="product-details-price-rating">
-            <h2 className="product-details-price">
-              ${finalPrice.toFixed(2)}
-            </h2>
+            <h2 className="product-details-price">${finalPrice.toFixed(2)}</h2>
 
             <span className="product-details-rating">
               <img className="w-16px" src={ratingIcon} alt="rating icon" />
@@ -70,7 +72,10 @@ const ProductDetails = ({ product }) => {
             </span>
           </div>
 
-          <span className="flex items-center gap-8 text-gray">Stock: {stock > 0 ? stock : <p className="text-error">Not available</p>}</span>
+          <span className="flex items-center gap-8 text-gray">
+            Stock:{" "}
+            {stock > 0 ? stock : <p className="text-error">Not available</p>}
+          </span>
         </div>
 
         <div className="product-details-description bdr-layout bg-background p-24 rounded-md">
@@ -81,12 +86,24 @@ const ProductDetails = ({ product }) => {
       </div>
 
       <div className="product-details-checkout-section bg-surface rounded-md">
+        {isOutOfStock && (
+          <div className="out-of-stock-notification">
+          
+            <PiWarningFill className="out-of-stock-icon"/>
+            <div>
+              <p className="out-of-stock-title">Out of Stock</p>
+              <p className="out-of-stock-message">This product is currently unavailable</p>
+            </div>
+          </div>
+        )}
+
         <div className="product-details-checkout-controls">
           <QuantitySelector
             quantity={quantity}
             onIncrement={increment}
             onDecrement={decrement}
             label="Quantity"
+            disabled={isOutOfStock}
           />
 
           <div className="product-details-subtotal-section">
@@ -103,10 +120,11 @@ const ProductDetails = ({ product }) => {
         <button
           className="product-details-add-to-cart-btn primary-button p-16 rounded-sm"
           onClick={() => addToCart(cartItem)}
+          disabled={isOutOfStock}
         >
           <span>Add to cart</span>
 
-          <BiCartAdd className="ui-icon"/>
+          <BiCartAdd className="ui-icon" />
         </button>
       </div>
 
