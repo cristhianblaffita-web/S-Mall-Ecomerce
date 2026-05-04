@@ -1,4 +1,5 @@
 import "./ProductDetails.css";
+import { useEffect } from "react";
 import { useCart } from "@/contexts/cart/useCart";
 import { useQuantity } from "@/hooks/useQuantity";
 import ProductCarousel from "@/features/details/components/product_carousel/ProductCarousel";
@@ -29,11 +30,15 @@ const ProductDetails = ({ product }) => {
 
   const finalPrice = setDiscount(basePrice, discountPercentage);
 
-  const { quantity, subtotal, increment, decrement } = useQuantity(
+  const { quantity, subtotal, increment, decrement, setQuantity } = useQuantity(
     1,
     finalPrice,
     stock
   );
+
+  useEffect(() => {
+    setQuantity(1);
+  }, [id, setQuantity]);
 
   const { addToCart } = useCart();
 
