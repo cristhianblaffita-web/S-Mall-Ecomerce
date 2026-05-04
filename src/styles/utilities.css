@@ -391,6 +391,10 @@
    color: var(--color-surface);
 }
 
+.text-error {
+   color: var(--color-danger);
+}
+
 /* ===============================
    RADIUS
    =============================== */

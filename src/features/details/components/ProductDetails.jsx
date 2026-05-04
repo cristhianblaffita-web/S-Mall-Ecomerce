@@ -65,7 +65,7 @@ const ProductDetails = ({ product }) => {
             </span>
           </div>
 
-          <span className="text-gray">Stock: {stock}</span>
+          <span className="flex items-center gap-8 text-gray">Stock: {stock > 0 ? stock : <p className="text-error">Not available</p>}</span>
         </div>
 
         <div className="product-details-description bdr-layout bg-background p-24 rounded-md">
