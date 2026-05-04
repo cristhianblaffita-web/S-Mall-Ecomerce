@@ -72,9 +72,9 @@ const ProductDetails = ({ product }) => {
             </span>
           </div>
 
-          <span className="flex items-center gap-8 text-gray">
+          <span className={`flex items-center gap-8 ${isOutOfStock ? "text-error" : "text-gray"}`}>
             Stock:{" "}
-            {stock > 0 ? stock : <p className="text-error">Not available</p>}
+            {stock > 0 ? stock : "Not available"}
           </span>
         </div>
 
