@@ -63,8 +63,7 @@ export const filterService = () => {
     let result = data;
 
     if (rating) result = filterByRate(result, rating);
-    if (minPrice || maxPrice)
-      result = filterByPrice(result, minPrice, maxPrice);
+    if (minPrice || maxPrice) result = filterByPrice(result, minPrice, maxPrice);
 
     return result;
   };
