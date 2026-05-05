@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 
-details[open] .details-icon {
+.more-details details[open] .details-icon {
     transform: rotate(180deg);
 }
 
@@ -45,15 +45,15 @@ details[open] .details-icon {
         margin: 0;
     }
 
-    details[open].more-details {
+    .more-details details[open].more-details {
         height: auto;
     }
 
-    details {
+    .more-details details {
         pointer-events: none;
     }
 
-    .details-icon {
+    .more-details .details-icon {
         visibility: hidden;
     }
 }

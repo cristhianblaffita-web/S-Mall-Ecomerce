@@ -1,6 +1,6 @@
 import "./Menu.css";
 import { CgClose } from "react-icons/cg";
-import { BiMoon, BiSun } from "react-icons/bi";
+import { BiMoon, BiSun, BiChevronDown } from "react-icons/bi";
 import { useCategories } from "@/hooks/useCategories";
 import { useTheme } from "@/contexts/theme/useTheme";
 import { capitalize } from "@/utils/format";
@@ -34,76 +34,86 @@ const Menu = (
         </button>
       </div>
 
-      <div className="menu-section">
-        <h2>Categories</h2>
-        <hr />
-        <DataStateHandler
-          isLoading={productsLoading}
-          loadingComponent={<CategoriesLoading/>}
-          error={productsError}
-          errorComponent={<ErrorState error={productsError}/>}
-        >
-          <ul className="menu-list">
-            {categories.map((category) => (
-              <Link
-                key={category}
-                className="menu-item decoration-none text-gray"
-                to={`/products?category=${category}`}
-                onClick={toggleMenu}
-              >
-                {capitalize(category)}
-              </Link>
-            ))}
+      <div className="mt-16">
+
+        <details className="menu-section bg-surface p-16 bdr-layout rounded-md shadow-sm mb-16" open>
+          <summary className="menu-section-header cursor-pointer">
+            <h2>Categories</h2>
+            <BiChevronDown className="menu-chevron" />
+          </summary>
+          <DataStateHandler
+            isLoading={productsLoading}
+            loadingComponent={<CategoriesLoading/>}
+            error={productsError}
+            errorComponent={<ErrorState error={productsError}/>}
+          >
+            <ul className="menu-list mt-16">
+              {categories.map((category) => (
+                <Link
+                  key={category}
+                  className="menu-item decoration-none text-gray"
+                  to={`/products?category=${category}`}
+                  onClick={toggleMenu}
+                >
+                  {capitalize(category)}
+                </Link>
+              ))}
+            </ul>
+          </DataStateHandler>
+        </details>
+
+        <details className="menu-section bg-surface p-16 bdr-layout rounded-md shadow-sm mb-16" open>
+          <summary className="menu-section-header cursor-pointer">
+            <h2>Options</h2>
+            <BiChevronDown className="menu-chevron" />
+          </summary>
+          <ul className="menu-list mt-16">
+            <Link
+              className="menu-item decoration-none text-gray"
+              to={`/cart`}
+              onClick={toggleMenu}
+            >
+              My orders
+            </Link>
+            <Link 
+              className="menu-item decoration-none text-gray"
+              to={`/account`}
+              onClick={toggleMenu}
+            >My Account</Link>
+            <Link
+              className="menu-item decoration-none text-gray"
+              to={`/login`}
+              onClick={toggleMenu}
+            >
+              Login
+            </Link>
           </ul>
-        </DataStateHandler>
+        </details>
+
+        <details className="menu-section bg-surface p-16 bdr-layout rounded-md shadow-sm mb-16" open>
+          <summary className="menu-section-header cursor-pointer">
+            <h2>Preferences</h2>
+            <BiChevronDown className="menu-chevron" />
+          </summary>
+          <button 
+            className="menu-item bg-transparent bdr-0 cursor-pointer decoration-none text-gray flex items-center gap-8 mt-16"
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? (
+              <>
+                <BiMoon className="ui-icon" />
+                Dark Mode
+              </>
+            ) : (
+              <>
+                <BiSun className="ui-icon" />
+                Light Mode
+              </>
+            )}
+          </button>
+        </details>
       </div>
 
-      <div className="menu-section">
-        <h2>Options</h2>
-        <hr />
-        <ul className="menu-list">
-          <Link
-            className="menu-item decoration-none text-gray"
-            to={`/cart`}
-            onClick={toggleMenu}
-          >
-            My orders
-          </Link>
-          <Link 
-            className="menu-item decoration-none text-gray"
-            to={`/account`}
-            onClick={toggleMenu}
-          >My Account</Link>
-          <Link
-            className="menu-item decoration-none text-gray"
-            to={`/login`}
-            onClick={toggleMenu}
-          >
-            Login
-          </Link>
-        </ul>
-      </div>
-
-      <div className="menu-section">
-        <h2>Preferences</h2>
-        <hr />
-        <button 
-          className="menu-item bg-transparent bdr-0 cursor-pointer decoration-none text-gray flex items-center gap-8"
-          onClick={toggleTheme}
-        >
-          {theme === "light" ? (
-            <>
-              <BiMoon className="ui-icon" />
-              Dark Mode
-            </>
-          ) : (
-            <>
-              <BiSun className="ui-icon" />
-              Light Mode
-            </>
-          )}
-        </button>
-      </div>
     </aside>
   );
 };
