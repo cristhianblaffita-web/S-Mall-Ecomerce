@@ -1,6 +1,8 @@
 import "./Menu.css";
 import { CgClose } from "react-icons/cg";
+import { BiMoon, BiSun } from "react-icons/bi";
 import { useCategories } from "@/hooks/useCategories";
+import { useTheme } from "@/contexts/theme/useTheme";
 import { capitalize } from "@/utils/format";
 import { Link } from "react-router-dom";
 import DataStateHandler from "@/features/ui_states/DataStateHandler"
@@ -17,6 +19,7 @@ const Menu = (
   }
 ) => {
   const categories = useCategories(products);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <aside
@@ -79,6 +82,27 @@ const Menu = (
             Login
           </Link>
         </ul>
+      </div>
+
+      <div className="menu-section">
+        <h2>Preferences</h2>
+        <hr />
+        <button 
+          className="menu-item bg-transparent bdr-0 cursor-pointer decoration-none text-gray flex items-center gap-8"
+          onClick={toggleTheme}
+        >
+          {theme === "light" ? (
+            <>
+              <BiMoon className="ui-icon" />
+              Dark Mode
+            </>
+          ) : (
+            <>
+              <BiSun className="ui-icon" />
+              Light Mode
+            </>
+          )}
+        </button>
       </div>
     </aside>
   );
