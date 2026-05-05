@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 export const useGallery = () => {
   const [mainImage, setMainImage] = useState(null);
@@ -6,22 +6,46 @@ export const useGallery = () => {
   const [timeoutId, setTimeoutId] = useState(null);
 
   function handleMouseEnter(img) {
-        if (img === mainImage) return;
-        if (isSwitching) return;
+    if (img === mainImage) return;
+    if (isSwitching) return;
 
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-
-        setIsSwitching(true);
-        setMainImage(img);
-
-        const id = setTimeout(() => {
-            setIsSwitching(false);
-        }, 450)
-
-        setTimeoutId(id);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
     }
 
-  return {mainImage, isSwitching, handleMouseEnter}
+    setIsSwitching(true);
+    setMainImage(img);
+
+    const id = setTimeout(() => {
+      setIsSwitching(false);
+    }, 450);
+
+    setTimeoutId(id);
+  }
+
+  function handleCarouselScroll(direction) {
+    if (isSwitching) return;
+
+    setIsSwitching(true);
+
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+
+    const carousel = document.querySelector(".products-carousel");
+    const scrollAmount = carousel.clientWidth + 16;
+    carousel.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+
+    const id = setTimeout(() => {
+        setIsSwitching(false);
+    }, 450);
+
+    setTimeoutId(id);
+  }
+
+  return { mainImage, isSwitching, handleMouseEnter, handleCarouselScroll };
 };
