@@ -1,4 +1,5 @@
 import "./MoreDetails.css";
+import { useState, useEffect } from "react";
 import { BiChevronDown } from "react-icons/bi";
 
 const MoreDetails = ({
@@ -7,8 +8,22 @@ const MoreDetails = ({
   dimensions = [],
   warranty = "No warranty",
 }) => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <details className="more-details bg-background bdr-layout p-24 rounded-md" open>
+    <details 
+      className="more-details bg-background bdr-layout p-24 rounded-md" 
+      open={isDesktop}
+    >
       <summary className="cursor-pointer">
         <span className="font-bold">More Details</span>
 
