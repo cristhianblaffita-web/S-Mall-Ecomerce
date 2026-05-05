@@ -23,29 +23,40 @@ export const useGallery = () => {
     setTimeoutId(id);
   }
 
-  function handleCarouselScroll(direction) {
-    if (isSwitching) return;
+  function handleCarouselScroll(direction, images) {
+  if (isSwitching || !images.length) return;
 
-    setIsSwitching(true);
+  const currentIndex = mainImage ? images.indexOf(mainImage) : 0;
+  const canGoLeft = currentIndex > 0;
+  const canGoRight = currentIndex < images.length - 1;
 
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-
-
-    const carousel = document.querySelector(".products-carousel");
-    const scrollAmount = carousel.clientWidth + 16;
-    carousel.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-
-    const id = setTimeout(() => {
-        setIsSwitching(false);
-    }, 450);
-
-    setTimeoutId(id);
+  if ((direction === "left" && !canGoLeft) || (direction === "right" && !canGoRight)) {
+    return;
   }
+
+  setIsSwitching(true);
+
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+
+  const carousel = document.querySelector(".products-carousel");
+  const scrollAmount = carousel.clientWidth + 16;
+  carousel.scrollBy({
+    left: direction === "left" ? -scrollAmount : scrollAmount,
+    behavior: "smooth",
+  });
+
+
+  const newIndex = direction === "left" ? currentIndex - 1 : currentIndex + 1;
+  setMainImage(images[newIndex]);
+
+  const id = setTimeout(() => {
+    setIsSwitching(false);
+  }, 450);
+
+  setTimeoutId(id);
+}
 
   return { mainImage, isSwitching, handleMouseEnter, handleCarouselScroll };
 };

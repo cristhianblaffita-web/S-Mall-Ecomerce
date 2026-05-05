@@ -26,11 +26,19 @@
   border-radius: 8px;
   padding: 16px;
   cursor: pointer;
+  pointer-events: auto;
+   opacity: 1;
   transition: transform 0.35s ease;
 }
 
 .carousel-control:active {
   transform: scale(0.90);
+}
+
+.control-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .products-carousel {

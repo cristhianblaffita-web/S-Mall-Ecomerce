@@ -11,12 +11,15 @@ const ProductCarousel = ({ images }) => {
 
   const showControls = hasMultipleImages;
 
+  const isFirtsImage = images.indexOf(currentMain) === 0;
+  const isLastImage = images.indexOf(currentMain) === images.length - 1;
+
   return (
     <div className="carousel-container">
       {showControls && (
         <div className="carousel-controls-wrapper">
-          <button className="carousel-control" onClick={() => handleCarouselScroll("left")}><BiChevronLeft /></button>
-          <button className="carousel-control" onClick={() => handleCarouselScroll("right")}><BiChevronRight /></button>  
+          <button className={`carousel-control ${isFirtsImage ? "control-disabled" : ""}`} onClick={() => handleCarouselScroll("left", images)}><BiChevronLeft /></button>
+          <button className={`carousel-control ${isLastImage ? "control-disabled" : ""}`} onClick={() => handleCarouselScroll("right", images)}><BiChevronRight /></button>  
         </div>
       )}
       <ul className={`products-carousel  w-full ${images.length > 1 ? "products-gallery" : ""}`}>
