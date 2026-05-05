@@ -22,17 +22,30 @@ const Products = () => {
     return products?.filter((p) => p.category === category) || [];
   }, [products, category]);
 
+  const handleScrollToProducts = () => {
+    document.getElementById('products-section')?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <main className="w-full font-base">
       <div className="hero-banner">
         <img src={bannerImage} className="banner-image" onLoad={(e) => e.currentTarget.classList.add("loaded")}/>
-        <div className="overlay"></div>
-        <h1 className="banner-title">S-MALL SHOP</h1>
+        <div className="hero-overlay"></div>
+        <div className="hero-gradient"></div>
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1 className="hero-title">S-MALL ECOMMERCE</h1>
+            <p className="hero-subtitle">Discover premium products curated for you</p>
+          </div>
+          <button className="hero-cta cursor-pointer" onClick={handleScrollToProducts}>
+            Shop Now
+          </button>
+        </div>
       </div>
-      <section>
+      <section id="products-section">
         <h2 className="p-32 bdr-layout bg-surface rounded-md shadow-sm m-4 m-tb-16">
           {!category
-            ? "Best selling"
+            ? "All Products"
             : `${capitalize(category)} (${data?.length ?? 0})`}
         </h2>
 
