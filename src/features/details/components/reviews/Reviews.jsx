@@ -1,4 +1,4 @@
-import ratingIcon from "@/assets/icons/ui/star.png";
+import { BsStarFill } from "react-icons/bs";
 import "./Reviews.css";
 
 const Reviews = ({ reviews = [] }) => {
@@ -40,15 +40,11 @@ const Reviews = ({ reviews = [] }) => {
 
                   <div className="review-rating">
                     {[...Array(5)].map((_, i) => (
-                      <img
-                        key={i}
-                        className="w-16px"
-                        src={ratingIcon}
-                        alt="star"
+                      <BsStarFill key={i}
+                        className="rating-icon w-16px"
                         style={{
                           opacity: i < review.rating ? 1 : 0.3,
-                        }}
-                      />
+                        }}/>
                     ))}
                   </div>
                 </div>

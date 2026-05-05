@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { setDiscount } from "@/utils/setDiscount"
 import "./ProductSuggestion.css"
-import RateIcon from "@/assets/icons/ui/star.png"
+import { BsStarFill } from "react-icons/bs";
 
 const ProductSuggestion = ({ product }) => {
   const productDiscount = setDiscount(product.price, product.discountPercentage)
@@ -32,7 +32,7 @@ const ProductSuggestion = ({ product }) => {
           </div>
 
           <div className="rating">
-            <img src={RateIcon} alt="rating" />
+            <BsStarFill className="rating-icon"/>
             <span>{product.rating}</span>
           </div>
         </div>

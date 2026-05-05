@@ -5,6 +5,12 @@
   height: 24px;
 }
 
+.rating-icon{
+  min-width: 12px;
+  height: auto;
+  color: #fbbf24;
+}
+
 .products-layout {
   display: grid;
   grid-template-columns: repeat(2, auto);

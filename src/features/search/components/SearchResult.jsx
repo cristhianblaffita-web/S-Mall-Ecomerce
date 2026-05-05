@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { setDiscount } from "@/utils/setDiscount"
-import RatingIcon from "@/assets/icons/ui/star.png"
+import { BsStarFill } from "react-icons/bs";
 import "./SearchResult.css"
 
 const SearchResult = ({ product }) => {
@@ -27,7 +27,7 @@ const SearchResult = ({ product }) => {
       </p>
 
       <div className="flex items-center gap-8 mt-4">
-        <img className="rating-icon" src={RatingIcon} />
+        <BsStarFill className="rating-icon"/>
         <span className="text-xs text-gray">
           {product.rating.toFixed(1)}
         </span>

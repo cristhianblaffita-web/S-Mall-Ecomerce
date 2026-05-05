@@ -6,7 +6,7 @@ import ProductCarousel from "@/features/details/components/product_carousel/Prod
 import MoreDetails from "@/features/details/components/more_details/MoreDetails";
 import Reviews from "@/features/details/components/reviews/Reviews";
 import QuantitySelector from "@/features/quantity_selector/components/QuantitySelector";
-import ratingIcon from "@/assets/icons/ui/star.png";
+import { BsStarFill } from "react-icons/bs";
 import { BiCartAdd } from "react-icons/bi";
 import { setDiscount } from "@/utils/setDiscount";
 import { PiWarningFill } from "react-icons/pi";
@@ -67,7 +67,7 @@ const ProductDetails = ({ product }) => {
             <h2 className="product-details-price">${finalPrice.toFixed(2)}</h2>
 
             <span className="product-details-rating">
-              <img className="w-16px" src={ratingIcon} alt="rating icon" />
+                    <BsStarFill className="rating-icon" />
               {rating}
             </span>
           </div>

@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/cart/useCart";
 import { setDiscount } from "@/utils/setDiscount";
 import "./ProductCard.css";
-import rateIcon from "@/assets/icons/ui/star.png";
+//import rateIcon from "@/assets/icons/ui/star.png";
+import { BsStarFill } from "react-icons/bs";
 import { BiCartAdd } from "react-icons/bi";
 
 const ProductCard = ({ product }) => {
@@ -48,7 +49,7 @@ const ProductCard = ({ product }) => {
           <p className="product-old-price">${basePrice.toFixed(2)}</p>
         </div>
         <div className="product-rating">
-          <img className="rating-icon" src={rateIcon} alt="rating icon" />
+          <BsStarFill className="rating-icon"/>
           <span>{rating}</span>
         </div>
       </div>
